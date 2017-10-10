@@ -1,0 +1,33 @@
+{
+    "name": "react-native-simple-components",
+    "version": "1.0.0",
+    "description": "A collection of simple, reusable react-native components",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url":
+            "git+https://github.com/shaunsaker/react-native-simple-components.git"
+    },
+    "keywords": ["react", "react-native", "components", "simple", "ui"],
+    "author": "Shaun Saker <info@shaunsaker.com> (http://shaunsaker.com)",
+    "license": "MIT",
+    "bugs": {
+        "url":
+            "https://github.com/shaunsaker/react-native-simple-components/issues"
+    },
+    "homepage":
+        "https://github.com/shaunsaker/react-native-simple-components#readme",
+    "dependencies": {
+        "prop-types": "^15.6.0",
+        "react": "16.0.0-beta.5"
+    },
+    "devDependencies": {
+        "babel-preset-react-native": "^4.0.0"
+    },
+    "peerDependencies": {
+        "react-native": "0.49.3"
+    }
+}
