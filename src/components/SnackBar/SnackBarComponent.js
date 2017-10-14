@@ -1,12 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { View, Text, StyleSheet } from "react-native";
-import Icon from "../../assets/icons/index";
+import { AnimateTranslateY } from "react-native-simple-animators";
 
-import config from "../../config";
 import styleConstants from "../../assets/styleConstants";
 
-import AnimateTranslateY from "../../animators/AnimateTranslateY";
+import Touchable from "../Touchable";
 
 const styles = StyleSheet.create({
     messageWrapper: {
@@ -47,18 +46,18 @@ const styles = StyleSheet.create({
     },
     retryButtonText: {
         fontSize: styleConstants.regularFont,
-        color: styleConstants.grey,
+        color: styleConstants.veryLightGrey,
     },
     iconContainer: {
         marginRight: 8,
         marginTop: 2,
     },
-    icon: {
-        fontSize: styleConstants.iconFont,
-        color: styleConstants.veryLightGrey,
-    },
     closeIconContainer: {
         alignSelf: "stretch",
+    },
+    closeIcon: {
+        fontSize: styleConstants.iconFont,
+        color: styleConstants.veryLightGrey,
     },
 });
 
@@ -77,10 +76,15 @@ export default class SnackBarComponent extends React.Component {
 
     static get propTypes() {
         return {
+            icon: PropTypes.node,
             text: PropTypes.string,
-            success: PropTypes.bool,
-            handleReset: PropTypes.func,
-            handleRetryAction: PropTypes.func,
+            closeIcon: PropTypes.node,
+            handleClose: PropTypes.func,
+            handleRetry: PropTypes.func,
+
+            backgroundColor: PropTypes.string,
+            textColor: PropTypes.string,
+            retryTextColor: PropTypes.string,
         };
     }
 
@@ -91,20 +95,39 @@ export default class SnackBarComponent extends React.Component {
     }
 
     render() {
-        const iconName = this.props.success ? "check" : "error";
+        const backgroundColorStyles = this.props.backgroundColor && {
+            backgroundColor: this.props.backgroundColor,
+        };
 
-        const retryButton = this.props.handleRetryAction && (
+        const icon = this.props.icon && this.props.icon;
+
+        const messageTextColorStyles = this.props.textColor && {
+            color: this.props.textColor,
+        };
+
+        const retryTextColorStyles = this.props.retryTextColor && {
+            color: props.retryTextColor,
+        };
+
+        const retryButton = this.props.handleRetry && (
             <Touchable
-                onPress={this.props.handleRetryAction}
+                onPress={this.props.handleRetry}
                 style={styles.retryButton}>
                 <Text
                     style={[
                         styles.retryButtonText,
+                        retryTextColorStyles,
                         styleConstants.primaryFont,
                     ]}>
                     RETRY
                 </Text>
             </Touchable>
+        );
+
+        const closeIcon = this.props.closeIcon ? (
+            this.props.closeIcon
+        ) : (
+            <Text style={styles.closeIcon}>X</Text>
         );
 
         return (
@@ -113,26 +136,15 @@ export default class SnackBarComponent extends React.Component {
                 finalValue={0}
                 shouldAnimateIn
                 shouldAnimateOut={this.state.hideSnackBar}
-                animateOutCallback={this.props.handleReset}
-                style={styles.messageWrapper}>
+                animateOutCallback={this.props.handleClose}
+                style={[styles.messageWrapper, backgroundColorStyles]}>
                 <View style={styles.messageContainer}>
-                    <View style={styles.iconContainer}>
-                        <Icon
-                            name={iconName}
-                            style={[
-                                styles.icon,
-                                {
-                                    color: this.props.success
-                                        ? styleConstants.success
-                                        : styleConstants.danger,
-                                },
-                            ]}
-                        />
-                    </View>
+                    <View style={styles.iconContainer}>{icon}</View>
                     <View style={styles.messageTextContainer}>
                         <Text
                             style={[
                                 styles.messageText,
+                                messageTextColorStyles,
                                 styleConstants.primaryFont,
                             ]}
                             multiline>
@@ -144,7 +156,7 @@ export default class SnackBarComponent extends React.Component {
                 <Touchable
                     onPress={this.hideSnackBar}
                     style={styles.closeIconContainer}>
-                    <Icon name="close" style={styles.icon} />
+                    {closeIcon}
                 </Touchable>
             </AnimateTranslateY>
         );
