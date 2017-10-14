@@ -1,7 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { View, StyleSheet } from "react-native";
-import { connect } from "react-redux";
 
 import LoaderComponent from "./LoaderComponent";
 
@@ -15,28 +13,20 @@ const styles = StyleSheet.create({
     },
 });
 
-export class Loader extends React.Component {
-    static get propTypes() {
-        return {
-            loading: PropTypes.bool,
-            forceLoading: PropTypes.bool,
-            color: PropTypes.string,
-        };
-    }
+export default (Loader = props => {
+    /*
+        static get propTypes() {
+            return {
+                loading: PropTypes.bool, // flag to display loader
+                color: PropTypes.string, // color of the loader
+                duration: PropTypes.number, // duration of animation (default is 2000)
+            };
+        }
+    */
 
-    render() {
-        const loader = (this.props.loading || this.props.forceLoading) && (
-            <LoaderComponent color={this.props.color} />
-        );
+    const loader = props.loading && (
+        <LoaderComponent color={props.color} duration={props.duration} />
+    );
 
-        return <View style={styles.container}>{loader}</View>;
-    }
-}
-
-function mapStateToProps(state) {
-    return {
-        loading: state.main.appState.loading,
-    };
-}
-
-export default connect(mapStateToProps)(Loader);
+    return <View style={styles.container}>{loader}</View>;
+});

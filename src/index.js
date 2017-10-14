@@ -1,1 +1,1 @@
-export { default as Touchable } from "./components/Touchable";
+export { default as Loader } from "./components/Loader";
