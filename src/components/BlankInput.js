@@ -1,23 +1,23 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 import {
     View,
     TouchableWithoutFeedback,
     TextInput,
     StyleSheet,
-} from 'react-native';
+} from "react-native";
+import { AnimateOpacity } from "react-native-simple-animators";
 
-import styleConstants from '../assets/styleConstants';
+import styleConstants from "../assets/styleConstants";
 
-import AnimateOpacity from '../animators/AnimateOpacity';
-import DeleteButton from './DeleteButton';
+import DeleteButton from "./DeleteButton";
 
 const styles = StyleSheet.create({
     inputWrapper: {
         flex: 1,
         marginLeft: 8,
         marginRight: 16,
-        alignSelf: 'center',
+        alignSelf: "center",
     },
     input: {
         fontSize: styleConstants.regularFont,
@@ -25,12 +25,12 @@ const styles = StyleSheet.create({
         paddingRight: 32,
     },
     clearTextButtonContainer: {
-        position: 'absolute',
+        position: "absolute",
         top: 0,
         right: 0,
         height: 45.5,
         paddingLeft: 8,
-        justifyContent: 'center',
+        justifyContent: "center",
     },
 });
 
@@ -74,7 +74,7 @@ export default class BlankInput extends React.Component {
 
     clearInputText() {
         this.refs.input.focus();
-        this.props.handleChange('');
+        this.props.handleChange("");
         this.setInputHeight(0);
     }
 
@@ -114,7 +114,7 @@ export default class BlankInput extends React.Component {
                         ref="input"
                         placeholder={this.props.placeholderText}
                         placeholderTextColor={this.props.placeholderTextColor}
-                        value={this.props.value ? this.props.value : ''}
+                        value={this.props.value ? this.props.value : ""}
                         underlineColorAndroid="transparent"
                         style={[
                             styles.input,
