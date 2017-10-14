@@ -26,7 +26,8 @@
     "dependencies": {
         "prop-types": "^15.6.0",
         "react-native-keyboard-aware-scroll-view": "^0.3.0",
-        "react-native-simple-animators": "^1.0.1"
+        "react-native-simple-animators": "^1.0.1",
+        "react-native-vector-icons": "^4.4.2"
     },
     "devDependencies": {
         "babel-preset-react-native": "^4.0.0"

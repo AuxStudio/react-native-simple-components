@@ -15,14 +15,15 @@ export default (SnackBar = props => {
     /*
         static get propTypes() {
             return {
-                icon: PropTypes.node, // pass in custom icon component
-                text: PropTypes.string, // text to display
-                closeIcon: PropTypes.node, // pass in custom close icon component (renders X text as default)
-                onClose: PropTypes.func,
+                iconName: PropTypes.string, // name of icon to display (if any)
+                text: PropTypes.string.isRequired, // text to display
+                onClose: PropTypes.func.isRequired, // handle close
                 onRetry: PropTypes.func, // if supplied, will offer a retry action button
                 backgroundColor: PropTypes.string,
+                iconColor: PropTypes.string,
                 textColor: PropTypes.string,
                 retryTextColor: PropTypes.string,
+                closeIconColor: PropTypes.string,
             };
         }
     */
@@ -30,14 +31,15 @@ export default (SnackBar = props => {
     return (
         <View style={styles.container}>
             <SnackBarComponent
-                icon={props.icon}
+                iconName={props.iconName}
                 text={props.text}
-                closeIcon={props.icon}
                 handleClose={props.onClose}
                 handleRetry={props.onRetry}
                 backgroundColor={props.backgroundColor}
+                iconColor={props.iconColor}
                 textColor={props.textColor}
                 retryTextColor={props.retryTextColor}
+                closeIconColor={props.closeIconColor}
             />
         </View>
     );
