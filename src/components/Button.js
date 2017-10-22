@@ -49,6 +49,7 @@ export default (Button = props => {
         androidRippleColor: PropTypes.string,
 
         // style: PropTypes.node,
+        // textStyle: PropTypes.node,
     */
 
     const backgroundColorStyles = {
@@ -57,15 +58,13 @@ export default (Button = props => {
             : styleConstants.primary,
     };
 
-    const textColorStyles = {
+    const textStyles = {
         color: props.textColor ? props.textColor : styleConstants.white,
+        ...props.textStyle,
     };
 
     const icon = props.iconName ? (
-        <MaterialIcon
-            name={props.iconName}
-            style={[styles.icon, textColorStyles]}
-        />
+        <MaterialIcon name={props.iconName} style={[styles.icon, textStyles]} />
     ) : null;
 
     const button = props.disabled ? (
@@ -77,12 +76,7 @@ export default (Button = props => {
                 props.style,
             ]}>
             {icon}
-            <Text
-                style={[
-                    styles.text,
-                    textColorStyles,
-                    styleConstants.primaryFont,
-                ]}>
+            <Text style={[styles.text, textStyles, styleConstants.primaryFont]}>
                 {props.text}
             </Text>
         </View>
@@ -95,12 +89,7 @@ export default (Button = props => {
                 props.textColor ? props.textColor : styleConstants.white
             }>
             {icon}
-            <Text
-                style={[
-                    styles.text,
-                    textColorStyles,
-                    styleConstants.primaryFont,
-                ]}>
+            <Text style={[styles.text, textStyles, styleConstants.primaryFont]}>
                 {props.text}
             </Text>
         </Touchable>
