@@ -10,8 +10,9 @@ const styles = StyleSheet.create({
     button: {
         ...styleConstants.regularShadow,
         backgroundColor: styleConstants.primary,
-        padding: 16,
-        borderRadius: 36,
+        width: 56,
+        height: 56,
+        borderRadius: 28,
         borderWidth: 1,
         borderColor: styleConstants.white,
         justifyContent: "center",
@@ -19,7 +20,6 @@ const styles = StyleSheet.create({
         position: "relative",
     },
     icon: {
-        fontSize: styleConstants.iconFont,
         color: styleConstants.white,
     },
     disabled: {
@@ -38,6 +38,9 @@ export default (ButtonIcon = props => {
         
         backgroundColor: PropTypes.string,
         iconColor: PropTypes.string,
+        iconSize: PropTypes.number,
+
+        style: PropTypes.object,
     */
 
     const backgroundColorStyles = {
@@ -59,6 +62,7 @@ export default (ButtonIcon = props => {
     ) : (
         <MaterialIcon
             name={props.iconName}
+            size={props.iconSize ? props.iconSize : styleConstants.iconFont}
             style={[styles.icon, iconColorStyles]}
         />
     );
@@ -70,13 +74,19 @@ export default (ButtonIcon = props => {
                 backgroundColorStyles,
                 borderColorStyles,
                 styles.disabled,
+                props.style,
             ]}>
             {icon}
         </View>
     ) : (
         <Touchable
             onPress={props.handlePress}
-            style={[styles.button, backgroundColorStyles, borderColorStyles]}>
+            style={[
+                styles.button,
+                backgroundColorStyles,
+                borderColorStyles,
+                props.style,
+            ]}>
             {icon}
         </Touchable>
     );
