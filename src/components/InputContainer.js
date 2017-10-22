@@ -1,25 +1,24 @@
-import React from 'react';
-import { View } from 'react-native';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import React from "react";
+import { View } from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 export default (InputContainer = props => {
     /*
         PROPTYPES
 
-        style: Proptypes.oneOf([
-            PropTypes.object,
-            PropTypes.number,
-        ]),
+        // wrapperStyle: PropTypes.node,
+        // containerStyle: PropTypes.node,
         children: PropTypes.node,
     */
 
-    const customStyles = props.style && props.style;
-
     return (
-        <View style={[{ flex: 1, alignSelf: 'stretch' }, customStyles]}>
+        <View style={[{ flex: 1, alignSelf: "stretch" }, props.wrapperStyle]}>
             <KeyboardAwareScrollView
                 keyboardShouldPersistTaps="handled"
-                contentContainerStyle={{ paddingBottom: 16 }}>
+                contentContainerStyle={[
+                    { paddingBottom: 16 },
+                    props.containerStyle,
+                ]}>
                 {props.children}
             </KeyboardAwareScrollView>
         </View>
