@@ -1,35 +1,32 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { View, FlatList, Text, StyleSheet } from 'react-native';
+import React from "react";
+import PropTypes from "prop-types";
+import { View, FlatList, Text, StyleSheet } from "react-native";
+import { AnimateHeight } from "react-native-simple-animators";
 
-import styleConstants from '../assets/styleConstants';
+import styleConstants from "../assets/styleConstants";
 
-import Touchable from './Touchable';
-import AnimateHeight from '../animators/AnimateHeight';
-import AnimateTranslateX from '../animators/AnimateTranslateX';
+import Touchable from "./Touchable";
 
 const styles = StyleSheet.create({
     menuItemsWrapper: {
         ...styleConstants.regularShadow,
-        position: 'absolute',
-        top: 66,
-        right: 16,
-        width: 164,
+        position: "absolute",
+        top: 0,
+        right: 0,
         backgroundColor: styleConstants.white,
     },
     menuItemsContainer: {},
     menuItemContainer: {
-        justifyContent: 'center',
+        justifyContent: "center",
         padding: 8,
     },
     menuItemText: {
         fontSize: styleConstants.regularFont,
-        color: styleConstants.primary,
-        textAlign: 'right',
+        color: styleConstants.black,
+        textAlign: "right",
     },
     separator: {
-        width: 164 - 16,
-        alignSelf: 'center',
+        alignSelf: "stretch",
         height: 1,
         backgroundColor: styleConstants.lightGrey,
     },
@@ -48,6 +45,12 @@ export default class Menu extends React.Component {
         return {
             values: PropTypes.array.isRequired,
             handleSelect: PropTypes.func.isRequired,
+            minWidth: PropTypes.number, // default is 160
+            showSeparatorLine: PropTypes.bool,
+
+            // style: PropTypes.node, // set position here (defaults to top right corner)
+            // textStyle: PropTypes.node,
+            // separatorColor: PropTypes.string,
         };
     }
 
@@ -56,7 +59,7 @@ export default class Menu extends React.Component {
             <Touchable
                 style={styles.menuItemContainer}
                 onPress={() => this.props.handleSelect(item)}>
-                <Text style={[styles.menuItemText, styleConstants.primaryFont]}>
+                <Text style={[styles.menuItemText, this.props.textStyle]}>
                     {item}
                 </Text>
             </Touchable>
@@ -64,27 +67,44 @@ export default class Menu extends React.Component {
     }
 
     render() {
+        const minWidthStyles = {
+            minWidth: this.props.minWidth ? this.props.minWidth : 160,
+        };
+
+        const separatorColorStyles = this.props.separatorColor && {
+            backgroundColor: this.props.separatorColor,
+        };
+
         return (
-            <View style={styles.menuItemsWrapper}>
-                <AnimateTranslateX
-                    initialValue={164}
-                    finalValue={0}
+            <View
+                style={[
+                    styles.menuItemsWrapper,
+                    this.props.style,
+                    minWidthStyles,
+                ]}>
+                <AnimateHeight
+                    initialValue={0}
+                    finalValue={this.props.values.length * this.itemHeight}
                     shouldAnimateIn>
-                    <AnimateHeight
-                        initialValue={0}
-                        finalValue={this.props.values.length * this.itemHeight}
-                        shouldAnimateIn>
-                        <FlatList
-                            keyExtractor={item => 'menu' + item}
-                            data={this.props.values}
-                            renderItem={this.renderItem}
-                            contentContainerStyle={styles.menuItemsContainer}
-                            ItemSeparatorComponent={() => (
-                                <View style={styles.separator} />
-                            )}
-                        />
-                    </AnimateHeight>
-                </AnimateTranslateX>
+                    <FlatList
+                        keyExtractor={item => "menu" + item}
+                        data={this.props.values}
+                        renderItem={this.renderItem}
+                        contentContainerStyle={styles.menuItemsContainer}
+                        ItemSeparatorComponent={
+                            this.props.showSeparatorLine ? (
+                                () => (
+                                    <View
+                                        style={[
+                                            styles.separator,
+                                            separatorColorStyles,
+                                        ]}
+                                    />
+                                )
+                            ) : null
+                        }
+                    />
+                </AnimateHeight>
             </View>
         );
     }
