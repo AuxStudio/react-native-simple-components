@@ -20,13 +20,19 @@ export default (DeleteButton = props => {
 
         handlePress: PropTypes.func.isRequired,
         backgroundColor: PropTypes.string,
-        iconColor: PropTypes.string,
+        iconColor: PropTypes.string,    
+
+        style: PropTypes.oneOf([
+            PropTypes.object,
+            PropTypes.number,
+            PropTypes.array,
+        ]),
     */
 
     return (
         <ButtonIcon
             iconName="close"
-            style={styles.container}
+            style={[styles.container, this.props.style]}
             iconSize={12}
             handlePress={props.handlePress}
             backgroundColor={

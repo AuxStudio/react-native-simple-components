@@ -48,9 +48,10 @@ export default (Button = props => {
         androidRipple: PropTypes.bool,
         androidRippleColor: PropTypes.string,
 
-        style: PropTypes.oneOfType([
+        style: PropTypes.oneOf([
             PropTypes.object,
             PropTypes.number,
+            PropTypes.array,
         ]),
     */
 
