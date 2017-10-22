@@ -1,4 +1,7 @@
 Modal component
+    Action
+    Info
+    Options
 Tab component 
     Animates left/right
     Swipeable
