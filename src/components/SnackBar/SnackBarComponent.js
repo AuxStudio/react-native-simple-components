@@ -74,6 +74,7 @@ export default class SnackBarComponent extends React.Component {
     static get propTypes() {
         return {
             iconName: PropTypes.string,
+            customIcon: PropTypes.node,
             text: PropTypes.string.isRequired,
             handleClose: PropTypes.func.isRequired,
             handleRetry: PropTypes.func,
@@ -97,7 +98,9 @@ export default class SnackBarComponent extends React.Component {
             backgroundColor: this.props.backgroundColor,
         };
 
-        const icon = this.props.iconName && (
+        const icon = this.props.customIcon ? (
+            this.props.customIcon
+        ) : this.props.iconName ? (
             <MaterialIcon
                 name={this.props.iconName}
                 size={styleConstants.iconFont}
@@ -109,7 +112,7 @@ export default class SnackBarComponent extends React.Component {
                     )
                 }
             />
-        );
+        ) : null;
 
         const messageTextColorStyles = this.props.textColor && {
             color: this.props.textColor,
