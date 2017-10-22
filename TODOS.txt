@@ -1,5 +1,3 @@
-Input and BlankInput should be one component
-    Label should be optional
 TabBar should be one component
     Accepts position
     Accepts height
@@ -8,6 +6,7 @@ IconText component (use where needed)
 NOTES
     should accept custom icons
     should accept custom styles
+    text should accept font styles
     all proptypes defined and commented
     dumb components where internal state and methods not needed
     all imports used
