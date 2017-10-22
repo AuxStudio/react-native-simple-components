@@ -18,14 +18,14 @@ styleConstants.darkTransPrimary = "rgba(0, 148, 212, 0.75)";
 styleConstants.secondary = "#f8a900";
 styleConstants.lightTransSecondary = "rgba(248, 167, 0, 0.50)";
 styleConstants.darkTransSecondary = "rgba(248, 167, 0, 0.75)";
-styleConstants.grey = "#72665b";
-styleConstants.lightGrey = "#938880";
+styleConstants.grey = "#808092";
+styleConstants.lightGrey = "#b0b3cf";
 styleConstants.veryLightGrey = "#EAEAEA";
 styleConstants.white = "#ffffff";
-styleConstants.lightTransWhite = "rgba(255, 255, 255, 0.50)";
-styleConstants.darkTransWhite = "rgba(255, 255, 255, 0.75)";
-styleConstants.black = "#21282e";
-styleConstants.transBlack = "rgba(33, 40, 46, 0.75)";
+styleConstants.lightTransparent = "rgba(0, 0, 0, 0.25)";
+styleConstants.mediumTransparent = "rgba(0, 0, 0, 0.50)";
+styleConstants.darkTransparent = "rgba(0, 0, 0, 0.75)";
+styleConstants.black = "#000000";
 styleConstants.danger = "#d32f2f";
 styleConstants.success = "#69b532";
 
@@ -35,8 +35,6 @@ const { width, height } = Dimensions.get("window");
 
 styleConstants.windowWidth = width;
 styleConstants.windowHeight = height;
-styleConstants.contentContainerWidth = 360; // 360
-styleConstants.isTablet = styleConstants.windowWidth > 360; // 360
 
 /* SHADOWS */
 
