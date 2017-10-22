@@ -40,11 +40,7 @@ export default (ButtonIcon = props => {
         iconColor: PropTypes.string,
         iconSize: PropTypes.number,
 
-        style: PropTypes.oneOf([
-            PropTypes.object,
-            PropTypes.number,
-            PropTypes.array,
-        ]),
+        style: PropTypes.node,
     */
 
     const backgroundColorStyles = {

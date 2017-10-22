@@ -48,11 +48,7 @@ export default (Button = props => {
         androidRipple: PropTypes.bool,
         androidRippleColor: PropTypes.string,
 
-        style: PropTypes.oneOf([
-            PropTypes.object,
-            PropTypes.number,
-            PropTypes.array,
-        ]),
+        style: PropTypes.node,
     */
 
     const backgroundColorStyles = {
