@@ -7,20 +7,18 @@ import Touchable from "./Touchable";
 
 const styles = StyleSheet.create({
     infoContainer: {
-        paddingRight: 96,
-        paddingLeft: 16,
-        paddingBottom: 16,
+        alignSelf: "stretch",
     },
     infoTextTitle: {
         fontSize: styleConstants.largeFont,
-        color: styleConstants.white,
+        color: styleConstants.black,
     },
     descriptionWrapper: {},
     descriptionContainer: {},
     infoTextDescription: {
         marginTop: 8,
         fontSize: styleConstants.regularFont,
-        color: styleConstants.white,
+        color: styleConstants.black,
     },
 });
 
@@ -29,61 +27,32 @@ export default (InfoBlock = props => {
         PROPTYPES
 
         title: PropTypes.string,
-        subtitle: PropTypes.string,
+        description: PropTypes.string,
+
         titleColor: PropTypes.string,
-        subtitleColor: PropTypes.string,
-        fullWidth: PropTypes.bool,
-        flex: PropTypes.bool,
+        descriptionColor: PropTypes.string,
+
+        // textStyle: PropTypes.node,
     */
 
-    const fullWidthStyles = props.fullWidth && {
-        paddingRight: 16,
+    const titleStyles = props.titleColor && {
+        color: props.titleColor,
+        ...props.textStyle,
     };
 
-    const flexStyles = props.flex && {
-        flex: 1,
+    const descriptionStyles = props.descriptionColor && {
+        color: props.descriptionColor,
+        ...props.textStyle,
     };
-
-    const fullWidthTitleStyles = props.fullWidth && {
-        marginRight: 16,
-    };
-
-    const subtitle = props.flex ? (
-        <ScrollView
-            style={styles.descriptionWrapper}
-            contentContainerStyles={styles.descriptionContainer}>
-            <Text
-                style={[
-                    styles.infoTextDescription,
-                    { color: props.subtitleColor },
-                    styleConstants.primaryFont,
-                ]}>
-                {props.subtitle}
-            </Text>
-        </ScrollView>
-    ) : (
-        <Text
-            style={[
-                styles.infoTextDescription,
-                { color: props.subtitleColor },
-                styleConstants.primaryFont,
-            ]}>
-            {props.subtitle}
-        </Text>
-    );
 
     return (
-        <View style={[styles.infoContainer, fullWidthStyles, flexStyles]}>
-            <Text
-                style={[
-                    styles.infoTextTitle,
-                    { color: props.titleColor },
-                    styleConstants.primaryFont,
-                    fullWidthTitleStyles,
-                ]}>
+        <View style={styles.infoContainer}>
+            <Text style={[styles.infoTextTitle, titleStyles]}>
                 {props.title}
             </Text>
-            {subtitle}
+            <Text style={[styles.infoTextDescription, descriptionStyles]}>
+                {props.description}
+            </Text>
         </View>
     );
 });
