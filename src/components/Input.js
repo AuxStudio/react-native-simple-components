@@ -84,8 +84,10 @@ export default class Input extends React.Component {
     static get propTypes() {
         return {
             labelText: PropTypes.string, // if supplied, will render a label
+            placeholder: PropTypes.string,
             value: PropTypes.string,
             handleChange: PropTypes.func.isRequired,
+            handleSubmit: PropTypes.func,
             handleFocus: PropTypes.func,
             handleBlur: PropTypes.func,
             inputType: PropTypes.string, // password will render a show/hide password button
@@ -93,9 +95,12 @@ export default class Input extends React.Component {
             autoFocus: PropTypes.bool,
             multiline: PropTypes.bool, // will autogrow based on contents
             maxCharacterCount: PropTypes.number, // will render character count text if supplied
+            showDeleteButton: PropTypes.bool, // if supplied, will render a delete button to clear the input
+            returnKeyType: PropTypes.string,
 
-            labelStyles: PropTypes.object,
-            inputStyles: PropTypes.object,
+            // labelStyles: PropTypes.node,
+            placeholderTextColor: PropTypes.string,
+            // inputStyles: PropTypes.node,
             deleteButtonBackgroundColor: PropTypes.string,
             deleteButtonIconColor: PropTypes.string,
             characterCountTextColor: PropTypes.string,
@@ -255,19 +260,20 @@ export default class Input extends React.Component {
                 </AnimateTranslateX>
             ) : null;
 
-        const clearTextButton = this.props.value ? (
-            <AnimateOpacity
-                initialValue={0}
-                finalValue={1}
-                shouldAnimateIn
-                style={styles.clearTextButtonContainer}>
-                <DeleteButton
-                    handlePress={this.clearInputText}
-                    backgroundColor={this.props.deleteButtonBackgroundColor}
-                    iconColor={this.props.deleteButtonIconColor}
-                />
-            </AnimateOpacity>
-        ) : null;
+        const clearTextButton =
+            this.props.showDeleteButton && this.props.value ? (
+                <AnimateOpacity
+                    initialValue={0}
+                    finalValue={1}
+                    shouldAnimateIn
+                    style={styles.clearTextButtonContainer}>
+                    <DeleteButton
+                        handlePress={this.clearInputText}
+                        backgroundColor={this.props.deleteButtonBackgroundColor}
+                        iconColor={this.props.deleteButtonIconColor}
+                    />
+                </AnimateOpacity>
+            ) : null;
 
         return (
             <TouchableWithoutFeedback onPress={() => this.refs.input.focus()}>
@@ -279,6 +285,8 @@ export default class Input extends React.Component {
                     </View>
                     <TextInput
                         ref="input"
+                        placeholder={this.props.placeholder}
+                        placeholderTextColor={this.props.placeholderTextColor}
                         value={this.props.value ? this.props.value : ""}
                         underlineColorAndroid="transparent"
                         style={[
@@ -289,6 +297,7 @@ export default class Input extends React.Component {
                             this.props.inputStyles,
                         ]}
                         onChangeText={text => this.props.handleChange(text)}
+                        onSubmitEditing={this.props.handleSubmit}
                         onFocus={this.focusInput}
                         onBlur={this.blurInput}
                         secureTextEntry={
@@ -310,6 +319,7 @@ export default class Input extends React.Component {
                                 event.nativeEvent.contentSize.height
                             );
                         }}
+                        returnKeyType={this.props.returnKeyType}
                     />
                     {clearTextButton}
                 </View>
