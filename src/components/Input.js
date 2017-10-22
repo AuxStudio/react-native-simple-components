@@ -8,20 +8,19 @@ import {
     StyleSheet,
     Platform,
 } from "react-native";
+import {
+    AnimateTranslateX,
+    AnimateOpacity,
+} from "react-native-simple-animators";
 
-import utilities from "../utilities";
 import styleConstants from "../assets/styleConstants";
-
-import AnimateTranslateX from "../animators/AnimateTranslateX";
-import AnimateOpacity from "../animators/AnimateOpacity";
 import Touchable from "./Touchable";
 import DeleteButton from "./DeleteButton";
 
 const styles = StyleSheet.create({
     inputWrapper: {
-        width: styleConstants.windowWidth - 32,
         marginVertical: 16,
-        alignSelf: "center",
+        alignSelf: "stretch",
     },
     inputLabelContainer: {
         flexDirection: "row",
@@ -32,27 +31,29 @@ const styles = StyleSheet.create({
     },
     input: {
         fontSize: styleConstants.regularFont,
-        color: styleConstants.white,
+        color: styleConstants.black,
         paddingLeft: 0,
         paddingRight: 32,
     },
 
     clearTextButtonContainer: {
         position: "absolute",
-        bottom: 0,
+        bottom: 4,
         right: 0,
-        height: 45.5,
-        paddingLeft: 8,
-        justifyContent: "center",
+        padding: 8,
     },
 
-    togglePasswordContainer: {},
+    togglePasswordContainer: {
+        paddingRight: 8,
+    },
     togglePasswordText: {
         fontSize: styleConstants.smallFont,
-        color: styleConstants.white,
+        color: styleConstants.lightGrey,
     },
 
-    characterCountContainer: {},
+    characterCountContainer: {
+        paddingRight: 8,
+    },
     characterCountText: {
         fontSize: styleConstants.smallFont,
         color: styleConstants.lightGrey,
@@ -67,46 +68,44 @@ export default class Input extends React.Component {
         this.blurInput = this.blurInput.bind(this);
         this.clearInputText = this.clearInputText.bind(this);
         this.togglePassword = this.togglePassword.bind(this);
-        this.adjustInputHeight = this.adjustInputHeight.bind(this);
+        this.getInputHeight = this.getInputHeight.bind(this);
+        this.setInputHeight = this.setInputHeight.bind(this);
 
         this.minimumInputHeight = 45.5;
-        this.inputLabelColourFocussed = styleConstants.secondary;
-        this.inputLabelColourBlurred = styleConstants.lightGrey;
-        this.inputBorderColourFocussed = styleConstants.white;
-        this.inputBorderColourBlurred = styleConstants.lightGrey;
 
         this.state = {
             showTogglePasswordButton: false,
             showCharacterCount: false,
             hidePassword: true,
             inputHeight: this.minimumInputHeight,
-            labelColour: this.inputLabelColourBlurred,
-            borderColour: this.inputBorderColourBlurred,
         };
     }
 
     static get propTypes() {
         return {
-            placeholder: PropTypes.string,
+            labelText: PropTypes.string, // if supplied, will render a label
+            value: PropTypes.string,
             handleChange: PropTypes.func.isRequired,
             handleFocus: PropTypes.func,
             handleBlur: PropTypes.func,
-            value: PropTypes.string,
-            type: PropTypes.string,
+            inputType: PropTypes.string, // password will render a show/hide password button
             keyboardType: PropTypes.string,
             autoFocus: PropTypes.bool,
-            multiline: PropTypes.bool,
-            maxLength: PropTypes.number,
+            multiline: PropTypes.bool, // will autogrow based on contents
+            maxCharacterCount: PropTypes.number, // will render character count text if supplied
+
+            labelStyles: PropTypes.object,
+            inputStyles: PropTypes.object,
+            deleteButtonBackgroundColor: PropTypes.string,
+            deleteButtonIconColor: PropTypes.string,
+            characterCountTextColor: PropTypes.string,
+            togglePasswordTextColor: PropTypes.string,
         };
     }
 
     componentDidUpdate(prevProps) {
-        if (
-            this.state.labelColour !== this.inputLabelColourFocussed &&
-            this.props.value
-        ) {
+        if (this.props.value && !prevProps.value) {
             this.setState({
-                labelColour: this.inputLabelColourFocussed,
                 showTogglePasswordButton: true,
                 showCharacterCount: true,
             });
@@ -115,20 +114,18 @@ export default class Input extends React.Component {
         // When our input has just received it's value after mounting
         if (!prevProps.value && this.props.value && this.props.multiline) {
             // Use utils to get input height based on inputWidth, fontSize and charCount
-            const inputHeight = utilities.getInputHeight(
+            const inputHeight = this.getInputHeight(
                 styleConstants.windowWidth - 32,
                 styleConstants.regularFont,
                 this.props.value.length * 1.1 // 1.1, 1.2 still gives same result (necessary though)
             );
 
-            this.adjustInputHeight(inputHeight);
+            this.setInputHeight(inputHeight);
         }
     }
 
     focusInput() {
         this.setState({
-            labelColour: this.inputLabelColourFocussed,
-            borderColour: this.inputBorderColourFocussed,
             showTogglePasswordButton: true,
             showCharacterCount: true,
         });
@@ -138,10 +135,6 @@ export default class Input extends React.Component {
 
     blurInput() {
         this.setState({
-            labelColour: this.props.value
-                ? this.inputLabelColourFocussed
-                : this.inputLabelColourBlurred,
-            borderColour: this.inputBorderColourBlurred,
             showTogglePasswordButton: this.props.value,
             showCharacterCount: this.props.value,
         });
@@ -152,7 +145,7 @@ export default class Input extends React.Component {
     clearInputText() {
         this.refs.input.focus();
         this.props.handleChange("");
-        this.adjustInputHeight(0);
+        this.setInputHeight(0);
     }
 
     togglePassword() {
@@ -161,7 +154,15 @@ export default class Input extends React.Component {
         });
     }
 
-    adjustInputHeight(newInputHeight) {
+    getInputHeight(inputWidth, inputLineHeight, charCount) {
+        const charsPerLine = Math.floor(inputWidth / inputLineHeight);
+        const numberOfLines = Math.ceil(charCount / charsPerLine);
+        const inputHeight = Math.ceil(numberOfLines * inputLineHeight);
+
+        return inputHeight;
+    }
+
+    setInputHeight(newInputHeight) {
         if (newInputHeight > this.minimumInputHeight) {
             this.setState({
                 inputHeight: newInputHeight,
@@ -175,39 +176,84 @@ export default class Input extends React.Component {
     }
 
     render() {
-        const togglePasswordButton = this.props.type === "password" &&
-        this.state.showTogglePasswordButton && (
-            <AnimateTranslateX initialValue={40} finalValue={0} shouldAnimateIn>
-                <Touchable
-                    onPress={this.togglePassword}
-                    style={styles.togglePasswordContainer}>
-                    <Text
-                        style={[
-                            styles.togglePasswordText,
-                            styleConstants.primaryFont,
-                        ]}>
-                        {this.state.hidePassword ? "Show" : "Hide"}
-                    </Text>
-                </Touchable>
-            </AnimateTranslateX>
-        );
+        // Fix for ios
+        const inputContainerStyles = Platform.OS === "ios" && {
+            borderBottomWidth: 1,
+            borderBottomColor: styleConstants.black,
+        };
 
-        const characterCount = this.props.maxLength &&
-        this.state.showCharacterCount && (
-            <AnimateTranslateX initialValue={40} finalValue={0} shouldAnimateIn>
-                <View style={styles.characterCountContainer}>
-                    <Text
-                        style={[
-                            styles.characterCountText,
-                            styleConstants.primaryFont,
-                        ]}>
-                        {(this.props.value ? this.props.value.length : 0) +
-                            " / " +
-                            this.props.maxLength}
-                    </Text>
-                </View>
-            </AnimateTranslateX>
-        );
+        // Fix for Android
+        const androidInputStyles = Platform.OS === "android" && {
+            borderBottomWidth: 1,
+            borderBottomColor: styleConstants.black,
+        };
+
+        const inputStyles = {
+            height: this.state.inputHeight,
+        };
+
+        const label = this.props.labelText ? (
+            <Text
+                style={[
+                    styles.inputLabelText,
+                    styleConstants.primaryFont,
+                    this.props.labelStyles,
+                ]}>
+                {this.props.labelText}
+            </Text>
+        ) : null;
+
+        const togglePasswordTextColorStyles = this.props
+            .togglePasswordTextColor && {
+            color: this.props.togglePasswordTextColor,
+        };
+
+        const togglePasswordButton =
+            this.props.inputType === "password" &&
+            this.state.showTogglePasswordButton ? (
+                <AnimateTranslateX
+                    initialValue={40}
+                    finalValue={0}
+                    shouldAnimateIn>
+                    <Touchable
+                        onPress={this.togglePassword}
+                        style={styles.togglePasswordContainer}>
+                        <Text
+                            style={[
+                                styles.togglePasswordText,
+                                styleConstants.primaryFont,
+                            ]}>
+                            {this.state.hidePassword ? "Show" : "Hide"}
+                        </Text>
+                    </Touchable>
+                </AnimateTranslateX>
+            ) : null;
+
+        const characterCountTextColorStyles = this.props
+            .characterCountTextColor && {
+            color: this.props.characterCountTextColor,
+        };
+
+        const characterCount =
+            this.props.maxCharacterCount && this.state.showCharacterCount ? (
+                <AnimateTranslateX
+                    initialValue={40}
+                    finalValue={0}
+                    shouldAnimateIn>
+                    <View style={styles.characterCountContainer}>
+                        <Text
+                            style={[
+                                styles.characterCountText,
+                                styleConstants.primaryFont,
+                                characterCountTextColorStyles,
+                            ]}>
+                            {(this.props.value ? this.props.value.length : 0) +
+                                " / " +
+                                this.props.maxCharacterCount}
+                        </Text>
+                    </View>
+                </AnimateTranslateX>
+            ) : null;
 
         const clearTextButton = this.props.value ? (
             <AnimateOpacity
@@ -215,42 +261,19 @@ export default class Input extends React.Component {
                 finalValue={1}
                 shouldAnimateIn
                 style={styles.clearTextButtonContainer}>
-                <DeleteButton handlePress={this.clearInputText} />
+                <DeleteButton
+                    handlePress={this.clearInputText}
+                    backgroundColor={this.props.deleteButtonBackgroundColor}
+                    iconColor={this.props.deleteButtonIconColor}
+                />
             </AnimateOpacity>
         ) : null;
-
-        const inputLabelStyles = {
-            color: this.state.labelColour,
-        };
-
-        // Fix for ios
-        const inputContainerStyles = Platform.OS === "ios" && {
-            borderBottomWidth: 1,
-            borderBottomColor: this.state.borderColour,
-        };
-
-        // Fix for Android
-        const androidInputStyles = Platform.OS === "android" && {
-            borderBottomWidth: 1,
-            borderBottomColor: this.state.borderColour,
-        };
-
-        const inputStyles = {
-            height: this.state.inputHeight,
-        };
 
         return (
             <TouchableWithoutFeedback onPress={() => this.refs.input.focus()}>
                 <View style={[styles.inputWrapper, inputContainerStyles]}>
                     <View style={styles.inputLabelContainer}>
-                        <Text
-                            style={[
-                                styles.inputLabelText,
-                                inputLabelStyles,
-                                styleConstants.primaryFont,
-                            ]}>
-                            {this.props.placeholder}
-                        </Text>
+                        {label}
                         {togglePasswordButton}
                         {characterCount}
                     </View>
@@ -263,12 +286,13 @@ export default class Input extends React.Component {
                             androidInputStyles,
                             inputStyles,
                             styleConstants.primaryFont,
+                            this.props.inputStyles,
                         ]}
                         onChangeText={text => this.props.handleChange(text)}
                         onFocus={this.focusInput}
                         onBlur={this.blurInput}
                         secureTextEntry={
-                            this.props.type === "password" &&
+                            this.props.inputType === "password" &&
                             this.state.hidePassword
                         }
                         keyboardType={
@@ -280,15 +304,12 @@ export default class Input extends React.Component {
                         }
                         autoFocus={this.props.autoFocus}
                         multiline={this.props.multiline}
-                        maxLength={this.props.maxLength}
-                        onChange={
-                            this.props.multiline ? (
-                                event =>
-                                    this.adjustInputHeight(
-                                        event.nativeEvent.contentSize.height
-                                    )
-                            ) : null /*NOTE: this does not work with onContentSizeChange */
-                        }
+                        maxLength={this.props.maxCharacterCount}
+                        onContentSizeChange={event => {
+                            this.setInputHeight(
+                                event.nativeEvent.contentSize.height
+                            );
+                        }}
                     />
                     {clearTextButton}
                 </View>
