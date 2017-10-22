@@ -1,19 +1,17 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 
 import styleConstants from "../assets/styleConstants";
 
-import Touchable from "./Touchable";
+import ButtonIcon from "./ButtonIcon";
 
 const styles = StyleSheet.create({
-    deleteButton: {
+    container: {
         backgroundColor: styleConstants.lightGrey,
         width: 20,
         height: 20,
         borderRadius: 10,
-        justifyContent: "center",
-        alignItems: "center",
+        borderWidth: 0,
     },
 });
 
@@ -23,7 +21,6 @@ export default (DeleteButton = props => {
 
         handlePress: PropTypes.func.isRequired,
         backgroundColor: PropTypes.string,
-        iconSize: PropTypes.number,
         iconColor: PropTypes.string,
     */
 
@@ -32,16 +29,6 @@ export default (DeleteButton = props => {
     };
 
     return (
-        <Touchable
-            onPress={props.handlePress}
-            style={[styles.deleteButton, backgroundColorStyles]}>
-            <MaterialIcon
-                name="close"
-                size={props.iconSize ? props.iconSize : 12}
-                color={
-                    props.iconColor ? props.iconColor : styleConstants.primary
-                }
-            />
-        </Touchable>
+        <ButtonIcon iconName="close" style={styles.container} iconSize={12} />
     );
 });
