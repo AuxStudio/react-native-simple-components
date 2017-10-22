@@ -7,7 +7,6 @@ import ButtonIcon from "./ButtonIcon";
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: styleConstants.lightGrey,
         width: 20,
         height: 20,
         borderRadius: 10,
@@ -24,11 +23,20 @@ export default (DeleteButton = props => {
         iconColor: PropTypes.string,
     */
 
-    const backgroundColorStyles = props.backgroundColor && {
-        backgroundColor: props.backgroundColor,
-    };
-
     return (
-        <ButtonIcon iconName="close" style={styles.container} iconSize={12} />
+        <ButtonIcon
+            iconName="close"
+            style={styles.container}
+            iconSize={12}
+            handlePress={props.handlePress}
+            backgroundColor={
+                props.backgroundColor ? (
+                    props.backgroundColor
+                ) : (
+                    styleConstants.lightGrey
+                )
+            }
+            iconColor={props.iconColor ? props.iconColor : styleConstants.white}
+        />
     );
 });
