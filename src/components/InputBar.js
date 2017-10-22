@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     },
 });
 
-export default (ChatBar = props => {
+export default (InputBar = props => {
     /*
         PROPTYPES
 
@@ -102,6 +102,12 @@ export default (ChatBar = props => {
         />
     );
 
+    const rightIconComponent = props.handleSubmit && (
+        <Touchable onPress={props.handleSubmit} style={styles.submitButton}>
+            {rightIcon}
+        </Touchable>
+    );
+
     return (
         <View style={[styles.container, backgroundColorStyles]}>
             <View style={styles.iconContainer}>{leftIcon}</View>
@@ -122,9 +128,7 @@ export default (ChatBar = props => {
                     returnKeyType={props.returnKeyType}
                 />
             </View>
-            <Touchable onPress={props.handleSubmit} style={styles.submitButton}>
-                {rightIcon}
-            </Touchable>
+            {rightIconComponent}
         </View>
     );
 });
