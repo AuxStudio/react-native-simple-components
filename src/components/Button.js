@@ -52,17 +52,20 @@ export default (Button = props => {
         ]),
     */
 
+    const backgroundColorStyles = {
+        backgroundColor: props.backgroundColor
+            ? props.backgroundColor
+            : styleConstants.primary,
+    };
+
+    const textColorStyles = {
+        color: props.textColor ? props.textColor : styleConstants.white,
+    };
+
     const icon = props.iconName ? (
         <MaterialIcon
             name={props.iconName}
-            style={[
-                styles.icon,
-                {
-                    color: props.textColor
-                        ? props.textColor
-                        : styleConstants.white,
-                },
-            ]}
+            style={[styles.icon, textColorStyles]}
         />
     ) : null;
 
@@ -71,22 +74,14 @@ export default (Button = props => {
             style={[
                 styles.button,
                 styles.disabled,
-                {
-                    backgroundColor: props.backgroundColor
-                        ? props.backgroundColor
-                        : styleConstants.primary,
-                },
+                backgroundColorStyles,
                 props.style,
             ]}>
             {icon}
             <Text
                 style={[
                     styles.text,
-                    {
-                        color: props.textColor
-                            ? props.textColor
-                            : styleConstants.white,
-                    },
+                    textColorStyles,
                     styleConstants.primaryFont,
                 ]}>
                 {props.text}
@@ -95,15 +90,7 @@ export default (Button = props => {
     ) : (
         <Touchable
             onPress={props.handlePress}
-            style={[
-                styles.button,
-                {
-                    backgroundColor: props.backgroundColor
-                        ? props.backgroundColor
-                        : styleConstants.primary,
-                },
-                props.style,
-            ]}
+            style={[styles.button, backgroundColorStyles, props.style]}
             androidRipple={props.androidRipple}
             androidRippleColor={
                 props.textColor ? props.textColor : styleConstants.white
@@ -112,11 +99,7 @@ export default (Button = props => {
             <Text
                 style={[
                     styles.text,
-                    {
-                        color: props.textColor
-                            ? props.textColor
-                            : styleConstants.white,
-                    },
+                    textColorStyles,
                     styleConstants.primaryFont,
                 ]}>
                 {props.text}
