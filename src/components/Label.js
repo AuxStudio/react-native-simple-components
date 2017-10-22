@@ -1,32 +1,31 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
+import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 
-import Icon from '../assets/icons/index';
-import styleConstants from '../assets/styleConstants';
+import styleConstants from "../assets/styleConstants";
 
-import Touchable from './Touchable';
+import Touchable from "./Touchable";
 
 const styles = StyleSheet.create({
-    label: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
+    container: {
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
         backgroundColor: styleConstants.white,
         borderWidth: 1,
         borderColor: styleConstants.primary,
         borderRadius: 32,
-        paddingVertical: 8,
-        paddingHorizontal: 16,
+        paddingVertical: 4,
+        paddingHorizontal: 8,
         marginBottom: 4,
         marginHorizontal: 4,
-        height: 36,
     },
-    labelIcon: {
+    icon: {
         fontSize: styleConstants.iconFont,
         color: styleConstants.primary,
         marginRight: 8,
     },
-    labelText: {
+    text: {
         fontSize: styleConstants.smallFont,
         color: styleConstants.primary,
     },
@@ -38,22 +37,30 @@ export default (Label = props => {
 
         handlePress: PropTypes.func,
         iconName: PropTypes.string,
-        labelText: PropTypes.string,
+        customIcon: PropTypes.node,
+        text: PropTypes.string,
+
+        // style: PropTypes.node,
+        // textStyle: PropTypes.node,
     */
 
+    const icon = props.customIcon
+        ? props.customIcon
+        : props.iconName && (
+              <MaterialIcon name={props.iconName} style={styles.icon} />
+          );
+
     const label = props.handlePress ? (
-        <Touchable onPress={props.handlePress} style={styles.label}>
-            <Icon name={props.iconName} style={styles.labelIcon} />
-            <Text style={[styles.labelText, styleConstants.primaryFont]}>
-                {props.labelText}
-            </Text>
+        <Touchable
+            onPress={props.handlePress}
+            style={[styles.container, props.style]}>
+            {icon}
+            <Text style={[styles.text, props.textStyle]}>{props.text}</Text>
         </Touchable>
     ) : (
-        <View style={styles.label}>
-            <Icon name={props.iconName} style={styles.labelIcon} />
-            <Text style={[styles.labelText, styleConstants.primaryFont]}>
-                {props.labelText}
-            </Text>
+        <View style={[styles.container, props.style]}>
+            {icon}
+            <Text style={[styles.text, props.textStyle]}>{props.text}</Text>
         </View>
     );
 
