@@ -28,7 +28,7 @@ export default (DeleteButton = props => {
     return (
         <ButtonIcon
             iconName="close"
-            style={[styles.container, this.props.style]}
+            style={[styles.container, props.style]}
             iconSize={12}
             handlePress={props.handlePress}
             backgroundColor={
