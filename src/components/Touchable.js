@@ -10,9 +10,9 @@ export default (Touchable = props => {
     /* 
         PROPTYPES
 
-        androidRipple: PropTypes.bool,
+        androidRipple: PropTypes.bool,  // flag to display android ripple
         androidRippleColor: PropTypes.string,
-        androidRippleBorderless: PropTypes.bool,
+        androidRippleBorderless: PropTypes.bool, // android ripple will extend beyond object boundaries
         onPress: PropTypes.func.isRequired,
         style: PropTypes.oneOf([
             PropTypes.object,
