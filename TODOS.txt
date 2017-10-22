@@ -1,7 +1,7 @@
-TabBar should be one component
-    Accepts position
-    Accepts height
-IconText component (use where needed)
+Modal component
+Tab component 
+    Animates left/right
+    Swipeable
 
 NOTES
     should accept custom icons
