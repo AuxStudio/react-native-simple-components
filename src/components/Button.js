@@ -1,30 +1,28 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
+import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 
-import Icon from '../assets/icons/index';
-import styleConstants from '../assets/styleConstants';
+import styleConstants from "../assets/styleConstants";
 
-import Touchable from './Touchable';
+import Touchable from "./Touchable";
 
 const styles = StyleSheet.create({
     button: {
         ...styleConstants.smallShadow,
         width: styleConstants.windowWidth - 32,
         height: 56,
-        flexDirection: 'row',
+        flexDirection: "row",
         paddingHorizontal: 16,
-        justifyContent: 'center',
-        alignItems: 'center',
+        justifyContent: "center",
+        alignItems: "center",
         borderWidth: 1,
         borderColor: styleConstants.white,
-        marginTop: 16,
-        alignSelf: 'center',
     },
     disabled: {
         opacity: 0.33,
     },
     icon: {
-        position: 'absolute',
+        position: "absolute",
         left: 16,
         fontSize: styleConstants.iconFont,
     },
@@ -37,29 +35,34 @@ export default (Button = props => {
     /*
         PROPTYPES
 
-        backgroundColor: PropTypes.string,
         iconName: PropTypes.string,
-        disabled: PropTypes.string,
         text: PropTypes.string.isRequired,
         handlePress: PropTypes.func.isRequired,
+                backgroundColor: PropTypes.string,
+        disabled: PropTypes.string,
+
+        backgroundColor: PropTypes.string,
+        textColor: PropTypes.string,
         androidRipple: PropTypes.bool,
         androidRippleColor: PropTypes.string,
+
         style: PropTypes.oneOfType([
             PropTypes.object,
             PropTypes.number,
         ]),
     */
 
-    const altColor =
-        props.backgroundColor === 'transparent' ||
-        props.backgroundColor === styleConstants.primary
-            ? styleConstants.white
-            : styleConstants.primary;
-
     const icon = props.iconName ? (
-        <Icon
+        <MaterialIcon
             name={props.iconName}
-            style={[styles.icon, { color: altColor }]}
+            style={[
+                styles.icon,
+                {
+                    color: props.textColor
+                        ? props.textColor
+                        : styleConstants.white,
+                },
+            ]}
         />
     ) : null;
 
@@ -68,14 +71,22 @@ export default (Button = props => {
             style={[
                 styles.button,
                 styles.disabled,
-                { backgroundColor: props.backgroundColor },
+                {
+                    backgroundColor: props.backgroundColor
+                        ? props.backgroundColor
+                        : styleConstants.primary,
+                },
                 props.style,
             ]}>
             {icon}
             <Text
                 style={[
                     styles.text,
-                    { color: altColor },
+                    {
+                        color: props.textColor
+                            ? props.textColor
+                            : styleConstants.white,
+                    },
                     styleConstants.primaryFont,
                 ]}>
                 {props.text}
@@ -86,16 +97,26 @@ export default (Button = props => {
             onPress={props.handlePress}
             style={[
                 styles.button,
-                { backgroundColor: props.backgroundColor },
+                {
+                    backgroundColor: props.backgroundColor
+                        ? props.backgroundColor
+                        : styleConstants.primary,
+                },
                 props.style,
             ]}
-            androidRipple
-            androidRippleColor={altColor}>
+            androidRipple={props.androidRipple}
+            androidRippleColor={
+                props.textColor ? props.textColor : styleConstants.white
+            }>
             {icon}
             <Text
                 style={[
                     styles.text,
-                    { color: altColor },
+                    {
+                        color: props.textColor
+                            ? props.textColor
+                            : styleConstants.white,
+                    },
                     styleConstants.primaryFont,
                 ]}>
                 {props.text}
