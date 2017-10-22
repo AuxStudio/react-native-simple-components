@@ -19,8 +19,12 @@ export default (LoaderComponent = props => {
     /*
         static get propTypes() {
             return {
-                color: PropTypes.string, // color of the loader
-                duration: PropTypes.number, // duration of animation (default is 2000)
+                color: PropTypes.string,
+                duration: PropTypes.number,
+                style: PropTypes.oneOf([    
+                    PropTypes.object,
+                    PropTypes.number,
+                ])
             };
         }
     */
@@ -42,6 +46,7 @@ export default (LoaderComponent = props => {
                                 ? props.color
                                 : styleConstants.primary,
                         },
+                        props.style,
                     ]}
                 />
             </AnimateTranslateX>

@@ -19,14 +19,28 @@ export default (Loader = props => {
             return {
                 loading: PropTypes.bool, // flag to display loader
                 color: PropTypes.string, // color of the loader
-                duration: PropTypes.number, // duration of animation (default is 2000)
+                duration: PropTypes.number, // duration of animation in ms (default is 2000)
+                containerStyle: PropTypes.oneOf([    // can set position here
+                    PropTypes.object,
+                    PropTypes.number,
+                ]),
+                style: PropTypes.oneOf([
+                    PropTypes.object,
+                    PropTypes.number,
+                ])
             };
         }
     */
 
     const loader = props.loading && (
-        <LoaderComponent color={props.color} duration={props.duration} />
+        <LoaderComponent
+            color={props.color}
+            duration={props.duration}
+            style={props.style}
+        />
     );
 
-    return <View style={styles.container}>{loader}</View>;
+    return (
+        <View style={[styles.container, props.containerStyle]}>{loader}</View>
+    );
 });
