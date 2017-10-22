@@ -22,7 +22,7 @@ export default (DeleteButton = props => {
         backgroundColor: PropTypes.string,
         iconColor: PropTypes.string,    
 
-        style: PropTypes.node,
+        // style: PropTypes.node,
     */
 
     return (
