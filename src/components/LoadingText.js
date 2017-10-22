@@ -1,11 +1,11 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import {
+    AnimateOpacity,
+    AnimateTranslateX,
+} from "react-native-simple-animators";
 
-import config from "../config";
 import styleConstants from "../assets/styleConstants";
-
-import AnimateOpacity from "../animators/AnimateOpacity";
-import AnimateTranslateX from "../animators/AnimateTranslateX";
 
 const styles = StyleSheet.create({
     container: {
@@ -20,27 +20,44 @@ const styles = StyleSheet.create({
 });
 
 export default (LoadingText = props => {
+    /*
+        PROPTYPES
+
+        text: PropTypes.string,
+        initialOpacityValue: PropTypes.number // default 0.33
+        finalOpacityValue: PropTypes.number // default 1
+        initialTranslateXValue: PropTypes.number // default window width
+        finalTranslateXValue: PropTypes.number // default 0
+        duration: PropTypes.number // default is 1000 ms
+
+        // style: PropTypes.node,
+        // textStyle: PropTypes.node
+    */
+
     return (
         <AnimateOpacity
-            initialValue={0.33}
-            finalValue={1}
+            initialValue={
+                props.initialOpacityValue ? props.initialOpacityValue : 0.33
+            }
+            finalValue={props.finalOpacityValue ? props.finalOpacityValue : 1}
             shouldAnimateIn
             shouldRepeat
-            duration={config.animation.duration.long}>
+            duration={props.duration ? props.duration : 750}>
             <AnimateTranslateX
-                initialValue={styleConstants.windowWidth * -1}
-                finalValue={0}
+                initialValue={
+                    props.initialTranslateXValue ? (
+                        props.initialTranslateXValue
+                    ) : (
+                        styleConstants.windowWidth * -1
+                    )
+                }
+                finalValue={
+                    props.finalTranslateXValue ? props.finalTranslateXValue : 0
+                }
                 shouldAnimateIn
-                duration={1000}
-                style={[
-                    styles.container,
-                    props.backgroundColor && {
-                        backgroundColor: props.backgroundColor,
-                    },
-                ]}>
-                <Text style={[styles.text, styleConstants.primaryFont]}>
-                    {props.text}
-                </Text>
+                duration={props.duration ? props.duration : 1000}
+                style={[styles.container, props.style]}>
+                <Text style={[styles.text, props.textStyle]}>{props.text}</Text>
             </AnimateTranslateX>
         </AnimateOpacity>
     );
