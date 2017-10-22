@@ -12,3 +12,4 @@ NOTES
     dumb components where internal state and methods not needed
     all imports used
     methods in order
+    Page should control component layout (always stretch to fill)

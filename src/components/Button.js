@@ -7,9 +7,11 @@ import styleConstants from "../assets/styleConstants";
 import Touchable from "./Touchable";
 
 const styles = StyleSheet.create({
+    container: {
+        alignSelf: "stretch",
+    },
     button: {
         ...styleConstants.smallShadow,
-        width: styleConstants.windowWidth - 32,
         height: 56,
         flexDirection: "row",
         paddingHorizontal: 16,
@@ -107,5 +109,5 @@ export default (Button = props => {
         </Touchable>
     );
 
-    return <View>{button}</View>;
+    return <View style={styles.container}>{button}</View>;
 });
