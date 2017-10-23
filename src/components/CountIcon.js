@@ -30,48 +30,19 @@ export default (CountIcon = props => {
         handlePress: PropTypes.func,
         count: PropTypes.number,
 
-        backgroundColor: PropTypes.string,
-        activeBackgroundColor: PropTypes.string, // if count, apply this style
-        textColor: PropTypes.string,
-        activeTextColor: PropTypes.string, // if count, apply this style
-
         // style: PropTypes.node,
         // textStyle: PropTypes.node,
     */
 
-    const activeBackgroundColorStyles = props.count > 0 && {
-        backgroundColor: props.activeBackgroundColor
-            ? props.activeBackgroundColor
-            : styleConstants.secondary,
-    };
-
-    const activeTextColorStyles = props.count > 0 &&
-    props.activeTextColor && {
-        color: props.activeTextColor,
-    };
-
     const countIcon = props.handlePress ? (
         <Touchable
             onPress={props.handlePress}
-            style={[
-                styles.container,
-                props.style,
-                activeBackgroundColorStyles,
-            ]}>
-            <Text style={[styles.text, props.textStyle, activeTextColorStyles]}>
-                {props.count}
-            </Text>
+            style={[styles.container, props.style]}>
+            <Text style={[styles.text, props.textStyle]}>{props.count}</Text>
         </Touchable>
     ) : (
-        <View
-            style={[
-                styles.container,
-                props.style,
-                activeBackgroundColorStyles,
-            ]}>
-            <Text style={[styles.text, props.textStyle, activeTextColorStyles]}>
-                {props.count}
-            </Text>
+        <View style={[styles.container, props.style]}>
+            <Text style={[styles.text, props.textStyle]}>{props.count}</Text>
         </View>
     );
 

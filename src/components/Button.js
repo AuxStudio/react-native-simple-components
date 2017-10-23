@@ -38,6 +38,7 @@ export default (Button = props => {
         PROPTYPES
 
         iconName: PropTypes.string,
+        customIcon: PropTypes.node, 
         text: PropTypes.string.isRequired,
         handlePress: PropTypes.func.isRequired,
                 backgroundColor: PropTypes.string,
@@ -63,7 +64,9 @@ export default (Button = props => {
         ...props.textStyle,
     };
 
-    const icon = props.iconName ? (
+    const icon = props.customIcon ? (
+        props.customIcon
+    ) : props.iconName ? (
         <MaterialIcon name={props.iconName} style={[styles.icon, textStyles]} />
     ) : null;
 
@@ -86,7 +89,9 @@ export default (Button = props => {
             style={[styles.button, backgroundColorStyles, props.style]}
             androidRipple={props.androidRipple}
             androidRippleColor={
-                props.textColor ? props.textColor : styleConstants.white
+                props.androidRippleColor
+                    ? props.androidRippleColor
+                    : props.textColor ? props.textColor : styleConstants.white
             }>
             {icon}
             <Text style={[styles.text, textStyles, styleConstants.primaryFont]}>

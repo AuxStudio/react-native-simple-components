@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: styleConstants.darkTransBlack,
+        backgroundColor: styleConstants.darkTransparent,
     },
     container: {
         backgroundColor: styleConstants.white,
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     },
 });
 
-export default (OptionsModal = props => {
+export default (Modal = props => {
     /*
         PROPTYPES
 

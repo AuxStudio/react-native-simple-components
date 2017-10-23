@@ -29,6 +29,9 @@ export default (Page = props => {
     };
 
     const dimensionsStyles = props.dimensions && props.dimensions;
+    if (dimensionsStyles.height) {
+        dimensionsStyles["flex"] = 0;
+    }
 
     return (
         <View

@@ -59,6 +59,10 @@ export default (InputBar = props => {
         handleChange: PropTypes.func,
         handleSubmit: PropTypes.func,
         returnKeyType: PropTypes.string,
+        handleFocus: PropTypes.func,
+        handleBlur: PropTypes.func,
+        multiline: PropTypes.bool,
+        autofocus: PropTypes.bool,
 
         leftIconName: PropTypes.string,
         leftIcon: PropTypes.node,
@@ -115,17 +119,19 @@ export default (InputBar = props => {
                 <Input
                     placeholder={props.placeholder}
                     placeholderTextColor={
-                        props.placeholderTextColor ? (
-                            props.placeholderTextColor
-                        ) : (
-                            styleConstants.darkTransWhite
-                        )
+                        props.placeholderTextColor
+                            ? props.placeholderTextColor
+                            : styleConstants.darkTransWhite
                     }
                     value={props.value}
                     inputStyles={[styles.input, textColorStyles]}
                     handleChange={props.handleChange}
                     handleSubmit={props.handleSubmit}
                     returnKeyType={props.returnKeyType}
+                    handleFocus={props.handleFocus}
+                    handleBlur={props.handleBlur}
+                    multiline={props.multiline}
+                    autoFocus={props.autoFocus}
                 />
             </View>
             {rightIconComponent}

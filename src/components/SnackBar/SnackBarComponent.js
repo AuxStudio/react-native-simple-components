@@ -84,6 +84,7 @@ export default class SnackBarComponent extends React.Component {
             textColor: PropTypes.string,
             retryTextColor: PropTypes.string,
             closeIconColor: PropTypes.string,
+            // containerStyle: PropTypes.node,
         };
     }
 
@@ -105,11 +106,9 @@ export default class SnackBarComponent extends React.Component {
                 name={this.props.iconName}
                 size={styleConstants.iconFont}
                 color={
-                    this.props.iconColor ? (
-                        this.props.iconColor
-                    ) : (
-                        styleConstants.success
-                    )
+                    this.props.iconColor
+                        ? this.props.iconColor
+                        : styleConstants.success
                 }
             />
         ) : null;
@@ -144,7 +143,11 @@ export default class SnackBarComponent extends React.Component {
                 shouldAnimateIn
                 shouldAnimateOut={this.state.hideSnackBar}
                 animateOutCallback={this.props.handleClose}
-                style={[styles.messageWrapper, backgroundColorStyles]}>
+                style={[
+                    styles.messageWrapper,
+                    this.props.containerStyle,
+                    backgroundColorStyles,
+                ]}>
                 <View style={styles.messageContainer}>
                     <View style={styles.iconContainer}>{icon}</View>
                     <View style={styles.messageTextContainer}>
@@ -167,11 +170,9 @@ export default class SnackBarComponent extends React.Component {
                         name="close"
                         size={styleConstants.iconFont}
                         color={
-                            this.props.closeIconColor ? (
-                                this.props.closeIconColor
-                            ) : (
-                                styleConstants.veryLightGrey
-                            )
+                            this.props.closeIconColor
+                                ? this.props.closeIconColor
+                                : styleConstants.veryLightGrey
                         }
                     />
                 </Touchable>
