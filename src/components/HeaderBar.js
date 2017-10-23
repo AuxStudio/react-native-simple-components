@@ -62,6 +62,7 @@ export default (HeaderBar = props => {
         textColor: PropTypes.string,
         headerShadow: PropTypes.bool, // flag indicating whether or not to show headerShadow
         statusBarStyle: PropTypes.string, // dark-content or light-content
+        statusBarColor: PropTypes.string,
 
         backButton: PropTypes.bool,
         closeButton: PropTypes.bool,
@@ -99,11 +100,9 @@ export default (HeaderBar = props => {
     ) : props.leftIconName ? (
         <Touchable
             style={
-                props.textLeft ? (
-                    { justifyContent: "center" }
-                ) : (
-                    styles.leftIconContainer
-                )
+                props.textLeft
+                    ? { justifyContent: "center" }
+                    : styles.leftIconContainer
             }
             onPress={props.handleLeftIconPress}>
             <MaterialIcon
@@ -212,13 +211,15 @@ export default (HeaderBar = props => {
     return (
         <View style={styles.wrapper}>
             <StatusBar
-                backgroundColor={styleConstants.transPrimary}
+                backgroundColor={
+                    props.statusBarColor
+                        ? props.statusBarColor
+                        : styleConstants.darkTransPrimary
+                }
                 barStyle={
-                    props.statusBarStyle ? (
-                        props.statusBarStyle
-                    ) : (
-                        "light-content"
-                    )
+                    props.statusBarStyle
+                        ? props.statusBarStyle
+                        : "light-content"
                 }
             />
             <View
