@@ -24,11 +24,34 @@ import React from 'react';
 import { View } from 'react-native';
 import { HeaderBar } from 'react-native-simple-components';
 
-class BannerText extends React.Component {
+class Home extends React.Component {
     render() {
         return (
             <View style={{flex: 1}}>
-                <HeaderBar />
+                <HeaderBar 
+                    backgroundColor='red' 
+                    textColor='white' 
+                    headerShadow
+                    statusBarStyle='light-content' // or dark-content
+                    statusBarColor='rgba(0,0,0,0.67)'
+
+                    backButton  // displays chevron-left icon
+                    closeButton={false} // displays close icon
+                    leftComponent={null} // pass in custom component
+                    handleLeftIconPress={/* some function */}
+
+                    textComponent={null} // pass in custom component
+                    text='Eazy Peezy'
+                    textLeft={false} // align text to the left (useful if you don't want a left icon)
+                    textRight={false} // align text to the right (useful if you don't want a right icon)
+                    handleTextPress={/* some function */)}
+                    textStyle={null} // style fonts here
+
+                    addButton={false} // displays add icon
+                    continueButton  // displays check icon
+                    rightComponent={null} // pass in custom component
+                    rightIconName='info'
+                    handleRightIconPress={/* some function */}/>
             </View>
         )
     }
