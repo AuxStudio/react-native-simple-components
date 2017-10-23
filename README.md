@@ -19,6 +19,10 @@ import { HeaderBar } from 'react-native-simple-components'; // ES6
 
 ## Usage
 
+See the source code for props.
+NOTE: Pass in Material icon names where applicable.
+ANOTHER NOTE: These components were created with the thought that the page should control component(s) layout. ie. In  a blank page, the HeaderBar will not necessary sit at the top of the page if the page style has justifyContent: 'center'. It is up to you to place the component in the relevant position.
+
 ```js
 import React from 'react';
 import { View } from 'react-native';
@@ -60,9 +64,6 @@ class Home extends React.Component {
 ```
 
 ## Components
-
-See the source code for props.
-NOTE: Pass in Material icon names where applicable.
 
 - [x] Loader            -   A thin line loader that animates left to right in a loop.
 - [x] Snackbar          -   A snack bar that animates from the bottom and includes a icon, message, retry action and close button.

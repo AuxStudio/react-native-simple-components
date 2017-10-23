@@ -8,7 +8,7 @@ styleConstants.largeFont = 32;
 styleConstants.regularFont = 18;
 styleConstants.smallFont = 16;
 styleConstants.verySmallFont = 12;
-styleConstants.iconFont = 18;
+styleConstants.iconFont = 24;
 
 /* COLOURS */
 
