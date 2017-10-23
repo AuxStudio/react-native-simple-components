@@ -6,7 +6,6 @@ import { AnimateOpacity } from "react-native-simple-animators";
 import styleConstants from "../assets/styleConstants";
 
 import Touchable from "./Touchable";
-import DeleteButton from "./DeleteButton";
 
 const iosStyles = Platform.OS === "ios" && {
     paddingTop: 20,
@@ -69,6 +68,7 @@ export default (HeaderBar = props => {
         leftComponent: PropTypes.func,
         leftIconName: PropTypes.string,
         handleLeftIconPress: PropTypes.func,
+        // leftIconStyle: PropTypes.node,
 
         textComponent: PropTypes.func,
         text: PropTypes.string,
@@ -82,6 +82,7 @@ export default (HeaderBar = props => {
         rightComponent: PropTypes.func,
         rightIconName: PropTypes.string,
         handleRightIconPress: PropTypes.func,
+        // rightIconStyle: PropTypes.node,
     */
 
     const backgroundColorStyles = props.backgroundColor && {
@@ -107,7 +108,7 @@ export default (HeaderBar = props => {
             onPress={props.handleLeftIconPress}>
             <MaterialIcon
                 name={props.leftIconName}
-                style={[styles.leftIcon, textColorStyles]}
+                style={[styles.leftIcon, textColorStyles, props.leftIconStyle]}
             />
         </Touchable>
     ) : props.backButton ? (
@@ -116,7 +117,7 @@ export default (HeaderBar = props => {
             onPress={props.handleLeftIconPress}>
             <MaterialIcon
                 name="chevron-left"
-                style={[styles.leftIcon, textColorStyles]}
+                style={[styles.leftIcon, textColorStyles, props.leftIconStyle]}
             />
         </Touchable>
     ) : props.closeButton ? (
@@ -125,7 +126,7 @@ export default (HeaderBar = props => {
             onPress={props.handleLeftIconPress}>
             <MaterialIcon
                 name="close"
-                style={[styles.leftIcon, textColorStyles]}
+                style={[styles.leftIcon, textColorStyles, props.leftIconStyle]}
             />
         </Touchable>
     ) : props.textLeft ? null : (
@@ -179,7 +180,11 @@ export default (HeaderBar = props => {
             onPress={props.handleRightIconPress}>
             <MaterialIcon
                 name={props.rightIconName}
-                style={[styles.rightIcon, textColorStyles]}
+                style={[
+                    styles.rightIcon,
+                    textColorStyles,
+                    props.rightIconStyle,
+                ]}
             />
         </Touchable>
     ) : props.addButton ? (
@@ -188,7 +193,11 @@ export default (HeaderBar = props => {
             onPress={props.handleRightIconPress}>
             <MaterialIcon
                 name="add"
-                style={[styles.rightIcon, textColorStyles]}
+                style={[
+                    styles.rightIcon,
+                    textColorStyles,
+                    props.rightIconStyle,
+                ]}
             />
         </Touchable>
     ) : props.continueButton ? (
@@ -200,7 +209,11 @@ export default (HeaderBar = props => {
             <Touchable onPress={props.handleRightIconPress}>
                 <MaterialIcon
                     name="check"
-                    style={[styles.rightIcon, textColorStyles]}
+                    style={[
+                        styles.rightIcon,
+                        textColorStyles,
+                        props.rightIconStyle,
+                    ]}
                 />
             </Touchable>
         </AnimateOpacity>
