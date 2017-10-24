@@ -5,7 +5,7 @@ A collection of simple, customisable reusable react-native components with a dec
 ## Installation
 
 ```shell
-npm install --save react-native-simple-animators
+npm install --save react-native-simple-components
 ```
 
 react-native-vector-icons is a dependency. You will need to set it up as per the following link (unless you plan to pass in custom icon components):
