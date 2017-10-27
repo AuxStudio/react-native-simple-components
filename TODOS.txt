@@ -1,3 +1,13 @@
+TODOS
+    Touchable should not be touchable opacity
+        Should be TouchableWithoutFeedback
+        Remove elevation/shadow onPress
+    Add Linker component
+    Add Sharer component
+    Add WebViewer component
+    Add Pusher component
+    Add ToolTip component
+
 NOTES
     should accept custom icons
     should accept custom styles

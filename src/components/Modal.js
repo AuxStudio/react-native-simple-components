@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     },
 });
 
-export default (Modal = props => {
+export default (ModalComponent = props => {
     /*
         PROPTYPES
 
