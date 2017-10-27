@@ -29,7 +29,7 @@ export default (Page = props => {
     };
 
     const dimensionsStyles = props.dimensions && props.dimensions;
-    if (dimensionsStyles.height) {
+    if (dimensionStyles && dimensionsStyles.height) {
         dimensionsStyles["flex"] = 0;
     }
 
