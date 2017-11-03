@@ -1,37 +1,10 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 
 import styleConstants from "../assets/styleConstants";
 
+import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 import Touchable from "./Touchable";
-
-const styles = StyleSheet.create({
-    container: {
-        alignSelf: "stretch",
-    },
-    button: {
-        ...styleConstants.smallShadow,
-        height: 56,
-        flexDirection: "row",
-        paddingHorizontal: 16,
-        justifyContent: "center",
-        alignItems: "center",
-        borderWidth: 1,
-        borderColor: styleConstants.white,
-    },
-    disabled: {
-        opacity: 0.33,
-    },
-    icon: {
-        position: "absolute",
-        left: 16,
-        fontSize: styleConstants.iconFont,
-    },
-    text: {
-        fontSize: styleConstants.regularFont,
-    },
-});
 
 export default (Button = props => {
     /*
@@ -40,65 +13,97 @@ export default (Button = props => {
         iconName: PropTypes.string,
         customIcon: PropTypes.node, 
         text: PropTypes.string.isRequired,
+        textLeft: PropTypes.bool, // moves text left
         handlePress: PropTypes.func.isRequired,
-                backgroundColor: PropTypes.string,
         disabled: PropTypes.string,
 
-        backgroundColor: PropTypes.string,
-        textColor: PropTypes.string,
         androidRipple: PropTypes.bool,
         androidRippleColor: PropTypes.string,
-
+        showShadow: PropTypes.bool,
         // style: PropTypes.node,
+        // iconStyle: PropTypes.node,
         // textStyle: PropTypes.node,
+        // disabledStyle: PropTypes.node,
     */
 
-    const backgroundColorStyles = {
-        backgroundColor: props.backgroundColor
-            ? props.backgroundColor
-            : styleConstants.primary,
-    };
-
-    const textStyles = {
-        color: props.textColor ? props.textColor : styleConstants.white,
-        ...props.textStyle,
-    };
+    const textLeftContainerStyles = props.textLeft && styles.textLeftContainer;
+    const textLeftIconStyles = props.textLeft && styles.textLeftIcon;
 
     const icon = props.customIcon ? (
         props.customIcon
     ) : props.iconName ? (
-        <MaterialIcon name={props.iconName} style={[styles.icon, textStyles]} />
+        <MaterialIcon
+            name={props.iconName}
+            style={[styles.icon, textLeftIconStyles, props.iconStyle]}
+        />
     ) : null;
+
+    const shadowStyles = props.showShadow && {
+        ...styleConstants.smallShadow,
+    };
 
     const button = props.disabled ? (
         <View
             style={[
                 styles.button,
-                styles.disabled,
-                backgroundColorStyles,
+                props.disabledStyle ? props.disabledStyle : styles.disabled,
+                shadowStyles,
+                textLeftContainerStyles,
                 props.style,
             ]}>
             {icon}
-            <Text style={[styles.text, textStyles, styleConstants.primaryFont]}>
-                {props.text}
-            </Text>
+            <Text style={[styles.text, props.textStyle]}>{props.text}</Text>
         </View>
     ) : (
         <Touchable
             onPress={props.handlePress}
-            style={[styles.button, backgroundColorStyles, props.style]}
+            style={[
+                styles.button,
+                shadowStyles,
+                textLeftContainerStyles,
+                props.style,
+            ]}
             androidRipple={props.androidRipple}
-            androidRippleColor={
-                props.androidRippleColor
-                    ? props.androidRippleColor
-                    : props.textColor ? props.textColor : styleConstants.white
-            }>
+            androidRippleColor={props.androidRippleColor}>
             {icon}
-            <Text style={[styles.text, textStyles, styleConstants.primaryFont]}>
-                {props.text}
-            </Text>
+            <Text style={[styles.text, props.textStyle]}>{props.text}</Text>
         </Touchable>
     );
 
     return <View style={styles.container}>{button}</View>;
+});
+
+const styles = StyleSheet.create({
+    container: {
+        alignSelf: "stretch",
+    },
+    button: {
+        height: 56,
+        flexDirection: "row",
+        paddingHorizontal: 16,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: styleConstants.dividerColor,
+    },
+    textLeftContainer: {
+        justifyContent: "flex-start",
+    },
+    disabled: {
+        opacity: 0.33,
+    },
+    icon: {
+        position: "absolute",
+        left: 16,
+        fontSize: styleConstants.iconFont,
+        color: styleConstants.primaryText,
+    },
+    textLeftIcon: {
+        position: "relative",
+        left: 0,
+        marginRight: 8,
+    },
+    text: {
+        fontSize: styleConstants.regularFont,
+        color: styleConstants.primaryText,
+    },
 });

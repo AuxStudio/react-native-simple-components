@@ -1,69 +1,35 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 
 import styleConstants from "../assets/styleConstants";
 
+import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 import Touchable from "./Touchable";
-
-const styles = StyleSheet.create({
-    button: {
-        ...styleConstants.regularShadow,
-        backgroundColor: styleConstants.primary,
-        width: 56,
-        height: 56,
-        borderRadius: 28,
-        borderWidth: 1,
-        borderColor: styleConstants.white,
-        justifyContent: "center",
-        alignItems: "center",
-        position: "relative",
-    },
-    icon: {
-        color: styleConstants.white,
-    },
-    disabled: {
-        opacity: 0.33,
-    },
-});
 
 export default (ButtonIcon = props => {
     /*
         PROPTYPES
         
         iconName: PropTypes.string,
+        customIcon: PropTypes.node,
         handlePress: PropTypes.func.isRequired,
         disabled: PropTypes.bool,
-        customIcon: PropTypes.node,
         
-        backgroundColor: PropTypes.string,
-        iconColor: PropTypes.string,
-        iconSize: PropTypes.number,
-
+        showShadow: PropTypes.bool,
+        // iconStyle: PropTypes.node,
         // style: PropTypes.node,
+        // disabledStyle: PropTypes.node,
     */
 
-    const backgroundColorStyles = {
-        backgroundColor: props.backgroundColor
-            ? props.backgroundColor
-            : styleConstants.primary,
+    const shadowStyles = props.showShadow && {
+        ...styleConstants.regularShadow,
     };
-
-    const iconColorStyles = {
-        color: props.iconColor ? props.iconColor : styleConstants.white,
-    };
-
-    const borderColorStyles = {
-        borderColor: props.iconColor ? props.iconColor : styleConstants.white,
-    };
-
     const icon = props.customIcon ? (
         props.customIcon
     ) : (
         <MaterialIcon
             name={props.iconName}
-            size={props.iconSize ? props.iconSize : styleConstants.iconFont}
-            style={[styles.icon, iconColorStyles]}
+            style={[styles.icon, props.iconStyle]}
         />
     );
 
@@ -71,9 +37,9 @@ export default (ButtonIcon = props => {
         <View
             style={[
                 styles.button,
-                backgroundColorStyles,
-                borderColorStyles,
                 styles.disabled,
+                shadowStyles,
+                props.disabledStyle,
                 props.style,
             ]}>
             {icon}
@@ -81,15 +47,29 @@ export default (ButtonIcon = props => {
     ) : (
         <Touchable
             onPress={props.handlePress}
-            style={[
-                styles.button,
-                backgroundColorStyles,
-                borderColorStyles,
-                props.style,
-            ]}>
+            style={[styles.button, shadowStyles, props.style]}>
             {icon}
         </Touchable>
     );
 
     return button;
+});
+
+const styles = StyleSheet.create({
+    button: {
+        backgroundColor: styleConstants.dividerColor,
+        width: 56,
+        height: 56,
+        borderRadius: 28,
+        justifyContent: "center",
+        alignItems: "center",
+        position: "relative",
+    },
+    icon: {
+        fontSize: styleConstants.iconFont,
+        color: styleConstants.primaryText,
+    },
+    disabled: {
+        opacity: 0.33,
+    },
 });

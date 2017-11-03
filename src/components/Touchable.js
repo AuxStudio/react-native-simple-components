@@ -14,11 +14,8 @@ export default (Touchable = props => {
         androidRippleColor: PropTypes.string,
         androidRippleBorderless: PropTypes.bool, // android ripple will extend beyond object boundaries
         onPress: PropTypes.func.isRequired,
-        style: PropTypes.oneOf([
-            PropTypes.object,
-            PropTypes.number,
-        ]),
         children: PropTypes.node,
+        // style: PropTypes.node,
 
     */
 

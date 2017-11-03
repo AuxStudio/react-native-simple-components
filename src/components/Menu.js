@@ -1,36 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { View, FlatList, Text, StyleSheet } from "react-native";
-import { AnimateHeight } from "react-native-simple-animators";
 
 import styleConstants from "../assets/styleConstants";
 
+import { AnimateHeight } from "react-native-simple-animators";
 import Touchable from "./Touchable";
-
-const styles = StyleSheet.create({
-    menuItemsWrapper: {
-        ...styleConstants.regularShadow,
-        position: "absolute",
-        top: 0,
-        right: 0,
-        backgroundColor: styleConstants.white,
-    },
-    menuItemsContainer: {},
-    menuItemContainer: {
-        justifyContent: "center",
-        padding: 8,
-    },
-    menuItemText: {
-        fontSize: styleConstants.regularFont,
-        color: styleConstants.black,
-        textAlign: "right",
-    },
-    separator: {
-        alignSelf: "stretch",
-        height: 1,
-        backgroundColor: styleConstants.lightGrey,
-    },
-});
 
 export default class Menu extends React.Component {
     constructor(props) {
@@ -48,6 +23,7 @@ export default class Menu extends React.Component {
             minWidth: PropTypes.number, // default is 160
             showSeparatorLine: PropTypes.bool,
 
+            showShadow: PropTypes.bool,
             // style: PropTypes.node, // set position here (defaults to top right corner)
             // textStyle: PropTypes.node,
             // separatorColor: PropTypes.string,
@@ -75,12 +51,17 @@ export default class Menu extends React.Component {
             backgroundColor: this.props.separatorColor,
         };
 
+        const shadowStyles = this.props.showShadow && {
+            ...styleConstants.regularShadow,
+        };
+
         return (
             <View
                 style={[
                     styles.menuItemsWrapper,
-                    this.props.style,
                     minWidthStyles,
+                    shadowStyles,
+                    this.props.style,
                 ]}>
                 <AnimateHeight
                     initialValue={0}
@@ -92,16 +73,16 @@ export default class Menu extends React.Component {
                         renderItem={this.renderItem}
                         contentContainerStyle={styles.menuItemsContainer}
                         ItemSeparatorComponent={
-                            this.props.showSeparatorLine ? (
-                                () => (
-                                    <View
-                                        style={[
-                                            styles.separator,
-                                            separatorColorStyles,
-                                        ]}
-                                    />
-                                )
-                            ) : null
+                            this.props.showSeparatorLine
+                                ? () => (
+                                      <View
+                                          style={[
+                                              styles.separator,
+                                              separatorColorStyles,
+                                          ]}
+                                      />
+                                  )
+                                : null
                         }
                     />
                 </AnimateHeight>
@@ -109,3 +90,27 @@ export default class Menu extends React.Component {
         );
     }
 }
+
+const styles = StyleSheet.create({
+    menuItemsWrapper: {
+        position: "absolute",
+        top: 0,
+        right: 0,
+        backgroundColor: styleConstants.primary,
+    },
+    menuItemsContainer: {},
+    menuItemContainer: {
+        justifyContent: "center",
+        padding: 8,
+    },
+    menuItemText: {
+        fontSize: styleConstants.regularFont,
+        color: styleConstants.primaryText,
+        textAlign: "right",
+    },
+    separator: {
+        alignSelf: "stretch",
+        height: 1,
+        backgroundColor: styleConstants.dividerColor,
+    },
+});

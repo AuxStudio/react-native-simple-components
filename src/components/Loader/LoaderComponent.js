@@ -1,19 +1,13 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import PropTypes from "prop-types";
+
+import styleConstants from "../../assets/styleConstants";
+
 import {
     AnimateOpacity,
     AnimateTranslateX,
 } from "react-native-simple-animators";
-
-import styleConstants from "../../assets/styleConstants";
-
-const styles = StyleSheet.create({
-    container: {
-        width: 100,
-        height: 5,
-    },
-});
 
 export default (LoaderComponent = props => {
     /*
@@ -21,10 +15,7 @@ export default (LoaderComponent = props => {
             return {
                 color: PropTypes.string,
                 duration: PropTypes.number,
-                style: PropTypes.oneOf([    
-                    PropTypes.object,
-                    PropTypes.number,
-                ])
+                // style: PropTypes.node,
             };
         }
     */
@@ -44,7 +35,7 @@ export default (LoaderComponent = props => {
                         {
                             backgroundColor: props.color
                                 ? props.color
-                                : styleConstants.primary,
+                                : styleConstants.secondary,
                         },
                         props.style,
                     ]}
@@ -52,4 +43,11 @@ export default (LoaderComponent = props => {
             </AnimateTranslateX>
         </AnimateOpacity>
     );
+});
+
+const styles = StyleSheet.create({
+    container: {
+        width: 100,
+        height: 5,
+    },
 });

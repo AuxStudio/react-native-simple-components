@@ -1,6 +1,6 @@
 {
     "name": "react-native-simple-components",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "description": "A collection of simple, reusable react-native components",
     "main": "index.js",
     "scripts": {

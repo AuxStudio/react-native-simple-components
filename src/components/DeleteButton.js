@@ -5,40 +5,36 @@ import styleConstants from "../assets/styleConstants";
 
 import ButtonIcon from "./ButtonIcon";
 
+export default (DeleteButton = props => {
+    /*
+        PROPTYPES
+
+        handlePress: PropTypes.func.isRequired,
+
+        // iconStyle: PropTypes.node,
+        // style: PropTypes.node,
+    */
+
+    return (
+        <ButtonIcon
+            handlePress={props.handlePress}
+            iconName="close"
+            iconStyle={[styles.icon, props.iconStyle]}
+            style={[styles.container, props.style]}
+        />
+    );
+});
+
 const styles = StyleSheet.create({
     container: {
         width: 20,
         height: 20,
         borderRadius: 10,
         borderWidth: 0,
+        backgroundColor: styleConstants.dividerColor,
     },
-});
-
-export default (DeleteButton = props => {
-    /*
-        PROPTYPES
-
-        handlePress: PropTypes.func.isRequired,
-        backgroundColor: PropTypes.string,
-        iconColor: PropTypes.string,    
-
-        // style: PropTypes.node,
-    */
-
-    return (
-        <ButtonIcon
-            iconName="close"
-            style={[styles.container, props.style]}
-            iconSize={12}
-            handlePress={props.handlePress}
-            backgroundColor={
-                props.backgroundColor ? (
-                    props.backgroundColor
-                ) : (
-                    styleConstants.lightGrey
-                )
-            }
-            iconColor={props.iconColor ? props.iconColor : styleConstants.white}
-        />
-    );
+    icon: {
+        fontSize: styleConstants.smallFont,
+        color: styleConstants.primaryText,
+    },
 });

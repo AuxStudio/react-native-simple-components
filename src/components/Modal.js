@@ -1,38 +1,10 @@
 import React from "react";
 import { View, Modal, StyleSheet } from "react-native";
-import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 
 import styleConstants from "../assets/styleConstants";
 
+import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 import Touchable from "./Touchable";
-
-const styles = StyleSheet.create({
-    wrapper: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: styleConstants.darkTransparent,
-    },
-    container: {
-        backgroundColor: styleConstants.white,
-        justifyContent: "center",
-        alignItems: "center",
-        padding: 16,
-        borderRadius: 4,
-    },
-    closeIconContainer: {
-        position: "absolute",
-        top: 0,
-        right: 0,
-    },
-    closeIconButton: {
-        padding: 8,
-    },
-    closeIcon: {
-        fontSize: styleConstants.iconFont,
-        color: styleConstants.white,
-    },
-});
 
 export default (ModalComponent = props => {
     /*
@@ -42,6 +14,7 @@ export default (ModalComponent = props => {
         children: PropTypes.node,
 
         // style: PropTypes.node,
+        // closeIconStyle: PropTypes.node,
     */
 
     return (
@@ -61,7 +34,7 @@ export default (ModalComponent = props => {
                             style={styles.closeIconButton}>
                             <MaterialIcon
                                 name="close"
-                                style={styles.closeIcon}
+                                style={[styles.closeIcon, props.closeIconStyle]}
                             />
                         </Touchable>
                     </View>
@@ -69,4 +42,26 @@ export default (ModalComponent = props => {
             </Modal>
         </View>
     );
+});
+
+const styles = StyleSheet.create({
+    wrapper: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: styleConstants.transBlack,
+    },
+    container: {},
+    closeIconContainer: {
+        position: "absolute",
+        top: 0,
+        right: 0,
+    },
+    closeIconButton: {
+        padding: 16,
+    },
+    closeIcon: {
+        fontSize: styleConstants.regularFont,
+        color: styleConstants.primary,
+    },
 });

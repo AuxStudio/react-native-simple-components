@@ -5,23 +5,6 @@ import styleConstants from "../assets/styleConstants";
 
 import Touchable from "./Touchable";
 
-const styles = StyleSheet.create({
-    infoContainer: {
-        alignSelf: "stretch",
-    },
-    infoTextTitle: {
-        fontSize: styleConstants.largeFont,
-        color: styleConstants.black,
-    },
-    descriptionWrapper: {},
-    descriptionContainer: {},
-    infoTextDescription: {
-        marginTop: 8,
-        fontSize: styleConstants.regularFont,
-        color: styleConstants.black,
-    },
-});
-
 export default (InfoBlock = props => {
     /* 
         PROPTYPES
@@ -29,30 +12,37 @@ export default (InfoBlock = props => {
         title: PropTypes.string,
         description: PropTypes.string,
 
-        titleColor: PropTypes.string,
-        descriptionColor: PropTypes.string,
-
-        // textStyle: PropTypes.node,
+        // titleTextStyle: PropTypes.node,
+        // descriptionTextStyle: PropTypes.node,
     */
-
-    const titleStyles = props.titleColor && {
-        color: props.titleColor,
-        ...props.textStyle,
-    };
-
-    const descriptionStyles = props.descriptionColor && {
-        color: props.descriptionColor,
-        ...props.textStyle,
-    };
 
     return (
         <View style={styles.infoContainer}>
-            <Text style={[styles.infoTextTitle, titleStyles]}>
+            <Text style={[styles.infoTextTitle, props.titleTextStyle]}>
                 {props.title}
             </Text>
-            <Text style={[styles.infoTextDescription, descriptionStyles]}>
+            <Text
+                style={[
+                    styles.infoTextDescription,
+                    props.descriptionTextStyle,
+                ]}>
                 {props.description}
             </Text>
         </View>
     );
+});
+
+const styles = StyleSheet.create({
+    infoContainer: {
+        alignSelf: "stretch",
+    },
+    infoTextTitle: {
+        fontSize: styleConstants.largeFont,
+        color: styleConstants.primaryText,
+    },
+    infoTextDescription: {
+        marginTop: 8,
+        fontSize: styleConstants.regularFont,
+        color: styleConstants.secondaryText,
+    },
 });

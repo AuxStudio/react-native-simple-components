@@ -1,35 +1,10 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 
 import styleConstants from "../assets/styleConstants";
 
+import MaterialIcon from "react-native-vector-icons/MaterialIcons";
 import Touchable from "./Touchable";
-
-const styles = StyleSheet.create({
-    container: {
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: styleConstants.white,
-        borderWidth: 1,
-        borderColor: styleConstants.primary,
-        borderRadius: 32,
-        paddingVertical: 4,
-        paddingHorizontal: 8,
-        marginBottom: 4,
-        marginHorizontal: 4,
-    },
-    icon: {
-        fontSize: styleConstants.iconFont,
-        color: styleConstants.primary,
-        marginRight: 8,
-    },
-    text: {
-        fontSize: styleConstants.smallFont,
-        color: styleConstants.primary,
-    },
-});
 
 export default (Label = props => {
     /*
@@ -40,29 +15,58 @@ export default (Label = props => {
         customIcon: PropTypes.node,
         text: PropTypes.string,
 
-        // style: PropTypes.node,
-        // textStyle: PropTypes.node,
+        showShadow: PropTypes.bool,
+        style: PropTypes.node,
+        textStyle: PropTypes.node,
+        iconStyle: PropTypes.node,
     */
+
+    const shadowStyles = props.showShadow && {
+        ...styleConstants.smallShadow,
+    };
 
     const icon = props.customIcon
         ? props.customIcon
         : props.iconName && (
-              <MaterialIcon name={props.iconName} style={styles.icon} />
+              <MaterialIcon
+                  name={props.iconName}
+                  style={[styles.icon, props.iconStyle]}
+              />
           );
 
     const label = props.handlePress ? (
         <Touchable
             onPress={props.handlePress}
-            style={[styles.container, props.style]}>
+            style={[styles.container, shadowStyles, props.style]}>
             {icon}
             <Text style={[styles.text, props.textStyle]}>{props.text}</Text>
         </Touchable>
     ) : (
-        <View style={[styles.container, props.style]}>
+        <View style={[styles.container, shadowStyles, props.style]}>
             {icon}
             <Text style={[styles.text, props.textStyle]}>{props.text}</Text>
         </View>
     );
 
     return label;
+});
+
+const styles = StyleSheet.create({
+    container: {
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: styleConstants.dividerColor,
+        paddingVertical: 4,
+        paddingHorizontal: 8,
+    },
+    icon: {
+        fontSize: styleConstants.iconFont,
+        color: styleConstants.primaryText,
+        marginRight: 8,
+    },
+    text: {
+        fontSize: styleConstants.smallFont,
+        color: styleConstants.primaryText,
+    },
 });

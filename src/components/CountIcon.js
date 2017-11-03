@@ -5,24 +5,6 @@ import styleConstants from "../assets/styleConstants";
 
 import Touchable from "./Touchable";
 
-const styles = StyleSheet.create({
-    container: {
-        ...styleConstants.smallShadow,
-        width: 20,
-        height: 20,
-        borderRadius: 10,
-        overflow: "hidden", // ios
-        backgroundColor: styleConstants.veryLightGrey,
-        justifyContent: "center",
-        alignItems: "center",
-    },
-    text: {
-        fontSize: styleConstants.verySmallFont,
-        color: styleConstants.white,
-        marginBottom: 2,
-    },
-});
-
 export default (CountIcon = props => {
     /*
         PROPTYPES
@@ -30,9 +12,14 @@ export default (CountIcon = props => {
         handlePress: PropTypes.func,
         count: PropTypes.number,
 
+        showShadow: PropTypes.bool,
         // style: PropTypes.node,
         // textStyle: PropTypes.node,
     */
+
+    const shadowStyles = props.showShadow && {
+        ...styleConstants.smallShadow,
+    };
 
     const countIcon = props.handlePress ? (
         <Touchable
@@ -47,4 +34,21 @@ export default (CountIcon = props => {
     );
 
     return countIcon;
+});
+
+const styles = StyleSheet.create({
+    container: {
+        width: 20,
+        height: 20,
+        borderRadius: 10,
+        overflow: "hidden", // ios
+        backgroundColor: styleConstants.dividerColor,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    text: {
+        fontSize: styleConstants.verySmallFont,
+        color: styleConstants.primaryText,
+        marginBottom: 1.5,
+    },
 });

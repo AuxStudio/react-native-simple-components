@@ -3,14 +3,6 @@ import { View, StyleSheet } from "react-native";
 
 import SnackBarComponent from "./SnackBarComponent";
 
-const styles = StyleSheet.create({
-    container: {
-        position: "absolute",
-        bottom: 0,
-        left: 0,
-    },
-});
-
 export default (SnackBar = props => {
     /*
         static get propTypes() {
@@ -21,34 +13,37 @@ export default (SnackBar = props => {
                 handleClose: PropTypes.func.isRequired, // handle close
                 handleRetry: PropTypes.func, // if supplied, will offer a retry action button
 
-                backgroundColor: PropTypes.string,
-                iconColor: PropTypes.string,
-                textColor: PropTypes.string,
-                retryTextColor: PropTypes.string,
-                closeIconColor: PropTypes.string,
-
-                containerStyle: PropTypes.oneOf([
-                    PropTypes.object,
-                    PropTypes.number,
-                ])
+                // iconStyle: PropTypes.node,
+                // textStyle: PropTypes.node,
+                // retryTextStyle: PropTypes.node,
+                // closeIconStyle: PropTypes.node,
+                // containerStyle: PropTypes.node, // backgroundColor etc
             };
         }
     */
 
     return (
-        <View style={[styles.container, props.containerStyle]}>
+        <View style={styles.container}>
             <SnackBarComponent
                 iconName={props.iconName}
+                customIcon={props.customIcon}
                 text={props.text}
                 handleClose={props.handleClose}
                 handleRetry={props.handleRetry}
-                backgroundColor={props.backgroundColor}
-                iconColor={props.iconColor}
-                textColor={props.textColor}
-                retryTextColor={props.retryTextColor}
-                closeIconColor={props.closeIconColor}
-                customIcon={props.customIcon}
+                iconStyle={props.iconStyle}
+                textStyle={props.textStyle}
+                retryTextStyle={props.retryTextStyle}
+                closeIconStyle={props.closeIconStyle}
+                containerStyle={props.containerStyle}
             />
         </View>
     );
+});
+
+const styles = StyleSheet.create({
+    container: {
+        position: "absolute",
+        bottom: 0,
+        left: 0,
+    },
 });

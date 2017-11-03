@@ -1,23 +1,12 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+
+import styleConstants from "../assets/styleConstants";
+
 import {
     AnimateOpacity,
     AnimateTranslateX,
 } from "react-native-simple-animators";
-
-import styleConstants from "../assets/styleConstants";
-
-const styles = StyleSheet.create({
-    container: {
-        backgroundColor: styleConstants.veryLightGrey,
-        borderRadius: 16,
-        overflow: "hidden", // ios
-    },
-    text: {
-        color: "transparent",
-        fontSize: styleConstants.smallFont,
-    },
-});
 
 export default (LoadingText = props => {
     /*
@@ -45,11 +34,9 @@ export default (LoadingText = props => {
             duration={props.duration ? props.duration : 750}>
             <AnimateTranslateX
                 initialValue={
-                    props.initialTranslateXValue ? (
-                        props.initialTranslateXValue
-                    ) : (
-                        styleConstants.windowWidth * -1
-                    )
+                    props.initialTranslateXValue
+                        ? props.initialTranslateXValue
+                        : styleConstants.windowWidth * -1
                 }
                 finalValue={
                     props.finalTranslateXValue ? props.finalTranslateXValue : 0
@@ -61,4 +48,16 @@ export default (LoadingText = props => {
             </AnimateTranslateX>
         </AnimateOpacity>
     );
+});
+
+const styles = StyleSheet.create({
+    container: {
+        backgroundColor: styleConstants.veryLightGrey,
+        borderRadius: 16,
+        overflow: "hidden", // ios
+    },
+    text: {
+        color: "transparent",
+        fontSize: styleConstants.smallFont,
+    },
 });

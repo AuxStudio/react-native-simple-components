@@ -33,16 +33,16 @@ class Home extends React.Component {
         return (
             <View style={{flex: 1}}>
                 <HeaderBar 
-                    backgroundColor='red' 
-                    textColor='white' 
-                    headerShadow
+                    showShadow
                     statusBarStyle='light-content' // or dark-content
                     statusBarColor='rgba(0,0,0,0.67)'
 
                     backButton  // displays chevron-left icon
                     closeButton={false} // displays close icon
+                    leftIconName='menu'
                     leftComponent={null} // pass in custom component
                     handleLeftIconPress={/* some function */}
+                    leftIconStyle={null}
 
                     textComponent={null} // pass in custom component
                     text='Eazy Peezy'
@@ -54,8 +54,12 @@ class Home extends React.Component {
                     addButton={false} // displays add icon
                     continueButton  // displays check icon
                     rightComponent={null} // pass in custom component
-                    rightIconName='info'
-                    handleRightIconPress={/* some function */}/>
+                    rightIconName='search'
+                    handleRightIconPress={/* some function */}
+                    rightIconStyle={null}
+                    
+                    style={null} // set backgroundColor, height etc here
+                />
             </View>
         )
     }
