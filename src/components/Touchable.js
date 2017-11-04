@@ -2,6 +2,7 @@ import React from "react";
 import {
     View,
     TouchableNativeFeedback,
+    TouchableWithoutFeedback,
     TouchableOpacity,
     Platform,
 } from "react-native";
@@ -14,6 +15,7 @@ export default (Touchable = props => {
         androidRippleColor: PropTypes.string,
         androidRippleBorderless: PropTypes.bool, // android ripple will extend beyond object boundaries
         onPress: PropTypes.func.isRequired,
+        disableFeedback: PropTypes.bool, // will render TouchableWithoutFeedback
         children: PropTypes.node,
         // style: PropTypes.node,
 
@@ -29,6 +31,10 @@ export default (Touchable = props => {
                 )}>
                 <View style={props.style}>{props.children}</View>
             </TouchableNativeFeedback>
+        ) : props.disableFeedback ? (
+            <TouchableWithoutFeedback onPress={props.onPress}>
+                <View style={props.style}>{props.children}</View>
+            </TouchableWithoutFeedback>
         ) : (
             <TouchableOpacity onPress={props.onPress} style={props.style}>
                 {props.children}

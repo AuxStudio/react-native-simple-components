@@ -16,12 +16,14 @@ export default (InputBar = props => {
         placeholderTextColor: PropTypes.string,
         value: PropTypes.string,
         handleChange: PropTypes.func,
-        handleSubmit: PropTypes.func,   // right icon press will also trigger this function
+        handleSubmit: PropTypes.func, 
         returnKeyType: PropTypes.string,
         handleFocus: PropTypes.func,
         handleBlur: PropTypes.func,
         multiline: PropTypes.bool,
         autofocus: PropTypes.bool,
+        showDeleteButton: PropTypes.bool, // if supplied, will render a delete button to clear the input
+        handleRightIconPress: PropTypes.bool,
 
         leftIconName: PropTypes.string,
         leftIcon: PropTypes.node,
@@ -33,6 +35,8 @@ export default (InputBar = props => {
         // rightIconStyle: PropTypes.node,
         // style: PropTypes.node, // input style
         // containerStyle: PropTypes.node,
+        // deleteButtonStyle: PropTypes.node,
+        // deleteButtonIconStyle: PropTypes.node,
 
     */
 
@@ -54,8 +58,10 @@ export default (InputBar = props => {
               />
           );
 
-    const rightIconComponent = props.handleSubmit && (
-        <Touchable onPress={props.handleSubmit} style={styles.submitButton}>
+    const rightIconComponent = props.rightIconName && (
+        <Touchable
+            onPress={props.handleRightIconPress}
+            style={styles.rightIconContainer}>
             {rightIcon}
         </Touchable>
     );
@@ -80,6 +86,9 @@ export default (InputBar = props => {
                     multiline={props.multiline}
                     autoFocus={props.autoFocus}
                     style={[styles.input, props.style]}
+                    showDeleteButton={props.showDeleteButton}
+                    deleteButtonStyle={props.deleteButtonStyle}
+                    deleteButtonIconStyle={props.deleteButtonIconStyle}
                 />
             </View>
             {rightIconComponent}
@@ -115,9 +124,8 @@ const styles = StyleSheet.create({
         color: styleConstants.primaryText,
         borderBottomWidth: 0,
     },
-    submitButton: {
-        flexDirection: "row",
-        alignItems: "center",
+    rightIconContainer: {
+        justifyContent: "center",
     },
     text: {
         fontSize: styleConstants.regularFont,

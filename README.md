@@ -73,6 +73,8 @@ class Home extends React.Component {
 - [x] Snackbar          -   A snack bar that animates from the bottom and includes a icon, message, retry action and close button.
 - [x] Button            -   A button that accepts text and an optional icon.
 - [x] ButtonIcon        -   A round button that contains an icon.  
+- [x] ButtonLink        -   An underlined text button to indicate a link. 
+- [x] CheckBox          -   A nice and simple checkbox component.
 - [x] CountIcon         -   A small notification type icon that contains a count value.
 - [x] DeleteButton      -   A small close button (used internally).
 - [x] HeaderBar         -   A header component that accepts status bar styles, text and left and right icons.
@@ -85,5 +87,6 @@ class Home extends React.Component {
 - [x] Menu              -   A menu that animates in height.
 - [x] Modal             -   A modal that offers a dark transparent background and close icon out of the box.
 - [x] Page              -   A component that acts as a page wrapper (useful for passing in custom width and heights to your pages during responsive testing).
+- [x] StarRating        -   Renders a row of outlined or filled stars based on rating prop
 - [x] TabBar            -   A tab bar that accepts icons and label text.
 - [x] Touchable         -   A touchable component that renders the android ripple effect if specified and if on an Android device (used internally).

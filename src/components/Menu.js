@@ -12,8 +12,6 @@ export default class Menu extends React.Component {
         super(props);
 
         this.renderItem = this.renderItem.bind(this);
-
-        this.itemHeight = 41;
     }
 
     static get propTypes() {
@@ -22,6 +20,7 @@ export default class Menu extends React.Component {
             handleSelect: PropTypes.func.isRequired,
             minWidth: PropTypes.number, // default is 160
             showSeparatorLine: PropTypes.bool,
+            itemHeight: PropTypes.number, // used to calculate final menu height
 
             showShadow: PropTypes.bool,
             // style: PropTypes.node, // set position here (defaults to top right corner)
@@ -52,7 +51,7 @@ export default class Menu extends React.Component {
         };
 
         const shadowStyles = this.props.showShadow && {
-            ...styleConstants.regularShadow,
+            ...styleConstants.largeShadow,
         };
 
         return (
@@ -65,7 +64,10 @@ export default class Menu extends React.Component {
                 ]}>
                 <AnimateHeight
                     initialValue={0}
-                    finalValue={this.props.values.length * this.itemHeight}
+                    finalValue={
+                        this.props.values.length *
+                        (this.props.itemHeight ? this.props.itemHeight : 40)
+                    }
                     shouldAnimateIn>
                     <FlatList
                         keyExtractor={item => "menu" + item}
@@ -97,6 +99,7 @@ const styles = StyleSheet.create({
         top: 0,
         right: 0,
         backgroundColor: styleConstants.primary,
+        zIndex: 100,
     },
     menuItemsContainer: {},
     menuItemContainer: {
