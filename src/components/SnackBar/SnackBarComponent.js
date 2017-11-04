@@ -102,13 +102,12 @@ const styles = StyleSheet.create({
         bottom: 0,
         width: styleConstants.windowWidth,
         backgroundColor: styleConstants.primary,
-        borderTopWidth: 1,
-        borderTopColor: styleConstants.dividerColor,
         flexDirection: "row",
         justifyContent: "space-between",
         paddingVertical: 16,
         padding: 8,
         paddingRight: 32,
+        elevation: 100, // android elevation fix
     },
     messageContainer: {
         flex: 1,
