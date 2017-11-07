@@ -70,14 +70,12 @@ export default (Button = props => {
         </Touchable>
     );
 
-    return <View style={styles.container}>{button}</View>;
+    return button;
 });
 
 const styles = StyleSheet.create({
-    container: {
-        alignSelf: "stretch",
-    },
     button: {
+        alignSelf: "stretch",
         height: 56,
         flexDirection: "row",
         paddingHorizontal: 16,

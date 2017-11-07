@@ -13,6 +13,7 @@ export { default as InputContainer } from "./components/InputContainer";
 export { default as Label } from "./components/Label";
 export { default as LoadingText } from "./components/LoadingText";
 export { default as Menu } from "./components/Menu";
+export { default as MenuIcon } from "./components/MenuIcon";
 export { default as Modal } from "./components/Modal";
 export { default as Page } from "./components/Page";
 export { default as StarRating } from "./components/StarRating";

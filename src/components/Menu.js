@@ -54,6 +54,15 @@ export default class Menu extends React.Component {
             ...styleConstants.largeShadow,
         };
 
+        const separatorsHeight = this.props.showSeparator
+            ? this.props.values.length - 1
+            : 0;
+
+        const finalHeight =
+            this.props.values.length *
+                (this.props.itemHeight ? this.props.itemHeight : 40) +
+            separatorsHeight;
+
         return (
             <View
                 style={[
@@ -64,10 +73,7 @@ export default class Menu extends React.Component {
                 ]}>
                 <AnimateHeight
                     initialValue={0}
-                    finalValue={
-                        this.props.values.length *
-                        (this.props.itemHeight ? this.props.itemHeight : 40)
-                    }
+                    finalValue={finalHeight}
                     shouldAnimateIn>
                     <FlatList
                         keyExtractor={item => "menu" + item}

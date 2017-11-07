@@ -93,11 +93,15 @@ export default (HeaderBar = props => {
         <Touchable
             style={[styles.textContainer, textLeftStyles, textRightStyles]}
             onPress={props.handleTextPress}>
-            <Text style={[styles.text, props.textStyle]}>{props.text}</Text>
+            <Text style={[styles.text, props.textStyle]} numberOfLines={1}>
+                {props.text}
+            </Text>
         </Touchable>
     ) : !props.text ? null : (
         <View style={[styles.textContainer, textLeftStyles, textRightStyles]}>
-            <Text style={[styles.text, props.textStyle]}>{props.text}</Text>
+            <Text style={[styles.text, props.textStyle]} numberOfLines={1}>
+                {props.text}
+            </Text>
         </View>
     );
 
@@ -201,6 +205,7 @@ const styles = StyleSheet.create({
     text: {
         fontSize: styleConstants.regularFont,
         color: styleConstants.primaryText,
+        textAlign: "center",
     },
     rightIconContainer: {
         flex: 1,

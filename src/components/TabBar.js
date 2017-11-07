@@ -128,6 +128,7 @@ const styles = StyleSheet.create({
         fontSize: styleConstants.smallFont,
         color: styleConstants.secondaryText,
         marginTop: 2,
+        textAlign: "center",
     },
     disabled: {
         opacity: 0.33,
