@@ -1,6 +1,6 @@
 {
     "name": "react-native-simple-components",
-    "version": "1.1.4",
+    "version": "1.1.5",
     "description": "A collection of simple, reusable react-native components",
     "main": "index.js",
     "scripts": {
@@ -23,7 +23,7 @@
     "dependencies": {
         "prop-types": "^15.6.0",
         "react-native-keyboard-aware-scroll-view": "^0.3.0",
-        "react-native-simple-animators": "^1.0.1",
+        "react-native-simple-animators": "^1.0.4",
         "react-native-vector-icons": "^4.4.2"
     },
     "devDependencies": {
