@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
         width: 20,
         height: 20,
         borderRadius: 10,
+        overflow: "hidden",
         borderWidth: 0,
         backgroundColor: styleConstants.dividerColor,
     },

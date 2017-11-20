@@ -15,8 +15,6 @@ export default (HeaderBar = props => {
         statusBarStyle: PropTypes.string, // dark-content or light-content
         statusBarColor: PropTypes.string,
 
-        backButton: PropTypes.bool,
-        closeButton: PropTypes.bool,
         leftComponent: PropTypes.func,
         leftIconName: PropTypes.string,
         handleLeftIconPress: PropTypes.func,
@@ -27,8 +25,6 @@ export default (HeaderBar = props => {
         textRight: PropTypes.bool, // aligns text right
         handleTextPress: PropTypes.func,
 
-        addButton: PropTypes.bool,
-        continueButton: PropTypes.bool,
         rightComponent: PropTypes.func,
         rightIconName: PropTypes.string,
         handleRightIconPress: PropTypes.func,
@@ -53,24 +49,6 @@ export default (HeaderBar = props => {
             onPress={props.handleLeftIconPress}>
             <MaterialIcon
                 name={props.leftIconName}
-                style={[styles.leftIcon, props.leftIconStyle]}
-            />
-        </Touchable>
-    ) : props.backButton ? (
-        <Touchable
-            style={styles.leftIconContainer}
-            onPress={props.handleLeftIconPress}>
-            <MaterialIcon
-                name="chevron-left"
-                style={[styles.leftIcon, props.leftIconStyle]}
-            />
-        </Touchable>
-    ) : props.closeButton ? (
-        <Touchable
-            style={styles.leftIconContainer}
-            onPress={props.handleLeftIconPress}>
-            <MaterialIcon
-                name="close"
                 style={[styles.leftIcon, props.leftIconStyle]}
             />
         </Touchable>
@@ -116,28 +94,6 @@ export default (HeaderBar = props => {
                 style={[styles.rightIcon, props.rightIconStyle]}
             />
         </Touchable>
-    ) : props.addButton ? (
-        <Touchable
-            style={styles.rightIconContainer}
-            onPress={props.handleRightIconPress}>
-            <MaterialIcon
-                name="add"
-                style={[styles.rightIcon, props.rightIconStyle]}
-            />
-        </Touchable>
-    ) : props.continueButton ? (
-        <AnimateOpacity
-            initialValue={0}
-            finalValue={1}
-            shouldAnimateIn
-            style={styles.rightIconContainer}>
-            <Touchable onPress={props.handleRightIconPress}>
-                <MaterialIcon
-                    name="check"
-                    style={[styles.rightIcon, props.rightIconStyle]}
-                />
-            </Touchable>
-        </AnimateOpacity>
     ) : props.textRight ? null : (
         <View style={styles.rightIconContainer} />
     );

@@ -1,2 +1,10 @@
 TODOS   
+    Test ScrollHeader
     Tooltip
+    Update iOS shadows
+    TabBar overflow
+    Material floating labels on Input
+
+BUGS
+    Input multiline needs work in general
+        Especially with line height

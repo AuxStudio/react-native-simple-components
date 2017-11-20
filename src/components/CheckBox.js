@@ -38,6 +38,7 @@ export default function CheckBox(props) {
 const styles = StyleSheet.create({
     container: {
         borderRadius: 8,
+        overflow: "hidden",
         borderWidth: 1,
         borderColor: styleConstants.primaryText,
         width: 32,

@@ -99,7 +99,6 @@ export default (InputBar = props => {
 const styles = StyleSheet.create({
     container: {
         alignSelf: "stretch",
-        height: 56,
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "stretch",

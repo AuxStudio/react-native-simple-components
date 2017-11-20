@@ -37,8 +37,6 @@ class Home extends React.Component {
                     statusBarStyle='light-content' // or dark-content
                     statusBarColor='rgba(0,0,0,0.67)'
 
-                    backButton  // displays chevron-left icon
-                    closeButton={false} // displays close icon
                     leftIconName='menu'
                     leftComponent={null} // pass in custom component
                     handleLeftIconPress={/* some function */}
@@ -51,8 +49,6 @@ class Home extends React.Component {
                     handleTextPress={/* some function */)}
                     textStyle={null} // style fonts here
 
-                    addButton={false} // displays add icon
-                    continueButton  // displays check icon
                     rightComponent={null} // pass in custom component
                     rightIconName='search'
                     handleRightIconPress={/* some function */}
@@ -87,6 +83,8 @@ class Home extends React.Component {
 - [x] Modal             -   A modal that offers a dark transparent background and close icon out of the box.
 - [x] Page              -   A component that acts as a page wrapper (useful for passing in custom width and heights to your pages during responsive testing).
 - [x] StarRating        -   Renders a row of outlined or filled stars based on rating prop
+- [x] StarRatingInput   -   Renders a row of outlined or filled stars that are pressable and animate onPress with optional label text values
+- [x] StatusBarComponent-   Android and iOS friendly status bar 
 - [x] TabBar            -   A tab bar that accepts icons and label text.
 - [x] Touchable         -   A touchable component that renders the android ripple effect if specified and if on an Android device (used internally).
 - [x] TouchableIcon     -   A touchable icon. 

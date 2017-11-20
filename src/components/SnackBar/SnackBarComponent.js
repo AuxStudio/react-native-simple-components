@@ -125,6 +125,7 @@ const styles = StyleSheet.create({
         flex: 1,
         fontSize: styleConstants.regularFont,
         color: styleConstants.primaryText,
+        marginRight: 16,
     },
     retryButton: {
         flex: 0.25,

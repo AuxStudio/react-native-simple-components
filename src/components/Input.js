@@ -52,12 +52,13 @@ export default class Input extends React.Component {
             inputType: PropTypes.string, // password will render a show/hide password button
             keyboardType: PropTypes.string,
             autoFocus: PropTypes.bool,
-            multiline: PropTypes.bool, // will autogrow based on contents
+            multiline: PropTypes.bool, // will autogrow based on contents (using react-native-autogrow-textinput)
             maxCharacterCount: PropTypes.number, // will render character count text if supplied
             showDeleteButton: PropTypes.bool, // if supplied, will render a delete button to clear the input
             returnKeyType: PropTypes.string,
 
             // labelTextStyle: PropTypes.node,
+            // labelContainerStyle: PropTypes.node,
             // deleteButtonStyle: PropTypes.node,
             // deleteButtonIconStyle: PropTypes.node,
             // characterCountTextStyle: PropTypes.node,
@@ -208,7 +209,11 @@ export default class Input extends React.Component {
         return (
             <TouchableWithoutFeedback onPress={() => this.refs.input.focus()}>
                 <View style={styles.inputWrapper}>
-                    <View style={styles.inputLabelContainer}>
+                    <View
+                        style={[
+                            styles.inputLabelContainer,
+                            this.props.labelContainerStyle,
+                        ]}>
                         {label}
                         {togglePasswordButton}
                         {characterCount}
@@ -252,7 +257,6 @@ export default class Input extends React.Component {
 
 const styles = StyleSheet.create({
     inputWrapper: {
-        marginVertical: 16,
         alignSelf: "stretch",
     },
     inputLabelContainer: {
