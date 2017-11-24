@@ -15,17 +15,17 @@ export default (HeaderBar = props => {
         statusBarStyle: PropTypes.string, // dark-content or light-content
         statusBarColor: PropTypes.string,
 
-        leftComponent: PropTypes.func,
+        leftComponent: PropTypes.node,
         leftIconName: PropTypes.string,
         handleLeftIconPress: PropTypes.func,
 
-        textComponent: PropTypes.func,
+        textComponent: PropTypes.node,
         text: PropTypes.string,
         textLeft: PropTypes.bool, // aligns text left
         textRight: PropTypes.bool, // aligns text right
         handleTextPress: PropTypes.func,
 
-        rightComponent: PropTypes.func,
+        rightComponent: PropTypes.node,
         rightIconName: PropTypes.string,
         handleRightIconPress: PropTypes.func,
 
@@ -38,7 +38,7 @@ export default (HeaderBar = props => {
     const showShadowStyles = props.showShadow && styleConstants.regularShadow;
 
     const leftIcon = props.leftComponent ? (
-        <View style={styles.leftIconContainer}>{props.leftComponent()}</View>
+        <View style={styles.leftIconContainer}>{props.leftComponent}</View>
     ) : props.leftIconName ? (
         <Touchable
             style={
@@ -66,7 +66,7 @@ export default (HeaderBar = props => {
     const textRightStyles = props.textRight ? { alignItems: "flex-end" } : null;
 
     const text = props.textComponent ? (
-        props.textComponent()
+        props.textComponent
     ) : props.handleTextPress ? (
         <Touchable
             style={[styles.textContainer, textLeftStyles, textRightStyles]}
@@ -84,7 +84,7 @@ export default (HeaderBar = props => {
     );
 
     const rightIcon = props.rightComponent ? (
-        <View style={styles.rightIconContainer}>{props.rightComponent()}</View>
+        <View style={styles.rightIconContainer}>{props.rightComponent}</View>
     ) : props.rightIconName ? (
         <Touchable
             style={styles.rightIconContainer}
