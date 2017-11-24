@@ -41,6 +41,10 @@ export default class SnackBarComponent extends React.Component {
         this.setState({
             hideSnackBar: true,
         });
+
+        setTimeout(() => {
+            this.props.handleClose && this.props.handleClose();
+        }, 250);
     }
 
     render() {
