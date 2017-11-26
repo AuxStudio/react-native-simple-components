@@ -15,6 +15,7 @@ export default (Touchable = props => {
         androidRippleColor: PropTypes.string,
         androidRippleBorderless: PropTypes.bool, // android ripple will extend beyond object boundaries
         onPress: PropTypes.func.isRequired,
+        onLongPress: PropTypes.func,
         disableFeedback: PropTypes.bool, // will render TouchableWithoutFeedback
         children: PropTypes.node,
         // style: PropTypes.node,
@@ -25,6 +26,7 @@ export default (Touchable = props => {
         props.androidRipple && Platform.OS === "android" ? (
             <TouchableNativeFeedback
                 onPress={props.onPress}
+                onLongPress={props.onLongPress}
                 background={TouchableNativeFeedback.Ripple(
                     props.androidRippleColor,
                     props.androidRippleBorderless
@@ -32,11 +34,16 @@ export default (Touchable = props => {
                 <View style={props.style}>{props.children}</View>
             </TouchableNativeFeedback>
         ) : props.disableFeedback ? (
-            <TouchableWithoutFeedback onPress={props.onPress}>
+            <TouchableWithoutFeedback
+                onPress={props.onPress}
+                onLongPress={props.onLongPress}>
                 <View style={props.style}>{props.children}</View>
             </TouchableWithoutFeedback>
         ) : (
-            <TouchableOpacity onPress={props.onPress} style={props.style}>
+            <TouchableOpacity
+                onPress={props.onPress}
+                onLongPress={props.onLongPress}
+                style={props.style}>
                 {props.children}
             </TouchableOpacity>
         );

@@ -13,6 +13,7 @@ export default (TouchableIcon = props => {
         iconName: PropTypes.string.isRequired,
         customIcon: PropTypes.node,
         handlePress: PropTypes.func.isRequired,
+        handleLongPress: PropTypes.func,
         disabled: PropTypes.string,
 
         // style: PropTypes.node,
@@ -38,6 +39,7 @@ export default (TouchableIcon = props => {
     ) : (
         <Touchable
             onPress={props.handlePress}
+            onLongPress={props.handleLongPress}
             style={[styles.button, props.style]}>
             {icon}
         </Touchable>

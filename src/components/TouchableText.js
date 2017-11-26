@@ -11,6 +11,7 @@ export default (TouchableText = props => {
 
         text: PropTypes.string.isRequired,
         handlePress: PropTypes.func.isRequired,
+        handleLongPress: PropTypes.func,
         disabled: PropTypes.string,
         isLink: PropTypes.bool,
 
@@ -35,6 +36,7 @@ export default (TouchableText = props => {
     ) : (
         <Touchable
             onPress={props.handlePress}
+            onLongPress={props.handleLongPress}
             style={[styles.button, props.style]}>
             <Text style={[styles.text, linkStyles, props.textStyle]}>
                 {props.text}
