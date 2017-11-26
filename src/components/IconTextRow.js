@@ -38,7 +38,6 @@ export default function IconTextRow(props) {
 const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
-        justifyContent: "space-between",
         borderBottomWidth: 1,
         borderBottomColor: styleConstants.dividerColor,
         paddingVertical: 16,
@@ -48,9 +47,12 @@ const styles = StyleSheet.create({
         fontSize: styleConstants.iconFont,
         color: styleConstants.primaryText,
     },
-    textContainer: {},
+    textContainer: {
+        flex: 1,
+    },
     text: {
         fontSize: styleConstants.regularFont,
         color: styleConstants.primaryText,
+        textAlign: "right",
     },
 });
