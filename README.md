@@ -73,6 +73,7 @@ class Home extends React.Component {
 - [x] CountIcon         -   A small notification type icon that contains a count value.
 - [x] DeleteButton      -   A small close button (used internally).
 - [x] HeaderBar         -   A header component that accepts status bar styles, text and left and right icons.
+- [x] IconTextRow       -   A row with icon and text justified with space-between
 - [x] InfoBlock         -   A common title and description patterned component.
 - [x] Input             -   A text input component with all the bells and whistles.
 - [x] InputBar          -   A combination of the Input and HeaderBar components that can be used as a search/chat input bar.
@@ -82,6 +83,7 @@ class Home extends React.Component {
 - [x] Menu              -   A menu that animates in height.
 - [x] Modal             -   A modal that offers a dark transparent background and close icon out of the box.
 - [x] Page              -   A component that acts as a page wrapper (useful for passing in custom width and heights to your pages during responsive testing).
+- [x] ScrollHeader      -   An awesome image and tab bar header that animates into a HeaderBar on scroll (see it's props - TESTING)
 - [x] StarRating        -   Renders a row of outlined or filled stars based on rating prop
 - [x] StarRatingInput   -   Renders a row of outlined or filled stars that are pressable and animate onPress with optional label text values
 - [x] StatusBarComponent-   Android and iOS friendly status bar 
