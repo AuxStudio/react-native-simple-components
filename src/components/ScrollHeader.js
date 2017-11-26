@@ -139,6 +139,11 @@ export default class ScrollHeader extends React.Component {
     }
 
     render() {
+        const imageURL =
+            typeof this.props.imageURL === "number"
+                ? this.props.imageURL
+                : { uri: this.props.imageURL };
+
         const headerScrollDistance =
             this.props.maxHeaderHeight - this.state.minHeaderHeight;
 
@@ -195,7 +200,7 @@ export default class ScrollHeader extends React.Component {
             extrapolate: "clamp",
         });
 
-        const headerTextComponent = () => (
+        const headerTextComponent = (
             <View style={styles.headerTextContainer}>
                 <Animated.Text
                     style={[styles.headerText, { opacity: textOpacity }]}
@@ -226,7 +231,7 @@ export default class ScrollHeader extends React.Component {
                         { height: headerHeight, backgroundColor },
                     ]}>
                     <Animated.Image
-                        source={{ uri: this.props.imageURL }}
+                        source={imageURL}
                         style={[
                             styles.coverPhoto,
                             {
