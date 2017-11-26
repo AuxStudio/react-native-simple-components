@@ -50,6 +50,7 @@ export default class ScrollHeader extends React.Component {
             handleHeaderLeftIconPress: PropTypes.func,
             headerText: PropTypes.string,
             //headerTextStyle: PropTypes.node,
+            //headerTextContainerStyle: PropTypes.node,
             textLeft: PropTypes.bool,
             handleHeaderTextPress: PropTypes.func,
             headerRightIconName: PropTypes.string,
@@ -139,11 +140,6 @@ export default class ScrollHeader extends React.Component {
     }
 
     render() {
-        const imageURL =
-            typeof this.props.imageURL === "number"
-                ? this.props.imageURL
-                : { uri: this.props.imageURL };
-
         const headerScrollDistance =
             this.props.maxHeaderHeight - this.state.minHeaderHeight;
 
@@ -201,9 +197,17 @@ export default class ScrollHeader extends React.Component {
         });
 
         const headerTextComponent = (
-            <View style={styles.headerTextContainer}>
+            <View
+                style={[
+                    styles.headerTextContainer,
+                    this.props.headerTextContainerStyle,
+                ]}>
                 <Animated.Text
-                    style={[styles.headerText, { opacity: textOpacity }]}
+                    style={[
+                        styles.headerText,
+                        this.props.headerTextStyle,
+                        { opacity: textOpacity },
+                    ]}
                     numberOfLines={1}>
                     {this.props.headerText}
                 </Animated.Text>
@@ -231,7 +235,7 @@ export default class ScrollHeader extends React.Component {
                         { height: headerHeight, backgroundColor },
                     ]}>
                     <Animated.Image
-                        source={imageURL}
+                        source={this.props.imageURL}
                         style={[
                             styles.coverPhoto,
                             {
@@ -256,7 +260,6 @@ export default class ScrollHeader extends React.Component {
                         rightIconStyle={this.props.headerRightIconStyle}
                         style={this.props.headerStyle}
                         textComponent={headerTextComponent}
-                        textLeft={this.props.textLeft}
                     />
                 </Animated.View>
                 <Animated.View
@@ -348,8 +351,7 @@ const styles = StyleSheet.create({
     },
     headerText: {
         fontSize: styleConstants.regularFont,
-        color: styleConstants.white,
-        ...styleConstants.primaryFont,
+        color: styleConstants.primaryText,
     },
     coverPhoto: {
         position: "absolute",
