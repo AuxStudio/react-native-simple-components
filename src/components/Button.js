@@ -12,6 +12,7 @@ export default (Button = props => {
 
         iconName: PropTypes.string,
         customIcon: PropTypes.node, 
+        iconRight: PropTypes.bool,
         text: PropTypes.string.isRequired,
         textLeft: PropTypes.bool, // moves text left
         handlePress: PropTypes.func.isRequired,
@@ -29,12 +30,19 @@ export default (Button = props => {
     const textLeftContainerStyles = props.textLeft && styles.textLeftContainer;
     const textLeftIconStyles = props.textLeft && styles.textLeftIcon;
 
+    const iconRightStyles = props.iconRight && styles.iconRight;
+
     const icon = props.customIcon ? (
         props.customIcon
     ) : props.iconName ? (
         <MaterialIcon
             name={props.iconName}
-            style={[styles.icon, textLeftIconStyles, props.iconStyle]}
+            style={[
+                styles.icon,
+                textLeftIconStyles,
+                iconRightStyles,
+                props.iconStyle,
+            ]}
         />
     ) : null;
 
@@ -94,6 +102,10 @@ const styles = StyleSheet.create({
         left: 16,
         fontSize: styleConstants.iconFont,
         color: styleConstants.primaryText,
+    },
+    iconRight: {
+        left: "auto",
+        right: 16,
     },
     textLeftIcon: {
         position: "relative",
