@@ -14,7 +14,7 @@ export default class SnackBarComponent extends React.Component {
 
         this.hideSnackBar = this.hideSnackBar.bind(this);
 
-        this.height = 81;
+        this.height = 80; // use max height in case
 
         this.state = {
             hideSnackBar: false,
@@ -26,15 +26,26 @@ export default class SnackBarComponent extends React.Component {
             iconName: PropTypes.string,
             customIcon: PropTypes.node,
             text: PropTypes.string,
-            handleClose: PropTypes.func.isRequired,
+            actionText: PropTypes.string,
+            showCloseButton: PropTypes.bool,
+            handleClose: PropTypes.func,
             handleRetry: PropTypes.func,
+            handleAction: PropTypes.func,
 
             // iconStyle: PropTypes.node,
             // textStyle: PropTypes.node,
             // retryTextStyle: PropTypes.node,
+            // actionTextStyle: PropTypes.node,
             // closeIconStyle: PropTypes.node,
             // containerStyle: PropTypes.node,
         };
+    }
+
+    componentDidMount() {
+        // Auto hide snack bar
+        // setTimeout(() => {
+        //     this.hideSnackBar();
+        // }, 1500);
     }
 
     hideSnackBar() {
@@ -57,14 +68,34 @@ export default class SnackBarComponent extends React.Component {
             />
         ) : null;
 
-        const retryButton = this.props.handleRetry && (
+        const actionButton = (this.props.handleRetry ||
+            (this.props.actionText && this.props.handleAction)) && (
             <Touchable
-                onPress={this.props.handleRetry}
-                style={styles.retryButton}>
+                onPress={
+                    this.props.handleRetry
+                        ? this.props.handleRetry
+                        : this.props.handleAction
+                }
+                style={styles.actionButton}>
                 <Text
-                    style={[styles.retryButtonText, this.props.retryTextStyle]}>
-                    RETRY
+                    style={[
+                        styles.actionButtonText,
+                        this.props.retryTextStyle,
+                        this.props.actionTextStyle,
+                    ]}>
+                    {this.props.actionText ? this.props.actionText : "RETRY"}
                 </Text>
+            </Touchable>
+        );
+
+        const closeButton = this.props.showCloseButton && (
+            <Touchable
+                onPress={this.hideSnackBar}
+                style={styles.closeIconContainer}>
+                <MaterialIcon
+                    name="close"
+                    style={[styles.closeIcon, this.props.closeIconStyle]}
+                />
             </Touchable>
         );
 
@@ -80,21 +111,13 @@ export default class SnackBarComponent extends React.Component {
                     <View style={styles.iconContainer}>{icon}</View>
                     <View style={styles.messageTextContainer}>
                         <Text
-                            style={[styles.messageText, this.props.textStyle]}
-                            multiline>
+                            style={[styles.messageText, this.props.textStyle]}>
                             {this.props.text}
                         </Text>
-                        {retryButton}
+                        {actionButton}
                     </View>
                 </View>
-                <Touchable
-                    onPress={this.hideSnackBar}
-                    style={styles.closeIconContainer}>
-                    <MaterialIcon
-                        name="close"
-                        style={[styles.closeIcon, this.props.closeIconStyle]}
-                    />
-                </Touchable>
+                {closeButton}
             </AnimateTranslateY>
         );
     }
@@ -105,13 +128,13 @@ const styles = StyleSheet.create({
         position: "absolute",
         bottom: 0,
         width: styleConstants.windowWidth,
-        backgroundColor: styleConstants.primary,
+        backgroundColor: "#323232",
         flexDirection: "row",
         justifyContent: "space-between",
-        paddingVertical: 16,
-        padding: 8,
-        paddingRight: 32,
+        paddingHorizontal: 16,
         elevation: 100, // android elevation fix
+        minHeight: 48,
+        maxHeight: 80,
     },
     messageContainer: {
         flex: 1,
@@ -123,20 +146,18 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "row",
         justifyContent: "space-between",
-        marginRight: 8,
     },
     messageText: {
         flex: 1,
         fontSize: styleConstants.regularFont,
         color: styleConstants.primaryText,
-        marginRight: 16,
+        marginRight: 32,
     },
-    retryButton: {
-        flex: 0.25,
+    actionButton: {
         justifyContent: "center",
         alignItems: "flex-end",
     },
-    retryButtonText: {
+    actionButtonText: {
         fontSize: styleConstants.regularFont,
         color: styleConstants.secondaryText,
     },

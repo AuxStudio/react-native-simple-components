@@ -7,15 +7,19 @@ export default (SnackBar = props => {
     /*
         static get propTypes() {
             return {
-                iconName: PropTypes.string, // name of icon to display (if any)
+                iconName: PropTypes.string, // name of icon to display (if any) (does not follow material guidelines)
                 customIcon: PropTypes.node, // pass in custom icon
                 text: PropTypes.string.isRequired, // text to display
-                handleClose: PropTypes.func.isRequired, // handle close
+                showCloseButton: PropTypes.bool, // display close button in top right corner (does not follow material guidelines)
+                handleClose: PropTypes.func, // handle close
                 handleRetry: PropTypes.func, // if supplied, will offer a retry action button
+                actionText: PropTypes.string, 
+                handleAction: PropTypes.func,
 
                 // iconStyle: PropTypes.node,
                 // textStyle: PropTypes.node,
                 // retryTextStyle: PropTypes.node,
+                // actionTextStyle: PropTypes.node,
                 // closeIconStyle: PropTypes.node,
                 // containerStyle: PropTypes.node, // backgroundColor etc
             };
@@ -28,11 +32,14 @@ export default (SnackBar = props => {
                 iconName={props.iconName}
                 customIcon={props.customIcon}
                 text={props.text}
+                actionText={props.actionText}
                 handleClose={props.handleClose}
                 handleRetry={props.handleRetry}
+                handleAction={props.handleAction}
                 iconStyle={props.iconStyle}
                 textStyle={props.textStyle}
                 retryTextStyle={props.retryTextStyle}
+                actionTextStyle={props.actionTextStyle}
                 closeIconStyle={props.closeIconStyle}
                 containerStyle={props.containerStyle}
             />
