@@ -15,6 +15,8 @@ export default (SnackBar = props => {
                 handleRetry: PropTypes.func, // if supplied, will offer a retry action button
                 actionText: PropTypes.string, 
                 handleAction: PropTypes.func,
+                shouldAutoHide: PropTypes.bool,
+                autoHideDuration: PropTypes.number,
 
                 // iconStyle: PropTypes.node,
                 // textStyle: PropTypes.node,
@@ -36,6 +38,8 @@ export default (SnackBar = props => {
                 handleClose={props.handleClose}
                 handleRetry={props.handleRetry}
                 handleAction={props.handleAction}
+                shouldAutoHide={props.shouldAutoHide}
+                autoHideDuration={props.autoHideDuration}
                 iconStyle={props.iconStyle}
                 textStyle={props.textStyle}
                 retryTextStyle={props.retryTextStyle}

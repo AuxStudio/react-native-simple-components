@@ -31,6 +31,8 @@ export default class SnackBarComponent extends React.Component {
             handleClose: PropTypes.func,
             handleRetry: PropTypes.func,
             handleAction: PropTypes.func,
+            shouldAutoHide: PropTypes.bool,
+            autoHideDuration: PropTypes.number,
 
             // iconStyle: PropTypes.node,
             // textStyle: PropTypes.node,
@@ -41,11 +43,17 @@ export default class SnackBarComponent extends React.Component {
         };
     }
 
+    static defaultProps = {
+        autoHideDuration: 1500,
+    };
+
     componentDidMount() {
         // Auto hide snack bar
-        setTimeout(() => {
-            this.hideSnackBar();
-        }, 1500);
+        if (this.props.shouldAutoHide) {
+            setTimeout(() => {
+                this.hideSnackBar();
+            }, this.props.autoHideDuration);
+        }
     }
 
     hideSnackBar() {
