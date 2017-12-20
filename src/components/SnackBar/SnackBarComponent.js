@@ -43,9 +43,9 @@ export default class SnackBarComponent extends React.Component {
 
     componentDidMount() {
         // Auto hide snack bar
-        // setTimeout(() => {
-        //     this.hideSnackBar();
-        // }, 1500);
+        setTimeout(() => {
+            this.hideSnackBar();
+        }, 1500);
     }
 
     hideSnackBar() {
