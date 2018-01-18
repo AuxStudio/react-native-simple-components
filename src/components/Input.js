@@ -311,7 +311,6 @@ const styles = StyleSheet.create({
         color: styleConstants.secondaryText,
     },
     input: {
-        marginTop: 16,
         fontSize: styleConstants.regularFont,
         color: styleConstants.primaryText,
         paddingLeft: 0,
