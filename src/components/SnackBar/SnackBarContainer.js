@@ -46,6 +46,7 @@ export default (SnackBar = props => {
                 actionTextStyle={props.actionTextStyle}
                 closeIconStyle={props.closeIconStyle}
                 containerStyle={props.containerStyle}
+                showCloseButton={props.showCloseButton}
             />
         </View>
     );
