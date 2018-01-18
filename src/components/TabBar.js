@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, ScrollView, Text, StyleSheet } from "react-native";
 
 import styleConstants from "../assets/styleConstants";
 
@@ -13,6 +13,8 @@ export default (TabBar = props => {
         tabs: PropTypes.array.isRequired, eg. [{title: 'Home', iconName: 'home', customIcon: PropTypes.node, disabled: false}]
         activeTab: PropTypes.string,
         handleTabPress: PropTypes.func,
+        shouldScrollHorizontally: PropTypes.bool,
+        tabWidth: PropTypes.number, // works with above prop
 
         showShadow: PropTypes.bool,
         textColor: PropTypes.node, // both icons and text
@@ -68,6 +70,9 @@ export default (TabBar = props => {
                     style={[
                         styles.tabContainer,
                         styles.disabled,
+                        {
+                            width: props.tabWidth,
+                        },
                         props.tabStyle,
                         props.disabledStyle,
                     ]}
@@ -80,6 +85,9 @@ export default (TabBar = props => {
                     onPress={() => props.handleTabPress(value.title)}
                     style={[
                         styles.tabContainer,
+                        {
+                            width: props.tabWidth,
+                        },
                         props.tabStyle,
                         activeTabStyle,
                     ]}
@@ -96,14 +104,30 @@ export default (TabBar = props => {
         ...styleConstants.regularShadow,
     };
 
-    return (
+    const tabBar = props.shouldScrollHorizontally ? (
+        <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            style={[styles.scrollWrapper, shadowStyles]}
+            contentContainerStyle={[styles.scrollContainer, props.style]}>
+            {tabs}
+        </ScrollView>
+    ) : (
         <View style={[styles.container, shadowStyles, props.style]}>
             {tabs}
         </View>
     );
+
+    return tabBar;
 });
 
 const styles = StyleSheet.create({
+    scrollWrapper: {
+        maxHeight: 56,
+    },
+    scrollContainer: {
+        height: 56,
+    },
     container: {
         height: 56,
         flexDirection: "row",
