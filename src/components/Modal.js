@@ -12,10 +12,25 @@ export default (ModalComponent = props => {
 
         handleClose: PropTypes.func.isRequired
         children: PropTypes.node,
+        showCloseIcon: PropTypes.bool,
 
         // style: PropTypes.node,
         // closeIconStyle: PropTypes.node,
     */
+
+    const closeIcon = props.showCloseIcon && (
+        <View
+            style={[styles.closeIconContainer, props.closeIconContainerStyle]}>
+            <Touchable
+                onPress={props.handleClose}
+                style={styles.closeIconButton}>
+                <MaterialIcon
+                    name="close"
+                    style={[styles.closeIcon, props.closeIconStyle]}
+                />
+            </Touchable>
+        </View>
+    );
 
     return (
         <View>
@@ -28,16 +43,7 @@ export default (ModalComponent = props => {
                     <View style={[styles.container, props.style]}>
                         {props.children}
                     </View>
-                    <View style={styles.closeIconContainer}>
-                        <Touchable
-                            onPress={props.handleClose}
-                            style={styles.closeIconButton}>
-                            <MaterialIcon
-                                name="close"
-                                style={[styles.closeIcon, props.closeIconStyle]}
-                            />
-                        </Touchable>
-                    </View>
+                    {closeIcon}
                 </View>
             </Modal>
         </View>

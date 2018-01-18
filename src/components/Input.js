@@ -13,6 +13,7 @@ import styleConstants from "../assets/styleConstants";
 
 import {
     AnimateTranslateX,
+    AnimateTranslateY,
     AnimateOpacity,
 } from "react-native-simple-animators";
 import Touchable from "./Touchable";
@@ -36,12 +37,14 @@ export default class Input extends React.Component {
             showCharacterCount: false,
             hidePassword: true,
             inputHeight: this.minimumInputHeight,
+            floatPlaceholder: false,
         };
     }
 
     static get propTypes() {
         return {
             labelText: PropTypes.string, // if supplied, will render a label
+            floatPlaceholder: PropTypes.bool, // will float the placeholder text on input focus (material design pattern)
             placeholder: PropTypes.string,
             placeholderTextColor: PropTypes.string,
             value: PropTypes.string,
@@ -64,6 +67,7 @@ export default class Input extends React.Component {
             // characterCountTextStyle: PropTypes.node,
             // togglePasswordTextStyle: PropTypes.node,
             // style: PropTypes.node,
+            // placeholderTextStyle: PropTypes.node, // only if floatPlaceholder supplied
         };
     }
 
@@ -81,7 +85,7 @@ export default class Input extends React.Component {
             const inputHeight = this.getInputHeight(
                 styleConstants.windowWidth - 32, // TODO: this is not dynamic
                 styleConstants.regularFont,
-                this.props.value.length * 1.1 // 1.1, 1.2 still gives same result (necessary though)
+                this.props.value.length * 1.1, // 1.1, 1.2 still gives same result (necessary though)
             );
 
             this.setInputHeight(inputHeight);
@@ -92,6 +96,7 @@ export default class Input extends React.Component {
         this.setState({
             showTogglePasswordButton: true,
             showCharacterCount: true,
+            floatPlaceholder: this.props.floatPlaceholder,
         });
 
         this.props.handleFocus && this.props.handleFocus();
@@ -101,6 +106,7 @@ export default class Input extends React.Component {
         this.setState({
             showTogglePasswordButton: this.props.value,
             showCharacterCount: this.props.value,
+            floatPlaceholder: this.props.value ? true : false,
         });
 
         this.props.handleBlur && this.props.handleBlur();
@@ -206,6 +212,29 @@ export default class Input extends React.Component {
                 </AnimateOpacity>
             ) : null;
 
+        // TODO: check positioning android
+        const placeholderText = this.props.floatPlaceholder && (
+            <AnimateTranslateY
+                initialValue={0}
+                finalValue={-24}
+                shouldAnimateIn={this.state.floatPlaceholder}
+                shouldAnimateOut={!this.state.floatPlaceholder}
+                style={styles.placeholderTextContainer}>
+                <Text
+                    style={[
+                        styles.placeholderText,
+                        { color: this.props.placeholderTextColor },
+                        this.props.placeholderTextStyle,
+                    ]}>
+                    {this.props.placeholder}
+                </Text>
+            </AnimateTranslateY>
+        );
+
+        const marginTopStyles = this.props.floatPlaceholder && {
+            marginTop: 16,
+        };
+
         return (
             <TouchableWithoutFeedback onPress={() => this.refs.input.focus()}>
                 <View style={styles.inputWrapper}>
@@ -218,13 +247,27 @@ export default class Input extends React.Component {
                         {togglePasswordButton}
                         {characterCount}
                     </View>
+                    {placeholderText}
                     <TextInput
                         ref="input"
-                        placeholder={this.props.placeholder}
-                        placeholderTextColor={this.props.placeholderTextColor}
+                        placeholder={
+                            !this.props.floatPlaceholder
+                                ? this.props.placeholder
+                                : null
+                        }
+                        placeholderTextColor={
+                            !this.props.floatPlaceholder
+                                ? this.props.placeholderTextColor
+                                : null
+                        }
                         value={this.props.value ? this.props.value : ""}
                         underlineColorAndroid="transparent"
-                        style={[styles.input, inputStyles, this.props.style]}
+                        style={[
+                            styles.input,
+                            inputStyles,
+                            marginTopStyles,
+                            this.props.style,
+                        ]}
                         onChangeText={text => this.props.handleChange(text)}
                         onSubmitEditing={this.props.handleSubmit}
                         onFocus={this.focusInput}
@@ -243,7 +286,7 @@ export default class Input extends React.Component {
                         maxLength={this.props.maxCharacterCount}
                         onContentSizeChange={event => {
                             this.setInputHeight(
-                                event.nativeEvent.contentSize.height
+                                event.nativeEvent.contentSize.height,
                             );
                         }}
                         returnKeyType={this.props.returnKeyType}
@@ -268,6 +311,7 @@ const styles = StyleSheet.create({
         color: styleConstants.secondaryText,
     },
     input: {
+        marginTop: 16,
         fontSize: styleConstants.regularFont,
         color: styleConstants.primaryText,
         paddingLeft: 0,
@@ -296,6 +340,16 @@ const styles = StyleSheet.create({
     },
     characterCountText: {
         fontSize: styleConstants.smallFont,
+        color: styleConstants.secondaryText,
+    },
+
+    placeholderTextContainer: {
+        position: "absolute",
+        top: 28,
+        left: 0,
+    },
+    placeholderText: {
+        fontSize: 14,
         color: styleConstants.secondaryText,
     },
 });
