@@ -44,7 +44,7 @@ export default class SnackBarComponent extends React.Component {
     }
 
     static defaultProps = {
-        autoHideDuration: 1500,
+        autoHideDuration: 2000,
     };
 
     componentDidMount() {
@@ -63,7 +63,7 @@ export default class SnackBarComponent extends React.Component {
 
         setTimeout(() => {
             this.props.handleClose && this.props.handleClose();
-        }, 250);
+        }, 500);
     }
 
     render() {
