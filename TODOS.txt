@@ -2,9 +2,11 @@ TODOS
     Use correct style propTypes
     Tooltip
     Update iOS shadows
-    TabBar overflow
-    Material floating labels on Input
-
-BUGS
-    Input multiline needs work in general
-        Especially with line height
+    Image component with loading and error management
+    HeaderBar/Custom components should not have containers
+    ScrollHeader/Can accept custom image component
+    Modal/Stylable close icon
+    All Touchables have long press
+    SnackBar can take icon name, success from error object
+    SnackBar/Close X hit space
+    READ ALL RN DOCS FOR ENHANCEMENTS
