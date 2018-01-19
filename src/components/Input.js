@@ -13,7 +13,6 @@ import styleConstants from "../assets/styleConstants";
 
 import {
     AnimateTranslateX,
-    AnimateTranslateY,
     AnimateOpacity,
 } from "react-native-simple-animators";
 import Touchable from "./Touchable";
@@ -27,24 +26,17 @@ export default class Input extends React.Component {
         this.blurInput = this.blurInput.bind(this);
         this.clearInputText = this.clearInputText.bind(this);
         this.togglePassword = this.togglePassword.bind(this);
-        this.getInputHeight = this.getInputHeight.bind(this);
-        this.setInputHeight = this.setInputHeight.bind(this);
-
-        this.minimumInputHeight = 45.5;
 
         this.state = {
             showTogglePasswordButton: false,
             showCharacterCount: false,
             hidePassword: true,
-            inputHeight: this.minimumInputHeight,
-            floatPlaceholder: false,
         };
     }
 
     static get propTypes() {
         return {
             labelText: PropTypes.string, // if supplied, will render a label
-            floatPlaceholder: PropTypes.bool, // will float the placeholder text on input focus (material design pattern)
             placeholder: PropTypes.string,
             placeholderTextColor: PropTypes.string,
             value: PropTypes.string,
@@ -67,7 +59,6 @@ export default class Input extends React.Component {
             // characterCountTextStyle: PropTypes.node,
             // togglePasswordTextStyle: PropTypes.node,
             // style: PropTypes.node,
-            // placeholderTextStyle: PropTypes.node, // only if floatPlaceholder supplied
         };
     }
 
@@ -78,25 +69,12 @@ export default class Input extends React.Component {
                 showCharacterCount: true,
             });
         }
-
-        // When our input has just received it's value after mounting
-        if (!prevProps.value && this.props.value && this.props.multiline) {
-            // Use utils to get input height based on inputWidth, fontSize and charCount
-            const inputHeight = this.getInputHeight(
-                styleConstants.windowWidth - 32, // TODO: this is not dynamic
-                styleConstants.regularFont,
-                this.props.value.length * 1.1, // 1.1, 1.2 still gives same result (necessary though)
-            );
-
-            this.setInputHeight(inputHeight);
-        }
     }
 
     focusInput() {
         this.setState({
             showTogglePasswordButton: true,
             showCharacterCount: true,
-            floatPlaceholder: this.props.floatPlaceholder,
         });
 
         this.props.handleFocus && this.props.handleFocus();
@@ -106,7 +84,6 @@ export default class Input extends React.Component {
         this.setState({
             showTogglePasswordButton: this.props.value,
             showCharacterCount: this.props.value,
-            floatPlaceholder: this.props.value ? true : false,
         });
 
         this.props.handleBlur && this.props.handleBlur();
@@ -115,7 +92,6 @@ export default class Input extends React.Component {
     clearInputText() {
         this.refs.input.focus();
         this.props.handleChange("");
-        this.setInputHeight(0);
     }
 
     togglePassword() {
@@ -124,32 +100,7 @@ export default class Input extends React.Component {
         });
     }
 
-    getInputHeight(inputWidth, inputLineHeight, charCount) {
-        const charsPerLine = Math.floor(inputWidth / inputLineHeight);
-        const numberOfLines = Math.ceil(charCount / charsPerLine);
-        const inputHeight = Math.ceil(numberOfLines * inputLineHeight);
-
-        return inputHeight;
-    }
-
-    setInputHeight(newInputHeight) {
-        if (newInputHeight > this.minimumInputHeight) {
-            this.setState({
-                inputHeight: newInputHeight,
-            });
-        } else if (newInputHeight <= this.minimumInputHeight) {
-            // If an input was cleared
-            this.setState({
-                inputHeight: this.minimumInputHeight,
-            });
-        }
-    }
-
     render() {
-        const inputStyles = {
-            height: this.state.inputHeight,
-        };
-
         const label = this.props.labelText ? (
             <Text style={[styles.inputLabelText, this.props.labelTextStyle]}>
                 {this.props.labelText}
@@ -212,29 +163,6 @@ export default class Input extends React.Component {
                 </AnimateOpacity>
             ) : null;
 
-        // TODO: check positioning android
-        const placeholderText = this.props.floatPlaceholder && (
-            <AnimateTranslateY
-                initialValue={0}
-                finalValue={-24}
-                shouldAnimateIn={this.state.floatPlaceholder}
-                shouldAnimateOut={!this.state.floatPlaceholder}
-                style={styles.placeholderTextContainer}>
-                <Text
-                    style={[
-                        styles.placeholderText,
-                        { color: this.props.placeholderTextColor },
-                        this.props.placeholderTextStyle,
-                    ]}>
-                    {this.props.placeholder}
-                </Text>
-            </AnimateTranslateY>
-        );
-
-        const marginTopStyles = this.props.floatPlaceholder && {
-            marginTop: 16,
-        };
-
         return (
             <TouchableWithoutFeedback onPress={() => this.refs.input.focus()}>
                 <View style={styles.inputWrapper}>
@@ -247,27 +175,13 @@ export default class Input extends React.Component {
                         {togglePasswordButton}
                         {characterCount}
                     </View>
-                    {placeholderText}
                     <TextInput
                         ref="input"
-                        placeholder={
-                            !this.props.floatPlaceholder
-                                ? this.props.placeholder
-                                : null
-                        }
-                        placeholderTextColor={
-                            !this.props.floatPlaceholder
-                                ? this.props.placeholderTextColor
-                                : null
-                        }
+                        placeholder={this.props.placeholder}
+                        placeholderTextColor={this.props.placeholderTextColor}
                         value={this.props.value ? this.props.value : ""}
                         underlineColorAndroid="transparent"
-                        style={[
-                            styles.input,
-                            inputStyles,
-                            marginTopStyles,
-                            this.props.style,
-                        ]}
+                        style={[styles.input, this.props.style]}
                         onChangeText={text => this.props.handleChange(text)}
                         onSubmitEditing={this.props.handleSubmit}
                         onFocus={this.focusInput}
@@ -283,12 +197,8 @@ export default class Input extends React.Component {
                         }
                         autoFocus={this.props.autoFocus}
                         multiline={this.props.multiline}
+                        autoGrow={this.props.multiline}
                         maxLength={this.props.maxCharacterCount}
-                        onContentSizeChange={event => {
-                            this.setInputHeight(
-                                event.nativeEvent.contentSize.height,
-                            );
-                        }}
                         returnKeyType={this.props.returnKeyType}
                     />
                     {clearTextButton}
@@ -339,16 +249,6 @@ const styles = StyleSheet.create({
     },
     characterCountText: {
         fontSize: styleConstants.smallFont,
-        color: styleConstants.secondaryText,
-    },
-
-    placeholderTextContainer: {
-        position: "absolute",
-        top: 28,
-        left: 0,
-    },
-    placeholderText: {
-        fontSize: 14,
         color: styleConstants.secondaryText,
     },
 });
