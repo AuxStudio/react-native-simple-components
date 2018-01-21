@@ -1,3 +1,4 @@
+export { default as ActionSheet } from "./components/ActionSheet";
 export { default as Button } from "./components/Button";
 export { default as ButtonIcon } from "./components/ButtonIcon";
 export { default as CheckBox } from "./components/CheckBox";
