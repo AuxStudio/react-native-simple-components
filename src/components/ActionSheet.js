@@ -89,18 +89,15 @@ const styles = StyleSheet.create({
         right: 0,
         zIndex: 100,
         elevation: 100,
-        backgroundColor: styleConstants.white,
+        backgroundColor: "white",
     },
     row: {
         paddingHorizontal: 8,
-        borderBottomWidth: 1,
-        borderBottomColor: styleConstants.dividerColor,
         alignItems: "center",
     },
     text: {
         fontSize: styleConstants.regularFont,
         color: styleConstants.primaryText,
-        ...styleConstants.primaryFont,
         textAlign: "left",
     },
     icon: {
