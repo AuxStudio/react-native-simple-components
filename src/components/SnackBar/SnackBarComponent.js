@@ -14,8 +14,6 @@ export default class SnackBarComponent extends React.Component {
 
         this.hideSnackBar = this.hideSnackBar.bind(this);
 
-        this.height = 80; // use max height in case
-
         this.state = {
             hideSnackBar: false,
         };
@@ -109,7 +107,7 @@ export default class SnackBarComponent extends React.Component {
 
         return (
             <AnimateTranslateY
-                initialValue={this.height}
+                initialValue={100}
                 finalValue={0}
                 shouldAnimateIn
                 shouldAnimateOut={this.state.hideSnackBar}
@@ -139,10 +137,9 @@ const styles = StyleSheet.create({
         backgroundColor: "#323232",
         flexDirection: "row",
         justifyContent: "space-between",
+        paddingVertical: 8,
         paddingHorizontal: 16,
         elevation: 100, // android elevation fix
-        minHeight: 48,
-        maxHeight: 80,
     },
     messageContainer: {
         flex: 1,
