@@ -74,6 +74,7 @@ class Home extends React.Component {
 * [x] DeleteButton - A small close button (used internally).
 * [x] HeaderBar - A header component that accepts status bar styles, text and left and right icons.
 * [x] IconTextRow - A row with icon and text justified with space-between
+* [x] ImageWidget - An image component that displays an ActivityIndicator while fetching images
 * [x] InfoBlock - A common title and description patterned component.
 * [x] Input - A text input component with all the bells and whistles.
 * [x] InputBar - A combination of the Input and HeaderBar components that can be used as a search/chat input bar.

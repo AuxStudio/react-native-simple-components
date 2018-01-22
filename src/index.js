@@ -6,6 +6,7 @@ export { default as CountIcon } from "./components/CountIcon";
 export { default as DeleteButton } from "./components/DeleteButton";
 export { default as HeaderBar } from "./components/HeaderBar";
 export { default as IconTextRow } from "./components/IconTextRow";
+export { default as ImageWidget } from "./components/ImageWidget";
 export { default as InfoBlock } from "./components/InfoBlock";
 export { default as Input } from "./components/Input";
 export { default as InputBar } from "./components/InputBar";
