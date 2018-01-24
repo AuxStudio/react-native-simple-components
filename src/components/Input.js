@@ -220,10 +220,10 @@ export default class Input extends React.Component {
                         underlineColorAndroid="transparent"
                         style={[
                             styles.input,
-                            this.props.style,
                             this.props.floatPlaceholder && {
                                 marginTop: 20,
                             },
+                            this.props.style,
                         ]}
                         onChangeText={text => this.props.handleChange(text)}
                         onSubmitEditing={this.props.handleSubmit}
