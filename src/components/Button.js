@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
 
 import styleConstants from "../assets/styleConstants";
 
@@ -17,6 +17,7 @@ export default (Button = props => {
         textLeft: PropTypes.bool, // moves text left
         handlePress: PropTypes.func.isRequired,
         disabled: PropTypes.string,
+        showLoader: PropTypes.bool, // will display an ActivityIndicator
 
         androidRipple: PropTypes.bool,
         androidRippleColor: PropTypes.string,
@@ -32,23 +33,32 @@ export default (Button = props => {
 
     const iconRightStyles = props.iconRight && styles.iconRight;
 
-    const icon = props.customIcon ? (
-        props.customIcon
-    ) : props.iconName ? (
-        <MaterialIcon
-            name={props.iconName}
-            style={[
-                styles.icon,
-                textLeftIconStyles,
-                iconRightStyles,
-                props.iconStyle,
-            ]}
-        />
-    ) : null;
+    const icon =
+        !props.showLoader && props.customIcon ? (
+            props.customIcon
+        ) : props.iconName ? (
+            <MaterialIcon
+                name={props.iconName}
+                style={[
+                    styles.icon,
+                    textLeftIconStyles,
+                    iconRightStyles,
+                    props.iconStyle,
+                ]}
+            />
+        ) : null;
 
     const shadowStyles = props.showShadow && {
         ...styleConstants.smallShadow,
     };
+
+    const text = !props.showLoader ? (
+        <Text style={[styles.text, props.textStyle]}>{props.text}</Text>
+    ) : null;
+
+    const loader = props.showLoader && (
+        <ActivityIndicator size="small" color={props.loaderColor} />
+    );
 
     const button = props.disabled ? (
         <View
@@ -60,7 +70,8 @@ export default (Button = props => {
                 props.style,
             ]}>
             {icon}
-            <Text style={[styles.text, props.textStyle]}>{props.text}</Text>
+            {text}
+            {loader}
         </View>
     ) : (
         <Touchable
@@ -74,7 +85,8 @@ export default (Button = props => {
             androidRipple={props.androidRipple}
             androidRippleColor={props.androidRippleColor}>
             {icon}
-            <Text style={[styles.text, props.textStyle]}>{props.text}</Text>
+            {text}
+            {loader}
         </Touchable>
     );
 
