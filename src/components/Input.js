@@ -40,6 +40,7 @@ export default class Input extends React.Component {
         return {
             labelText: PropTypes.string, // if supplied, will render a label
             floatPlaceholder: PropTypes.bool, // will float the placeholder text on input focus (material design pattern)
+            placeholderFocussedPosition: PropTypes.number,
             placeholder: PropTypes.string,
             placeholderTextColor: PropTypes.string,
             value: PropTypes.string,
@@ -173,7 +174,11 @@ export default class Input extends React.Component {
         const placeholderText = this.props.floatPlaceholder && (
             <AnimateTranslateY
                 initialValue={0}
-                finalValue={-24}
+                finalValue={
+                    this.props.placeholderFocussedPosition
+                        ? this.props.placeholderFocussedPosition
+                        : -24
+                }
                 shouldAnimateIn={this.state.floatPlaceholder}
                 shouldAnimateOut={!this.state.floatPlaceholder}
                 style={[
