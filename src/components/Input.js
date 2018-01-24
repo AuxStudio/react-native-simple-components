@@ -13,6 +13,7 @@ import styleConstants from "../assets/styleConstants";
 
 import {
     AnimateTranslateX,
+    AnimateTranslateY,
     AnimateOpacity,
 } from "react-native-simple-animators";
 import Touchable from "./Touchable";
@@ -31,12 +32,14 @@ export default class Input extends React.Component {
             showTogglePasswordButton: false,
             showCharacterCount: false,
             hidePassword: true,
+            floatPlaceholder: false,
         };
     }
 
     static get propTypes() {
         return {
             labelText: PropTypes.string, // if supplied, will render a label
+            floatPlaceholder: PropTypes.bool, // will float the placeholder text on input focus (material design pattern)
             placeholder: PropTypes.string,
             placeholderTextColor: PropTypes.string,
             value: PropTypes.string,
@@ -59,6 +62,8 @@ export default class Input extends React.Component {
             // characterCountTextStyle: PropTypes.node,
             // togglePasswordTextStyle: PropTypes.node,
             // style: PropTypes.node,
+            // placeholderTextContainerStyle: PropTypes.node,
+            // placeholderTextStyle: PropTypes.node, // only if floatPlaceholder supplied
         };
     }
 
@@ -75,6 +80,7 @@ export default class Input extends React.Component {
         this.setState({
             showTogglePasswordButton: true,
             showCharacterCount: true,
+            floatPlaceholder: this.props.floatPlaceholder,
         });
 
         this.props.handleFocus && this.props.handleFocus();
@@ -84,6 +90,7 @@ export default class Input extends React.Component {
         this.setState({
             showTogglePasswordButton: this.props.value,
             showCharacterCount: this.props.value,
+            floatPlaceholder: this.props.value ? true : false,
         });
 
         this.props.handleBlur && this.props.handleBlur();
@@ -163,6 +170,27 @@ export default class Input extends React.Component {
                 </AnimateOpacity>
             ) : null;
 
+        const placeholderText = this.props.floatPlaceholder && (
+            <AnimateTranslateY
+                initialValue={0}
+                finalValue={-24}
+                shouldAnimateIn={this.state.floatPlaceholder}
+                shouldAnimateOut={!this.state.floatPlaceholder}
+                style={[
+                    styles.placeholderTextContainer,
+                    this.props.placeholderTextContainerStyle,
+                ]}>
+                <Text
+                    style={[
+                        styles.placeholderText,
+                        { color: this.props.placeholderTextColor },
+                        this.props.placeholderTextStyle,
+                    ]}>
+                    {this.props.placeholder}
+                </Text>
+            </AnimateTranslateY>
+        );
+
         return (
             <TouchableWithoutFeedback onPress={() => this.refs.input.focus()}>
                 <View style={styles.inputWrapper}>
@@ -175,13 +203,28 @@ export default class Input extends React.Component {
                         {togglePasswordButton}
                         {characterCount}
                     </View>
+                    {placeholderText}
                     <TextInput
                         ref="input"
-                        placeholder={this.props.placeholder}
-                        placeholderTextColor={this.props.placeholderTextColor}
+                        placeholder={
+                            !this.props.floatPlaceholder
+                                ? this.props.placeholder
+                                : null
+                        }
+                        placeholderTextColor={
+                            !this.props.floatPlaceholder
+                                ? this.props.placeholderTextColor
+                                : null
+                        }
                         value={this.props.value ? this.props.value : ""}
                         underlineColorAndroid="transparent"
-                        style={[styles.input, this.props.style]}
+                        style={[
+                            styles.input,
+                            this.props.style,
+                            this.props.floatPlaceholder && {
+                                marginTop: 20,
+                            },
+                        ]}
                         onChangeText={text => this.props.handleChange(text)}
                         onSubmitEditing={this.props.handleSubmit}
                         onFocus={this.focusInput}
@@ -249,6 +292,16 @@ const styles = StyleSheet.create({
     },
     characterCountText: {
         fontSize: styleConstants.smallFont,
+        color: styleConstants.secondaryText,
+    },
+
+    placeholderTextContainer: {
+        position: "absolute",
+        bottom: 4,
+        left: 0,
+    },
+    placeholderText: {
+        fontSize: 14,
         color: styleConstants.secondaryText,
     },
 });
