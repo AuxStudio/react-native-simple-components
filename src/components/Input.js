@@ -76,6 +76,10 @@ export default class Input extends React.Component {
                 showCharacterCount: true,
             });
         }
+
+        if (this.props.autoFocus && !prevProps.autoFocus) {
+            this.refs.input.focus();
+        }
     }
 
     focusInput() {
