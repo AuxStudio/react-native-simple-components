@@ -55,6 +55,7 @@ export default class Input extends React.Component {
             maxCharacterCount: PropTypes.number, // will render character count text if supplied
             showDeleteButton: PropTypes.bool, // if supplied, will render a delete button to clear the input
             returnKeyType: PropTypes.string,
+            blurOnSubmit: PropTypes.bool,
 
             // labelTextStyle: PropTypes.node,
             // labelContainerStyle: PropTypes.node,
@@ -248,6 +249,7 @@ export default class Input extends React.Component {
                         autoGrow={this.props.multiline}
                         maxLength={this.props.maxCharacterCount}
                         returnKeyType={this.props.returnKeyType}
+                        blurOnSubmit={this.props.blurOnSubmit}
                     />
                     {clearTextButton}
                 </View>
