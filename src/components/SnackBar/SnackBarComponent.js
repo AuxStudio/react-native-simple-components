@@ -54,6 +54,14 @@ export default class SnackBarComponent extends React.Component {
         }
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.shouldAutoHide && !prevProps.autoHide) {
+            setTimeout(() => {
+                !this.state.hideSnackBar && this.hideSnackBar();
+            }, this.props.autoHideDuration);
+        }
+    }
+
     hideSnackBar() {
         this.setState({
             hideSnackBar: true,
