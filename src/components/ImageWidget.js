@@ -17,7 +17,7 @@ export default class ImageWidget extends React.Component {
 
     static get propTypes() {
         return {
-            source: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+            source: PropTypes.any,
             style: PropTypes.any,
             loaderColor: PropTypes.string,
         };
