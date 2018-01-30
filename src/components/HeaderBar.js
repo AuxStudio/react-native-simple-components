@@ -33,6 +33,7 @@ export default (HeaderBar = props => {
         // textStyle: PropTypes.node,
         // rightIconStyle: PropTypes.node,
         // style: PropTypes.node,
+        // wrapperStyle: PropTypes.node
     */
 
     const showShadowStyles = props.showShadow && styleConstants.regularShadow;
@@ -99,7 +100,7 @@ export default (HeaderBar = props => {
     );
 
     return (
-        <View style={styles.wrapper}>
+        <View style={[styles.wrapper, props.wrapperStyle]}>
             <StatusBar
                 backgroundColor={
                     props.statusBarColor
