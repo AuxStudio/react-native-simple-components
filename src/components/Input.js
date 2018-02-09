@@ -56,6 +56,7 @@ export default class Input extends React.Component {
             showDeleteButton: PropTypes.bool, // if supplied, will render a delete button to clear the input
             returnKeyType: PropTypes.string,
             blurOnSubmit: PropTypes.bool,
+            autoCorrect: PropTypes.bool,
 
             // labelTextStyle: PropTypes.node,
             // labelContainerStyle: PropTypes.node,
@@ -254,6 +255,7 @@ export default class Input extends React.Component {
                         maxLength={this.props.maxCharacterCount}
                         returnKeyType={this.props.returnKeyType}
                         blurOnSubmit={this.props.blurOnSubmit}
+                        autoCorrect={this.props.autoCorrect}
                     />
                     {clearTextButton}
                 </View>
