@@ -96,8 +96,8 @@ export default (Button = props => {
 const styles = StyleSheet.create({
     button: {
         alignSelf: "stretch",
-        height: 56,
         flexDirection: "row",
+        paddingVertical: 16,
         paddingHorizontal: 16,
         justifyContent: "center",
         alignItems: "center",
