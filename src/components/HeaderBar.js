@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
         color: styleConstants.primaryText,
     },
     textContainer: {
-        flex: 3, // make the text container 3 times as big as the icon containers
+        flex: 5,
         justifyContent: "center",
         alignItems: "center",
     },
