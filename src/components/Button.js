@@ -18,6 +18,7 @@ export default (Button = props => {
         handlePress: PropTypes.func.isRequired,
         disabled: PropTypes.string,
         showLoader: PropTypes.bool, // will display an ActivityIndicator
+        loaderColor: PropTypes.string,
 
         androidRipple: PropTypes.bool,
         androidRippleColor: PropTypes.string,
