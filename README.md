@@ -14,14 +14,14 @@ react-native-vector-icons is a dependency. You will need to set it up as per the
 ## Importing
 
 ```js
-import { HeaderBar } from "react-native-simple-components"; // ES6
+import { HeaderBar } from 'react-native-simple-components';
 ```
 
 ## Usage
 
 See the source code for props.
 NOTE: Pass in Material icon names where applicable.
-ANOTHER NOTE: These components were created with the thought that the page should control component(s) layout. ie. In a blank page, the HeaderBar will not necessary sit at the top of the page if the page style has justifyContent: 'center'. It is up to you to place the component in the relevant position.
+ANOTHER NOTE: These components were created with the thought that the component's container should control a component's layout.
 
 ```js
 import React from 'react';
@@ -92,3 +92,19 @@ class Home extends React.Component {
 * [x] Touchable - A touchable component that renders the android ripple effect if specified and if on an Android device (used internally).
 * [x] TouchableIcon - A touchable icon.
 * [x] TouchableText - Text that is touchable and can appear as a link with isLink prop.
+
+## TODOS
+
+* InfoBlock needs style prop
+* Page needs vt-center and hz-center props
+* Use correct style propTypes
+* Tooltip
+* Update iOS shadows
+* Image component with loading and error management
+* HeaderBar/Custom components should not have containers
+* ScrollHeader/Can accept custom image component
+* Modal/Stylable close icon
+* All Touchables have long press
+* SnackBar can take icon name, success from error object
+* SnackBar/Close X hit space
+* READ ALL RN DOCS FOR ENHANCEMENTS
