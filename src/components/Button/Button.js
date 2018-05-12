@@ -1,86 +1,99 @@
 import React from 'react';
-import { View, Text, ActivityIndicator } from 'react-native';
+import PropTypes from 'prop-types';
+import { View, Text, ActivityIndicator, ViewPropTypes } from 'react-native';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 import styles from './styles';
-import styleConstants from '../assets/styleConstants';
+import styleConstants from '../../styleConstants';
+import Touchable from '../Touchable';
 
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-import Touchable from './Touchable';
+const propTypes = {
+  iconName: PropTypes.string,
+  customIcon: PropTypes.node,
+  iconRight: PropTypes.bool,
+  text: PropTypes.string,
+  textLeft: PropTypes.bool, // moves text left
+  handlePress: PropTypes.func,
+  disabled: PropTypes.bool,
+  showLoader: PropTypes.bool, // will display an ActivityIndicator
+  loaderColor: PropTypes.string,
+  androidRipple: PropTypes.bool,
+  androidRippleColor: PropTypes.string,
+  androidRippleBorderless: PropTypes.bool,
+  showShadow: PropTypes.bool,
+  style: ViewPropTypes.style,
+  iconContainerStyle: ViewPropTypes.style,
+  iconStyle: Text.propTypes.style,
+  textStyle: Text.propTypes.style,
+};
 
-export default (Button = (props) => {
-  /*
-        PROPTYPES
+const defaultProps = {
+  text: 'Button',
+};
 
-        iconName: PropTypes.string,
-        customIcon: PropTypes.node, 
-        iconRight: PropTypes.bool,
-        text: PropTypes.string.isRequired,
-        textLeft: PropTypes.bool, // moves text left
-        handlePress: PropTypes.func.isRequired,
-        disabled: PropTypes.string,
-        showLoader: PropTypes.bool, // will display an ActivityIndicator
-        loaderColor: PropTypes.string,
-
-        androidRipple: PropTypes.bool,
-        androidRippleColor: PropTypes.string,
-        showShadow: PropTypes.bool,
-        // style: PropTypes.node,
-        // iconStyle: PropTypes.node,
-        // textStyle: PropTypes.node,
-        // disabledStyle: PropTypes.node,
-    */
-
-  const textLeftContainerStyles = props.textLeft && styles.textLeftContainer;
-  const textLeftIconStyles = props.textLeft && styles.textLeftIcon;
-
-  const iconRightStyles = props.iconRight && styles.iconRight;
-
-  const icon =
-    !props.showLoader && props.customIcon ? (
-      props.customIcon
-    ) : props.iconName ? (
-      <MaterialIcon
-        name={props.iconName}
-        style={[styles.icon, textLeftIconStyles, iconRightStyles, props.iconStyle]}
-      />
-    ) : null;
-
-  const shadowStyles = props.showShadow && {
-    ...styleConstants.smallShadow,
+const Button = ({
+  iconName,
+  customIcon,
+  iconRight,
+  text,
+  textLeft,
+  handlePress,
+  disabled,
+  showLoader,
+  loaderColor,
+  androidRipple,
+  androidRippleColor,
+  androidRippleBorderless,
+  showShadow,
+  style,
+  iconContainerStyle,
+  iconStyle,
+  textStyle,
+}) => {
+  const textLeftContainerStyles = textLeft && styles.textLeftContainer;
+  const textLeftIconStyles = textLeft && !iconRight && styles.textLeftIcon;
+  const iconRightStyles = iconRight && styles.iconRight;
+  const shadowStyles = showShadow && {
+    ...styleConstants.shadows.small,
   };
 
-  const text = !props.showLoader ? (
-    <Text style={[styles.text, props.textStyle]}>{props.text}</Text>
-  ) : null;
+  let iconComponent;
 
-  const loader = props.showLoader && <ActivityIndicator size="small" color={props.loaderColor} />;
+  if (!showLoader && customIcon) {
+    iconComponent = (
+      <View style={[styles.iconContainer, textLeftIconStyles, iconRightStyles, iconContainerStyle]}>
+        {customIcon}
+      </View>
+    );
+  } else if (iconName) {
+    iconComponent = (
+      <View style={[styles.iconContainer, textLeftIconStyles, iconRightStyles, iconContainerStyle]}>
+        <MaterialIcon name={iconName} style={[styles.icon, iconStyle]} />
+      </View>
+    );
+  }
 
-  const button = props.disabled ? (
-    <View
-      style={[
-        styles.button,
-        props.disabledStyle ? props.disabledStyle : styles.disabled,
-        shadowStyles,
-        textLeftContainerStyles,
-        props.style,
-      ]}
-    >
-      {icon}
-      {text}
-      {loader}
-    </View>
-  ) : (
+  const textComponent = !showLoader ? <Text style={[styles.text, textStyle]}>{text}</Text> : null;
+
+  const loaderComponent = showLoader && <ActivityIndicator size="small" color={loaderColor} />;
+
+  return (
     <Touchable
-      onPress={props.handlePress}
-      style={[styles.button, shadowStyles, textLeftContainerStyles, props.style]}
-      androidRipple={props.androidRipple}
-      androidRippleColor={props.androidRippleColor}
+      onPress={handlePress}
+      style={[styles.button, shadowStyles, textLeftContainerStyles, style]}
+      androidRipple={androidRipple}
+      androidRippleColor={androidRippleColor}
+      androidRippleBorderless={androidRippleBorderless}
+      disabled={disabled}
     >
-      {icon}
-      {text}
-      {loader}
+      {iconComponent}
+      {textComponent}
+      {loaderComponent}
     </Touchable>
   );
+};
 
-  return button;
-});
+Button.propTypes = propTypes;
+Button.defaultProps = defaultProps;
+
+export default Button;

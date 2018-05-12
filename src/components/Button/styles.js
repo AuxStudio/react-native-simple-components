@@ -6,11 +6,10 @@ const styles = StyleSheet.create({
   button: {
     alignSelf: 'stretch',
     flexDirection: 'row',
-    paddingVertical: 16,
-    paddingHorizontal: 16,
+    padding: styleConstants.dimensions.padding.large,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: styleConstants.dividerColor,
+    backgroundColor: styleConstants.colors.dividerColor,
   },
   textLeftContainer: {
     justifyContent: 'flex-start',
@@ -18,24 +17,26 @@ const styles = StyleSheet.create({
   disabled: {
     opacity: 0.33,
   },
-  icon: {
+  iconContainer: {
     position: 'absolute',
-    left: 16,
-    fontSize: styleConstants.iconFont,
-    color: styleConstants.primaryText,
+    left: styleConstants.dimensions.padding.large,
   },
   iconRight: {
     left: 'auto',
-    right: 16,
+    right: styleConstants.dimensions.padding.large,
   },
   textLeftIcon: {
     position: 'relative',
     left: 0,
-    marginRight: 8,
+    marginRight: styleConstants.dimensions.padding.small,
+  },
+  icon: {
+    fontSize: styleConstants.fonts.sizes.icon,
+    color: styleConstants.colors.primaryText,
   },
   text: {
-    fontSize: styleConstants.regularFont,
-    color: styleConstants.primaryText,
+    fontSize: styleConstants.fonts.sizes.regular,
+    color: styleConstants.colors.primaryText,
   },
 });
 
