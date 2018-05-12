@@ -1,36 +1,32 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import PropTypes from 'prop-types';
+import { View, Text, ViewPropTypes } from 'react-native';
 
 import styles from './styles';
-import styleConstants from '../assets/styleConstants';
+import styleConstants from '../../styleConstants';
 
-import Touchable from './Touchable';
+const propTypes = {
+  count: PropTypes.number,
+  showShadow: PropTypes.bool,
+  textStyle: Text.propTypes.style,
+  style: ViewPropTypes.style,
+};
 
-export default (CountIcon = (props) => {
-  /*
-        PROPTYPES
+const defaultProps = {
+  count: 0,
+};
 
-        handlePress: PropTypes.func,
-        count: PropTypes.number,
+const CountIcon = ({ count, showShadow, textStyle, style }) => {
+  const shadowStyles = showShadow && styleConstants.shadows.small;
 
-        showShadow: PropTypes.bool,
-        // style: PropTypes.node,
-        // textStyle: PropTypes.node,
-    */
-
-  const shadowStyles = props.showShadow && {
-    ...styleConstants.smallShadow,
-  };
-
-  const countIcon = props.handlePress ? (
-    <Touchable onPress={props.handlePress} style={[styles.container, props.style]}>
-      <Text style={[styles.text, props.textStyle]}>{props.count}</Text>
-    </Touchable>
-  ) : (
-    <View style={[styles.container, props.style]}>
-      <Text style={[styles.text, props.textStyle]}>{props.count}</Text>
+  return (
+    <View style={[styles.container, shadowStyles, style]}>
+      <Text style={[styles.text, textStyle]}>{count}</Text>
     </View>
   );
+};
 
-  return countIcon;
-});
+CountIcon.propTypes = propTypes;
+CountIcon.defaultProps = defaultProps;
+
+export default CountIcon;

@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 * Correct use of propTypes in all components
 * Button - iconRight and textLeft at the same time
+* ButtonIcon - removed overflow: 'hidden' style prop to allow showShadow on iOS
 
 ### Changed
 
@@ -25,6 +26,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 * Button - disabledStyle prop
 * ButtonIcon - disabledStyle prop
+* CountIcon - handlePress prop
 
 ## < 1.3.0
 

@@ -10,7 +10,6 @@ const styles = StyleSheet.create({
     width: SIZE,
     height: SIZE,
     borderRadius: SIZE / 2,
-    overflow: 'hidden',
     justifyContent: 'center',
     alignItems: 'center',
     position: 'relative',
