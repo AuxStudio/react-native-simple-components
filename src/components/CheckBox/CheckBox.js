@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ViewPropTypes, Text } from 'react-native';
+import { ViewPropTypes, Text, Platform } from 'react-native';
 import { AnimateScale } from 'react-native-simple-animators';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -11,13 +11,27 @@ const propTypes = {
   isChecked: PropTypes.bool,
   handlePress: PropTypes.func,
   customIcon: PropTypes.node,
+  androidRipple: PropTypes.bool,
+  androidRippleColor: PropTypes.string,
+  androidRippleBorderless: PropTypes.bool,
   iconStyle: Text.propTypes.style,
   style: ViewPropTypes.style,
 };
 
 const defaultProps = {};
 
-const CheckBox = ({ isChecked, handlePress, customIcon, iconStyle, style }) => {
+const CheckBox = ({
+  isChecked,
+  handlePress,
+  customIcon,
+  androidRipple,
+  androidRippleColor,
+  androidRippleBorderless,
+  iconStyle,
+  style,
+}) => {
+  const disableFeedback = Platform.OS === 'ios' || !androidRipple;
+
   const iconComponent = customIcon || <Icon name="check" style={[styles.icon, iconStyle]} />;
 
   const checkBoxComponent = isChecked && (
@@ -27,7 +41,14 @@ const CheckBox = ({ isChecked, handlePress, customIcon, iconStyle, style }) => {
   );
 
   return (
-    <Touchable onPress={handlePress} disableFeedback style={[styles.container, style]}>
+    <Touchable
+      onPress={handlePress}
+      disableFeedback={disableFeedback}
+      style={[styles.container, style]}
+      androidRipple={androidRipple}
+      androidRippleColor={androidRippleColor}
+      androidRippleBorderless={androidRippleBorderless}
+    >
       {checkBoxComponent}
     </Touchable>
   );

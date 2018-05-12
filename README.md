@@ -98,6 +98,7 @@ class Home extends React.Component {
 * Lint components
 * Link styleConstants correctly
 * StatusBarComponent => StatusBar
+* CountIcon => NotificationIcon
 * Remove InputContainer, TouchableIcon, TouchableText
 * Externalise ScrollHeader
 * InfoBlock needs style prop
