@@ -1,48 +1,75 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   View,
   TouchableNativeFeedback,
   TouchableWithoutFeedback,
   TouchableOpacity,
   Platform,
+  ViewPropTypes,
 } from 'react-native';
 
-export default (Touchable = (props) => {
-  /* 
-        PROPTYPES
+const propTypes = {
+  androidRipple: PropTypes.bool, // flag to display android ripple effect
+  androidRippleColor: PropTypes.string,
+  androidRippleBorderless: PropTypes.bool, // android ripple will extend beyond object boundaries
+  onPress: PropTypes.func,
+  onLongPress: PropTypes.func,
+  disableFeedback: PropTypes.bool, // will render TouchableWithoutFeedback
+  disabled: PropTypes.bool,
+  children: PropTypes.node,
+  style: ViewPropTypes.style,
+};
 
-        androidRipple: PropTypes.bool,  // flag to display android ripple
-        androidRippleColor: PropTypes.string,
-        androidRippleBorderless: PropTypes.bool, // android ripple will extend beyond object boundaries
-        onPress: PropTypes.func.isRequired,
-        onLongPress: PropTypes.func,
-        disableFeedback: PropTypes.bool, // will render TouchableWithoutFeedback
-        children: PropTypes.node,
-        // style: PropTypes.node,
+const defaultProps = {};
 
-    */
+const Touchable = ({
+  androidRipple,
+  androidRippleColor,
+  androidRippleBorderless,
+  onPress,
+  onLongPress,
+  disableFeedback,
+  disabled,
+  children,
+  style,
+}) => {
+  let touchableComponent;
 
-  const touchable =
-    props.androidRipple && Platform.OS === 'android' ? (
+  if (androidRipple && Platform.OS === 'android') {
+    touchableComponent = (
       <TouchableNativeFeedback
-        onPress={props.onPress}
-        onLongPress={props.onLongPress}
-        background={TouchableNativeFeedback.Ripple(
-          props.androidRippleColor,
-          props.androidRippleBorderless,
-        )}
+        onPress={onPress}
+        onLongPress={onLongPress}
+        background={TouchableNativeFeedback.Ripple(androidRippleColor, androidRippleBorderless)}
+        disabled={disabled}
       >
-        <View style={props.style}>{props.children}</View>
+        <View style={style}>{children}</View>
       </TouchableNativeFeedback>
-    ) : props.disableFeedback ? (
-      <TouchableWithoutFeedback onPress={props.onPress} onLongPress={props.onLongPress}>
-        <View style={props.style}>{props.children}</View>
+    );
+  } else if (disableFeedback) {
+    touchableComponent = (
+      <TouchableWithoutFeedback onPress={onPress} onLongPress={onLongPress} disabled={disabled}>
+        <View style={style}>{children}</View>
       </TouchableWithoutFeedback>
-    ) : (
-      <TouchableOpacity onPress={props.onPress} onLongPress={props.onLongPress} style={props.style}>
-        {props.children}
+    );
+  } else {
+    touchableComponent = (
+      <TouchableOpacity
+        onPress={onPress}
+        onLongPress={onLongPress}
+        style={style}
+        disabled={disabled}
+      >
+        {children}
       </TouchableOpacity>
     );
+  }
 
-  return touchable;
-});
+  return touchableComponent;
+};
+
+Touchable.propTypes = propTypes;
+Touchable.defaultProps = defaultProps;
+
+export default Touchable;
