@@ -1,45 +1,62 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import PropTypes from 'prop-types';
+import { Text, ViewPropTypes } from 'react-native';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 import styles from './styles';
-import styleConstants from '../assets/styleConstants';
+import styleConstants from '../../styleConstants';
+import Touchable from '../Touchable';
 
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-import Touchable from './Touchable';
+const propTypes = {
+  iconName: PropTypes.string,
+  customIcon: PropTypes.node,
+  handlePress: PropTypes.func,
+  disabled: PropTypes.bool,
+  showShadow: PropTypes.bool,
+  androidRipple: PropTypes.bool,
+  androidRippleColor: PropTypes.string,
+  androidRippleBorderless: PropTypes.bool,
+  iconStyle: Text.propTypes.style,
+  style: ViewPropTypes.style,
+};
 
-export default (ButtonIcon = (props) => {
-  /*
-        PROPTYPES
-        
-        iconName: PropTypes.string,
-        customIcon: PropTypes.node,
-        handlePress: PropTypes.func.isRequired,
-        disabled: PropTypes.bool,
-        
-        showShadow: PropTypes.bool,
-        // iconStyle: PropTypes.node,
-        // style: PropTypes.node,
-        // disabledStyle: PropTypes.node,
-    */
+const defaultProps = {
+  iconName: 'add',
+};
 
-  const shadowStyles = props.showShadow && {
-    ...styleConstants.regularShadow,
-  };
-  const icon = props.customIcon ? (
-    props.customIcon
-  ) : (
-    <MaterialIcon name={props.iconName} style={[styles.icon, props.iconStyle]} />
+const ButtonIcon = ({
+  iconName,
+  customIcon,
+  handlePress,
+  disabled,
+  showShadow,
+  androidRipple,
+  androidRippleColor,
+  androidRippleBorderless,
+  iconStyle,
+  style,
+}) => {
+  const shadowStyles = showShadow && styleConstants.shadows.regular;
+
+  const iconComponent = customIcon || (
+    <MaterialIcon name={iconName} style={[styles.icon, iconStyle]} />
   );
 
-  const button = props.disabled ? (
-    <View style={[styles.button, styles.disabled, shadowStyles, props.disabledStyle, props.style]}>
-      {icon}
-    </View>
-  ) : (
-    <Touchable onPress={props.handlePress} style={[styles.button, shadowStyles, props.style]}>
-      {icon}
+  return (
+    <Touchable
+      onPress={handlePress}
+      style={[styles.button, shadowStyles, style]}
+      disabled={disabled}
+      androidRipple={androidRipple}
+      androidRippleColor={androidRippleColor}
+      androidRippleBorderless={androidRippleBorderless}
+    >
+      {iconComponent}
     </Touchable>
   );
+};
 
-  return button;
-});
+ButtonIcon.propTypes = propTypes;
+ButtonIcon.defaultProps = defaultProps;
+
+export default ButtonIcon;

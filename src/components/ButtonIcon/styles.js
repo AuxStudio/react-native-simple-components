@@ -2,23 +2,22 @@ import { StyleSheet } from 'react-native';
 
 import styleConstants from '../../styleConstants';
 
+const SIZE = 56;
+
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: styleConstants.dividerColor,
-    width: 56,
-    height: 56,
-    borderRadius: 28,
+    backgroundColor: styleConstants.colors.dividerColor,
+    width: SIZE,
+    height: SIZE,
+    borderRadius: SIZE / 2,
     overflow: 'hidden',
     justifyContent: 'center',
     alignItems: 'center',
     position: 'relative',
   },
   icon: {
-    fontSize: styleConstants.iconFont,
-    color: styleConstants.primaryText,
-  },
-  disabled: {
-    opacity: 0.33,
+    fontSize: styleConstants.fonts.sizes.icon,
+    color: styleConstants.colors.primaryText,
   },
 });
 

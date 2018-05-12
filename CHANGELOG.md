@@ -18,10 +18,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 * Touchable - disabled prop
 * Button - androidRippleBorderless prop
+* ButtonIcon - androidRipple set of props
 
 ### Removed
 
 * Button - disabledStyle prop
+* ButtonIcon - disabledStyle prop
 
 ## < 1.3.0
 

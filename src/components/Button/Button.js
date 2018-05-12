@@ -53,9 +53,7 @@ const Button = ({
   const textLeftContainerStyles = textLeft && styles.textLeftContainer;
   const textLeftIconStyles = textLeft && !iconRight && styles.textLeftIcon;
   const iconRightStyles = iconRight && styles.iconRight;
-  const shadowStyles = showShadow && {
-    ...styleConstants.shadows.small,
-  };
+  const shadowStyles = showShadow && styleConstants.shadows.small;
 
   let iconComponent;
 
