@@ -25,5 +25,3 @@ export { default as StarRatingInput } from './components/StarRatingInput';
 export { default as StatusBarComponent } from './components/StatusBarComponent';
 export { default as TabBar } from './components/TabBar';
 export { default as Touchable } from './components/Touchable';
-export { default as TouchableIcon } from './components/TouchableIcon';
-export { default as TouchableText } from './components/TouchableText';

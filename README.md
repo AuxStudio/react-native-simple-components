@@ -90,8 +90,6 @@ class Home extends React.Component {
 * [x] StatusBarComponent- Android and iOS friendly status bar
 * [x] TabBar - A tab bar that accepts icons and label text.
 * [x] Touchable - A touchable component that renders the android ripple effect if specified and if on an Android device (used internally).
-* [x] TouchableIcon - A touchable icon.
-* [x] TouchableText - Text that is touchable and can appear as a link with isLink prop.
 
 ## TODOS
 
@@ -99,7 +97,6 @@ class Home extends React.Component {
 * Link styleConstants correctly
 * StatusBarComponent => StatusBar
 * CountIcon => NotificationIcon
-* Remove InputContainer, TouchableIcon, TouchableText
 * Externalise ScrollHeader
 * InfoBlock needs style prop
 * Page needs vt-center and hz-center props

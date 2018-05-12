@@ -28,6 +28,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Removed
 
+* TouchableIcon
+* TouchableText
 * Button - disabledStyle prop
 * ButtonIcon - disabledStyle prop
 * CountIcon - handlePress prop
