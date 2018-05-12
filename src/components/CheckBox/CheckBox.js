@@ -1,34 +1,39 @@
 import React from 'react';
-import { View } from 'react-native';
 import PropTypes from 'prop-types';
-
-import styles from './styles';
-import styleConstants from '../assets/styleConstants';
-
-import Touchable from './Touchable';
+import { ViewPropTypes, Text } from 'react-native';
 import { AnimateScale } from 'react-native-simple-animators';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-export default function CheckBox(props) {
-  // static get propTypes() {
-  //     return {
-  //         isChecked: PropTypes.bool,
-  //         handlePress: PropTypes.func,
+import styles from './styles';
+import Touchable from '../Touchable';
 
-  //         // style: PropTypes.node,
-  //         // iconStyle: PropTypes.node,
-  //     };
-  // }
+const propTypes = {
+  isChecked: PropTypes.bool,
+  handlePress: PropTypes.func,
+  customIcon: PropTypes.node,
+  iconStyle: Text.propTypes.style,
+  style: ViewPropTypes.style,
+};
 
-  const icon = props.isChecked && (
-    <AnimateScale initialValue={0.5} finalValue={1} shouldAnimateIn>
-      <Icon name="check" style={[styles.icon, props.iconStyle]} />
+const defaultProps = {};
+
+const CheckBox = ({ isChecked, handlePress, customIcon, iconStyle, style }) => {
+  const iconComponent = customIcon || <Icon name="check" style={[styles.icon, iconStyle]} />;
+
+  const checkBoxComponent = isChecked && (
+    <AnimateScale initialValue={0} finalValue={1} shouldAnimateIn>
+      {iconComponent}
     </AnimateScale>
   );
 
   return (
-    <Touchable onPress={props.handlePress} disableFeedback style={[styles.container, props.style]}>
-      {icon}
+    <Touchable onPress={handlePress} disableFeedback style={[styles.container, style]}>
+      {checkBoxComponent}
     </Touchable>
   );
-}
+};
+
+CheckBox.propTypes = propTypes;
+CheckBox.defaultProps = defaultProps;
+
+export default CheckBox;

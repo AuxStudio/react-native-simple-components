@@ -2,20 +2,20 @@ import { StyleSheet } from 'react-native';
 
 import styleConstants from '../../styleConstants';
 
+const SIZE = 32;
+
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 8,
-    overflow: 'hidden',
+    width: SIZE,
+    height: SIZE,
     borderWidth: 1,
-    borderColor: styleConstants.primaryText,
-    width: 32,
-    height: 32,
+    borderColor: styleConstants.colors.primaryText,
     justifyContent: 'center',
     alignItems: 'center',
   },
   icon: {
-    fontSize: styleConstants.iconFont,
-    color: styleConstants.primaryText,
+    fontSize: styleConstants.fonts.sizes.icon,
+    color: styleConstants.colors.primaryText,
   },
 });
 
