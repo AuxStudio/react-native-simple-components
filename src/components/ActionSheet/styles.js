@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     elevation: 100,
     backgroundColor: styleConstants.colors.white,
   },
-  row: {
+  itemContainer: {
     paddingHorizontal: styleConstants.dimensions.padding.small,
     alignItems: 'center',
   },

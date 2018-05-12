@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ViewPropTypes } from 'react-native';
+import { ViewPropTypes, Text } from 'react-native';
 import { Touchable, IconTextRow } from 'react-native-simple-components';
 import { AnimateTranslateY } from 'react-native-simple-animators';
 
@@ -14,8 +14,8 @@ export default class ActionSheet extends React.Component {
       ),
       handlePress: PropTypes.func,
       rowHeight: PropTypes.number,
-      textStyle: ViewPropTypes.style,
-      iconStyle: ViewPropTypes.style,
+      textStyle: Text.propTypes.style,
+      iconStyle: Text.propTypes.style,
       style: ViewPropTypes.style,
     };
   }
@@ -55,7 +55,7 @@ export default class ActionSheet extends React.Component {
           return (
             <Touchable
               onPress={() => this.handleSelect(item.text)}
-              style={styles.row}
+              style={styles.itemContainer}
               key={item.text}
             >
               <IconTextRow
@@ -63,18 +63,18 @@ export default class ActionSheet extends React.Component {
                 iconStyle={[styles.icon, this.props.iconStyle]}
                 text={item.text}
                 textStyle={[styles.text, this.props.textStyle]}
-                style={[styles.row, { height: this.props.rowHeight }]}
+                style={[styles.itemContainer, { height: this.props.rowHeight }]}
               />
             </Touchable>
           );
         })}
-        <Touchable onPress={() => this.handleSelect('Cancel')} style={styles.row}>
+        <Touchable onPress={() => this.handleSelect('Cancel')} style={styles.itemContainer}>
           <IconTextRow
             iconName="cancel"
             iconStyle={[styles.icon, this.props.iconStyle]}
             text="Cancel"
             textStyle={[styles.text, this.props.textStyle]}
-            style={styles.row}
+            style={[styles.itemContainer, { height: this.props.rowHeight }]}
           />
         </Touchable>
       </AnimateTranslateY>
