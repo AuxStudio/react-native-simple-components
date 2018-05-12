@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## Unreleased (1.3.0)
+## Unreleased (2.0.0)
 
 ### Fixed
 
@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * ButtonIcon - removed overflow: 'hidden' style prop to allow showShadow on iOS
 
 ### Changed
+
+* CountIcon renamed to NotificationIcon
 
 ### Added
 
@@ -28,6 +30,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * ButtonIcon - disabledStyle prop
 * CountIcon - handlePress prop
 
-## < 1.3.0
+## < 2.0.0
 
 Not documented.

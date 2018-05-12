@@ -70,7 +70,6 @@ class Home extends React.Component {
 * [x] Button - A button that accepts text and an optional icon.
 * [x] ButtonIcon - A round button that contains an icon.
 * [x] CheckBox - A nice and simple checkbox component.
-* [x] CountIcon - A small notification type icon that contains a count value.
 * [x] DeleteButton - A small close button (used internally).
 * [x] HeaderBar - A header component that accepts status bar styles, text and left and right icons.
 * [x] IconTextRow - A row with icon and text justified with space-between
@@ -83,6 +82,7 @@ class Home extends React.Component {
 * [x] LoadingText - An animating loading component that represents a data fetch on text.
 * [x] Menu - A menu that animates in height.
 * [x] Modal - A modal that offers a dark transparent background and close icon out of the box.
+* [x] NotificationIcon - A small notification type icon that contains a count value.
 * [x] Page - A component that acts as a page wrapper (useful for passing in custom width and heights to your pages during responsive testing).
 * [x] ScrollHeader - An awesome image and tab bar header that animates into a HeaderBar on scroll (see it's props - TESTING)
 * [x] StarRating - Renders a row of outlined or filled stars based on rating prop
