@@ -23,6 +23,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * Button - androidRippleBorderless prop
 * ButtonIcon - androidRipple set of props
 * CheckBox - androidRipple set of props
+* CheckBox - customIcon prop
+* DeleteButton - customIcon, showShadow and androidRipple set of props
 
 ### Removed
 

@@ -2,18 +2,19 @@ import { StyleSheet } from 'react-native';
 
 import styleConstants from '../../styleConstants';
 
+const SIZE = 20;
+
 const styles = StyleSheet.create({
   container: {
-    width: 20,
-    height: 20,
-    borderRadius: 10,
-    overflow: 'hidden',
+    width: SIZE,
+    height: SIZE,
+    borderRadius: SIZE / 2,
     borderWidth: 0,
-    backgroundColor: styleConstants.dividerColor,
+    backgroundColor: styleConstants.colors.dividerColor,
   },
   icon: {
-    fontSize: styleConstants.smallFont,
-    color: styleConstants.primaryText,
+    fontSize: styleConstants.fonts.sizes.small,
+    color: styleConstants.colors.primaryText,
   },
 });
 
