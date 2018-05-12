@@ -95,6 +95,11 @@ class Home extends React.Component {
 
 ## TODOS
 
+* Lint components
+* Link styleConstants correctly
+* StatusBarComponent => StatusBar
+* Remove InputContainer, TouchableIcon, TouchableText
+* Externalise ScrollHeader
 * InfoBlock needs style prop
 * Page needs vt-center and hz-center props
 * Use correct style propTypes

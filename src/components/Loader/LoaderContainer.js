@@ -1,10 +1,11 @@
-import React from "react";
-import { View, StyleSheet } from "react-native";
+import React from 'react';
+import { View } from 'react-native';
 
-import LoaderComponent from "./LoaderComponent";
+import styles from './styles';
+import LoaderComponent from './LoaderComponent';
 
-export default (Loader = props => {
-    /*
+export default (Loader = (props) => {
+  /*
         static get propTypes() {
             return {
                 loading: PropTypes.bool, // flag to display loader
@@ -16,25 +17,9 @@ export default (Loader = props => {
         }
     */
 
-    const loader = props.loading && (
-        <LoaderComponent
-            color={props.color}
-            duration={props.duration}
-            style={props.style}
-        />
-    );
+  const loader = props.loading && (
+    <LoaderComponent color={props.color} duration={props.duration} style={props.style} />
+  );
 
-    return (
-        <View style={[styles.container, props.containerStyle]}>{loader}</View>
-    );
-});
-
-const styles = StyleSheet.create({
-    container: {
-        position: "absolute",
-        bottom: 0,
-        left: 0,
-        right: 0,
-        height: 5,
-    },
+  return <View style={[styles.wrapper, props.containerStyle]}>{loader}</View>;
 });

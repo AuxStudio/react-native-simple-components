@@ -1,10 +1,11 @@
-import React from "react";
-import { View, StyleSheet } from "react-native";
+import React from 'react';
+import { View } from 'react-native';
 
-import SnackBarComponent from "./SnackBarComponent";
+import styles from './styles';
+import SnackBarComponent from './SnackBarComponent';
 
-export default (SnackBar = props => {
-    /*
+export default (SnackBar = (props) => {
+  /*
         static get propTypes() {
             return {
                 iconName: PropTypes.string, // name of icon to display (if any) (does not follow material guidelines)
@@ -28,34 +29,26 @@ export default (SnackBar = props => {
         }
     */
 
-    return (
-        <View style={styles.container}>
-            <SnackBarComponent
-                iconName={props.iconName}
-                customIcon={props.customIcon}
-                text={props.text}
-                actionText={props.actionText}
-                handleClose={props.handleClose}
-                handleRetry={props.handleRetry}
-                handleAction={props.handleAction}
-                shouldAutoHide={props.shouldAutoHide}
-                autoHideDuration={props.autoHideDuration}
-                iconStyle={props.iconStyle}
-                textStyle={props.textStyle}
-                retryTextStyle={props.retryTextStyle}
-                actionTextStyle={props.actionTextStyle}
-                closeIconStyle={props.closeIconStyle}
-                containerStyle={props.containerStyle}
-                showCloseButton={props.showCloseButton}
-            />
-        </View>
-    );
-});
-
-const styles = StyleSheet.create({
-    container: {
-        position: "absolute",
-        bottom: 0,
-        left: 0,
-    },
+  return (
+    <View style={styles.wrapper}>
+      <SnackBarComponent
+        iconName={props.iconName}
+        customIcon={props.customIcon}
+        text={props.text}
+        actionText={props.actionText}
+        handleClose={props.handleClose}
+        handleRetry={props.handleRetry}
+        handleAction={props.handleAction}
+        shouldAutoHide={props.shouldAutoHide}
+        autoHideDuration={props.autoHideDuration}
+        iconStyle={props.iconStyle}
+        textStyle={props.textStyle}
+        retryTextStyle={props.retryTextStyle}
+        actionTextStyle={props.actionTextStyle}
+        closeIconStyle={props.closeIconStyle}
+        containerStyle={props.containerStyle}
+        showCloseButton={props.showCloseButton}
+      />
+    </View>
+  );
 });
