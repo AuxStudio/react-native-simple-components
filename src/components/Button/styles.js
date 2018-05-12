@@ -14,9 +14,6 @@ const styles = StyleSheet.create({
   textLeftContainer: {
     justifyContent: 'flex-start',
   },
-  disabled: {
-    opacity: 0.33,
-  },
   iconContainer: {
     position: 'absolute',
     left: styleConstants.dimensions.padding.large,
