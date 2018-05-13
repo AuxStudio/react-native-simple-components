@@ -1,28 +1,32 @@
 import React from 'react';
-import { View, ScrollView, Text } from 'react-native';
+import PropTypes from 'prop-types';
+import { View, ViewPropTypes, Text } from 'react-native';
 
 import styles from './styles';
-import styleConstants from '../assets/styleConstants';
 
-import Touchable from './Touchable';
+const propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+  titleTextStyle: Text.propTypes.style,
+  descriptionTextStyle: Text.propTypes.style,
+  style: ViewPropTypes.style,
+};
 
-export default (InfoBlock = (props) => {
-  /* 
-        PROPTYPES
+const defaultProps = {
+  title: 'Title',
+  description: 'Description',
+};
 
-        title: PropTypes.string,
-        description: PropTypes.string,
-
-        // titleTextStyle: PropTypes.node,
-        // descriptionTextStyle: PropTypes.node,
-    */
-
+const InfoBlock = ({ title, description, titleTextStyle, descriptionTextStyle, style }) => {
   return (
-    <View style={styles.infoContainer}>
-      <Text style={[styles.infoTextTitle, props.titleTextStyle]}>{props.title}</Text>
-      <Text style={[styles.infoTextDescription, props.descriptionTextStyle]}>
-        {props.description}
-      </Text>
+    <View style={[styles.container, style]}>
+      <Text style={[styles.titleText, titleTextStyle]}>{title}</Text>
+      <Text style={[styles.descriptionText, descriptionTextStyle]}>{description}</Text>
     </View>
   );
-});
+};
+
+InfoBlock.propTypes = propTypes;
+InfoBlock.defaultProps = defaultProps;
+
+export default InfoBlock;

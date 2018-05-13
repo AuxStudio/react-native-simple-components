@@ -30,7 +30,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * DeleteButton - customIcon, showShadow and androidRipple set of props
 * HeaderBar - androidRipple set of props
 * IconTextRow - customIcon, handlePress and androidRipple set of props
-* SmartImage has offline and error states
+* SmartImage - offline and error states
+* InfoBlock - style prop
 
 ### Removed
 

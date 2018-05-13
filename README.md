@@ -96,7 +96,6 @@ class Home extends React.Component {
 * Lint components
 * Link styleConstants correctly
 * Externalise ScrollHeader
-* InfoBlock needs style prop
 * Page needs vt-center and hz-center props
 * Use correct style propTypes
 * Tooltip

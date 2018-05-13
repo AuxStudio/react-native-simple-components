@@ -3,17 +3,17 @@ import { StyleSheet } from 'react-native';
 import styleConstants from '../../styleConstants';
 
 const styles = StyleSheet.create({
-  infoContainer: {
+  container: {
     alignSelf: 'stretch',
   },
-  infoTextTitle: {
-    fontSize: styleConstants.largeFont,
-    color: styleConstants.primaryText,
+  titleText: {
+    fontSize: styleConstants.fonts.sizes.large,
+    color: styleConstants.colors.primaryText,
+    marginBottom: styleConstants.dimensions.margin.small,
   },
-  infoTextDescription: {
-    marginTop: 8,
-    fontSize: styleConstants.regularFont,
-    color: styleConstants.secondaryText,
+  descriptionText: {
+    fontSize: styleConstants.fonts.sizes.regular,
+    color: styleConstants.colors.secondaryText,
   },
 });
 
