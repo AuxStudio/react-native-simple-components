@@ -87,7 +87,7 @@ class Home extends React.Component {
 * [x] ScrollHeader - An awesome image and tab bar header that animates into a HeaderBar on scroll (see it's props - TESTING)
 * [x] StarRating - Renders a row of outlined or filled stars based on rating prop
 * [x] StarRatingInput - Renders a row of outlined or filled stars that are pressable and animate onPress with optional label text values
-* [x] StatusBarComponent- Android and iOS friendly status bar
+* [x] StatusBar - Android and iOS friendly status bar (used internally).
 * [x] TabBar - A tab bar that accepts icons and label text.
 * [x] Touchable - A touchable component that renders the android ripple effect if specified and if on an Android device (used internally).
 
@@ -95,8 +95,6 @@ class Home extends React.Component {
 
 * Lint components
 * Link styleConstants correctly
-* StatusBarComponent => StatusBar
-* CountIcon => NotificationIcon
 * Externalise ScrollHeader
 * InfoBlock needs style prop
 * Page needs vt-center and hz-center props
