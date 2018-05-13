@@ -4,12 +4,7 @@ import styleConstants from '../../styleConstants';
 
 const styles = StyleSheet.create({
   container: {},
-  loaderContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: styleConstants.white,
-  },
-  iconContainer: {
+  backgroundContainer: {
     position: 'absolute',
     top: 0,
     right: 0,
@@ -17,10 +12,11 @@ const styles = StyleSheet.create({
     left: 0,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: styleConstants.colors.white,
   },
   icon: {
-    fontSize: styleConstants.iconFont,
-    color: styleConstants.secondaryText,
+    fontSize: styleConstants.fonts.sizes.icon,
+    color: styleConstants.colors.primaryText,
   },
 });
 

@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * CountIcon renamed to NotificationIcon
 * StatusBarComponent renamed to StatusBar
 * HeaderBar left and right components no longer render containers when passed custom components
+* ImageWidget renamed to SmartImage
 
 ### Added
 
@@ -29,6 +30,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * DeleteButton - customIcon, showShadow and androidRipple set of props
 * HeaderBar - androidRipple set of props
 * IconTextRow - customIcon, handlePress and androidRipple set of props
+* SmartImage has offline and error states
 
 ### Removed
 
