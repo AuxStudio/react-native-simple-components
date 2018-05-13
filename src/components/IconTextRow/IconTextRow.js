@@ -1,34 +1,59 @@
 import React from 'react';
-import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
-
-import styles from './styles';
-import styleConstants from '../assets/styleConstants';
-
+import { ViewPropTypes, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-export default function IconTextRow(props) {
-  /*
-    static get propTypes() {
-        return {
-            iconName: PropTypes.string,
-            text: PropTypes.string,
+import styles from './styles';
+import Touchable from '../Touchable';
 
-            iconStyle: PropTypes.node,
-            textStyle: PropTypes.node,
-            style: PropTypes.node,
-        };
-    }
-*/
+const propTypes = {
+  iconName: PropTypes.string,
+  customIcon: PropTypes.node,
+  text: PropTypes.string,
+  handlePress: PropTypes.func,
+  androidRipple: PropTypes.bool,
+  androidRippleColor: PropTypes.string,
+  androidRippleBorderless: PropTypes.bool,
+  iconStyle: Text.propTypes.style,
+  textStyle: Text.propTypes.style,
+  style: ViewPropTypes.style,
+};
+
+const defaultProps = {
+  iconName: 'check',
+  text: 'IconTextRow',
+};
+
+const IconTextRow = ({
+  iconName,
+  customIcon,
+  text,
+  handlePress,
+  androidRipple,
+  androidRippleColor,
+  androidRippleBorderless,
+  iconStyle,
+  textStyle,
+  style,
+}) => {
+  const iconComponent = customIcon || <Icon name={iconName} style={[styles.icon, iconStyle]} />;
 
   return (
-    <View style={[styles.container, props.style]}>
-      <View style={styles.iconContainer}>
-        <Icon name={props.iconName} style={[styles.icon, props.iconStyle]} />
-      </View>
-      <View style={styles.textContainer}>
-        <Text style={[styles.text, props.textStyle]}>{props.text}</Text>
-      </View>
-    </View>
+    <Touchable
+      onPress={handlePress}
+      disabled={!handlePress}
+      androidRipple={androidRipple}
+      androidRippleColor={androidRippleColor}
+      androidRippleBorderless={androidRippleBorderless}
+      style={[styles.container, style]}
+    >
+      {iconComponent}
+      <Text style={[styles.text, textStyle]}>{text}</Text>
+    </Touchable>
   );
-}
+};
+
+IconTextRow.propTypes = propTypes;
+IconTextRow.defaultProps = defaultProps;
+
+export default IconTextRow;

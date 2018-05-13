@@ -28,6 +28,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * CheckBox - customIcon prop
 * DeleteButton - customIcon, showShadow and androidRipple set of props
 * HeaderBar - androidRipple set of props
+* IconTextRow - customIcon, handlePress and androidRipple set of props
 
 ### Removed
 

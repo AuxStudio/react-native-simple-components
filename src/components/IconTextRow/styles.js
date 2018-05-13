@@ -6,20 +6,17 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     borderBottomWidth: 1,
-    borderBottomColor: styleConstants.dividerColor,
-    paddingVertical: 16,
+    borderBottomColor: styleConstants.colors.dividerColor,
+    paddingVertical: styleConstants.dimensions.padding.large,
   },
-  iconContainer: {},
   icon: {
-    fontSize: styleConstants.iconFont,
-    color: styleConstants.primaryText,
-  },
-  textContainer: {
-    flex: 1,
+    fontSize: styleConstants.fonts.sizes.icon,
+    color: styleConstants.colors.primaryText,
   },
   text: {
-    fontSize: styleConstants.regularFont,
-    color: styleConstants.primaryText,
+    flex: 1,
+    fontSize: styleConstants.fonts.sizes.regular,
+    color: styleConstants.colors.primaryText,
     textAlign: 'right',
   },
 });
