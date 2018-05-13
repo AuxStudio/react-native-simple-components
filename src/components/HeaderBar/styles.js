@@ -1,4 +1,4 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import styleConstants from '../../styleConstants';
 
@@ -11,8 +11,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'stretch',
-    paddingHorizontal: 16,
-    backgroundColor: styleConstants.primary,
+    paddingHorizontal: styleConstants.dimensions.padding.large,
+    backgroundColor: styleConstants.colors.primary,
   },
   leftIconContainer: {
     flex: 1,
@@ -20,8 +20,8 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   leftIcon: {
-    fontSize: styleConstants.iconFont,
-    color: styleConstants.primaryText,
+    fontSize: styleConstants.fonts.sizes.icon,
+    color: styleConstants.colors.primaryText,
   },
   textContainer: {
     flex: 5,
@@ -29,8 +29,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   text: {
-    fontSize: styleConstants.regularFont,
-    color: styleConstants.primaryText,
+    fontSize: styleConstants.fonts.sizes.regular,
+    color: styleConstants.colors.primaryText,
     textAlign: 'center',
   },
   rightIconContainer: {
@@ -39,8 +39,8 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   rightIcon: {
-    fontSize: styleConstants.iconFont,
-    color: styleConstants.primaryText,
+    fontSize: styleConstants.fonts.sizes.icon,
+    color: styleConstants.colors.primaryText,
   },
 });
 

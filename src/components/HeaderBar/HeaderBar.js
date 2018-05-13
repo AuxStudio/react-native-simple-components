@@ -1,108 +1,154 @@
 import React from 'react';
-import { View, Text, StatusBar } from 'react-native';
+import PropTypes from 'prop-types';
+import { View, Text, ViewPropTypes, Platform } from 'react-native';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 import styles from './styles';
-import styleConstants from '../assets/styleConstants';
+import styleConstants from '../../styleConstants';
+import Touchable from '../Touchable';
+import StatusBar from '../StatusBar';
 
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-import { AnimateOpacity } from 'react-native-simple-animators';
-import Touchable from './Touchable';
+const propTypes = {
+  showShadow: PropTypes.bool,
+  statusBarStyle: PropTypes.string, // dark-content or light-content
+  statusBarColor: PropTypes.string,
 
-export default (HeaderBar = (props) => {
-  /* 
-        PROPTYPES
-    
-        showShadow: PropTypes.bool,
-        statusBarStyle: PropTypes.string, // dark-content or light-content
-        statusBarColor: PropTypes.string,
+  leftComponent: PropTypes.node,
+  leftIconName: PropTypes.string,
+  handleLeftIconPress: PropTypes.func,
 
-        leftComponent: PropTypes.node,
-        leftIconName: PropTypes.string,
-        handleLeftIconPress: PropTypes.func,
+  textComponent: PropTypes.node,
+  text: PropTypes.string,
+  textLeft: PropTypes.bool, // aligns text left
+  textRight: PropTypes.bool, // aligns text right
+  handleTextPress: PropTypes.func,
 
-        textComponent: PropTypes.node,
-        text: PropTypes.string,
-        textLeft: PropTypes.bool, // aligns text left
-        textRight: PropTypes.bool, // aligns text right
-        handleTextPress: PropTypes.func,
+  rightComponent: PropTypes.node,
+  rightIconName: PropTypes.string,
+  handleRightIconPress: PropTypes.func,
 
-        rightComponent: PropTypes.node,
-        rightIconName: PropTypes.string,
-        handleRightIconPress: PropTypes.func,
+  androidRipple: PropTypes.bool,
+  androidRippleColor: PropTypes.string,
+  androidRippleBorderless: PropTypes.bool,
 
-        // leftIconStyle: PropTypes.node,
-        // textStyle: PropTypes.node,
-        // rightIconStyle: PropTypes.node,
-        // style: PropTypes.node,
-        // wrapperStyle: PropTypes.node
-    */
+  leftIconStyle: Text.propTypes.style,
+  textStyle: Text.propTypes.style,
+  rightIconStyle: Text.propTypes.style,
+  style: ViewPropTypes.style,
+  wrapperStyle: ViewPropTypes.style,
+};
 
-  const showShadowStyles = props.showShadow && styleConstants.regularShadow;
+const defaultProps = {
+  statusBarStyle: 'dark-content',
+  statusBarColor: styleConstants.colors.white,
+};
 
-  const leftIcon = props.leftComponent ? (
-    <View style={styles.leftIconContainer}>{props.leftComponent}</View>
-  ) : props.leftIconName ? (
-    <Touchable
-      style={props.textLeft ? { justifyContent: 'center' } : styles.leftIconContainer}
-      onPress={props.handleLeftIconPress}
-    >
-      <MaterialIcon name={props.leftIconName} style={[styles.leftIcon, props.leftIconStyle]} />
-    </Touchable>
-  ) : props.textLeft ? null : (
-    <View style={styles.leftIconContainer} />
-  );
+const HeaderBar = ({
+  showShadow,
+  statusBarStyle,
+  statusBarColor,
+  leftComponent,
+  leftIconName,
+  handleLeftIconPress,
+  textComponent,
+  text,
+  textLeft,
+  textRight,
+  handleTextPress,
+  rightComponent,
+  rightIconName,
+  handleRightIconPress,
+  androidRipple,
+  androidRippleColor,
+  androidRippleBorderless,
+  leftIconStyle,
+  textStyle,
+  rightIconStyle,
+  style,
+  wrapperStyle,
+}) => {
+  const iOSStyles = Platform.OS === 'ios' && { marginTop: 22 }; // iOSStatusBar
+  const showShadowStyles = showShadow && styleConstants.shadows.regular;
+  const textLeftStyles = textLeft && {
+    alignItems: 'flex-start',
+    paddingLeft: styleConstants.dimensions.padding.small,
+  };
+  const textRightStyles = textRight && { alignItems: 'flex-end' };
 
-  const textLeftStyles = props.textLeft
-    ? {
-        alignItems: 'flex-start',
-        paddingLeft: 8,
-      }
-    : null;
+  let headerLeftComponent;
+  let headerTextComponent;
+  let headerRightComponent;
 
-  const textRightStyles = props.textRight ? { alignItems: 'flex-end' } : null;
+  if (leftComponent) {
+    headerLeftComponent = leftComponent;
+  } else if (leftIconName) {
+    headerLeftComponent = (
+      <Touchable
+        style={textLeft ? { justifyContent: 'center' } : styles.leftIconContainer}
+        onPress={handleLeftIconPress}
+        disabled={!handleLeftIconPress}
+        androidRipple={androidRipple}
+        androidRippleColor={androidRippleColor}
+        androidRippleBorderless={androidRippleBorderless}
+      >
+        <MaterialIcon name={leftIconName} style={[styles.leftIcon, leftIconStyle]} />
+      </Touchable>
+    );
+  } else if (!textLeft) {
+    headerLeftComponent = <View style={styles.leftIconContainer} />;
+  }
 
-  const text = props.textComponent ? (
-    props.textComponent
-  ) : props.handleTextPress ? (
-    <Touchable
-      style={[styles.textContainer, textLeftStyles, textRightStyles]}
-      onPress={props.handleTextPress}
-    >
-      <Text style={[styles.text, props.textStyle]} numberOfLines={1}>
-        {props.text}
-      </Text>
-    </Touchable>
-  ) : !props.text ? null : (
-    <View style={[styles.textContainer, textLeftStyles, textRightStyles]}>
-      <Text style={[styles.text, props.textStyle]} numberOfLines={1}>
-        {props.text}
-      </Text>
-    </View>
-  );
+  if (textComponent) {
+    headerTextComponent = textComponent;
+  } else if (text) {
+    headerTextComponent = (
+      <Touchable
+        style={[styles.textContainer, textLeftStyles, textRightStyles]}
+        onPress={handleTextPress}
+        disabled={!handleTextPress}
+        androidRipple={androidRipple}
+        androidRippleColor={androidRippleColor}
+        androidRippleBorderless={androidRippleBorderless}
+      >
+        <Text style={[styles.text, textStyle]} numberOfLines={1}>
+          {text}
+        </Text>
+      </Touchable>
+    );
+  }
 
-  const rightIcon = props.rightComponent ? (
-    <View style={styles.rightIconContainer}>{props.rightComponent}</View>
-  ) : props.rightIconName ? (
-    <Touchable style={styles.rightIconContainer} onPress={props.handleRightIconPress}>
-      <MaterialIcon name={props.rightIconName} style={[styles.rightIcon, props.rightIconStyle]} />
-    </Touchable>
-  ) : props.textRight ? null : (
-    <View style={styles.rightIconContainer} />
-  );
+  if (rightComponent) {
+    headerRightComponent = rightComponent;
+  } else if (rightIconName) {
+    headerRightComponent = (
+      <Touchable
+        style={textRight ? { justifyContent: 'center' } : styles.rightIconContainer}
+        onPress={handleRightIconPress}
+        disabled={!handleRightIconPress}
+        androidRipple={androidRipple}
+        androidRippleColor={androidRippleColor}
+        androidRippleBorderless={androidRippleBorderless}
+      >
+        <MaterialIcon name={rightIconName} style={[styles.rightIcon, rightIconStyle]} />
+      </Touchable>
+    );
+  } else if (!textRight) {
+    headerRightComponent = <View style={styles.rightIconContainer} />;
+  }
 
   return (
-    <View style={[styles.wrapper, props.wrapperStyle]}>
-      <StatusBar
-        backgroundColor={
-          props.statusBarColor ? props.statusBarColor : styleConstants.darkTransPrimary
-        }
-        barStyle={props.statusBarStyle ? props.statusBarStyle : 'light-content'}
-      />
-      <View style={[styles.container, showShadowStyles, iosStyles, props.style]}>
-        {leftIcon}
-        {text}
-        {rightIcon}
+    <View style={[styles.wrapper, wrapperStyle]}>
+      <StatusBar backgroundColor={statusBarColor} barStyle={statusBarStyle} />
+      <View style={[styles.container, showShadowStyles, iOSStyles, style]}>
+        {headerLeftComponent}
+        {headerTextComponent}
+        {headerRightComponent}
       </View>
     </View>
   );
-});
+};
+
+HeaderBar.propTypes = propTypes;
+HeaderBar.defaultProps = defaultProps;
+
+export default HeaderBar;
