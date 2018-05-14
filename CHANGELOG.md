@@ -49,6 +49,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * Menu - in favour of [react-native-material-menu](https://github.com/mxck/react-native-material-menu)
 * Modal - in favour of [react-native-modal](https://github.com/react-native-community/react-native-modal)
 * Page - dimensions prop
+* ScrollHeader - to be externalised as it's own package
 
 ## < 2.0.0
 
