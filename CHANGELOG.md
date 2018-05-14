@@ -42,6 +42,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * CountIcon - handlePress prop
 * Input - in favour of [react-native-material-textfield] (https://www.npmjs.com/package/react-native-material-textfield)
 * InputBar
+* InputContainer - in favour of [react-native-keyboard-aware-scroll-view](https://github.com/APSL/react-native-keyboard-aware-scroll-view) as an external dependency
 
 ## < 2.0.0
 

@@ -10,7 +10,13 @@
     "type": "git",
     "url": "git+https://github.com/shaunsaker/react-native-simple-components.git"
   },
-  "keywords": ["react", "react-native", "components", "simple", "ui"],
+  "keywords": [
+    "react",
+    "react-native",
+    "components",
+    "simple",
+    "ui"
+  ],
   "author": "Shaun Saker <info@shaunsaker.com> (http://shaunsaker.com)",
   "license": "MIT",
   "bugs": {
@@ -19,7 +25,6 @@
   "homepage": "https://github.com/shaunsaker/react-native-simple-components#readme",
   "dependencies": {
     "prop-types": "^15.6.0",
-    "react-native-keyboard-aware-scroll-view": "^0.4.3",
     "react-native-simple-animators": "^1.0.4",
     "react-native-vector-icons": "^4.5.0"
   },

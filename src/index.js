@@ -7,7 +7,6 @@ export { default as HeaderBar } from './components/HeaderBar';
 export { default as IconTextRow } from './components/IconTextRow';
 export { default as ImageWidget } from './components/ImageWidget';
 export { default as InfoBlock } from './components/InfoBlock';
-export { default as InputContainer } from './components/InputContainer';
 export { default as Label } from './components/Label';
 export { default as Loader } from './components/Loader';
 export { default as LoadingText } from './components/LoadingText';
