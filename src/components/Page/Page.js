@@ -1,24 +1,38 @@
 import React from 'react';
-import { View } from 'react-native';
+import PropTypes from 'prop-types';
+import { View, ViewPropTypes } from 'react-native';
 
 import styles from './styles';
-import styleConstants from '../assets/styleConstants';
 
-export default (Page = (props) => {
-  /* 
-        PROPTYPES
+const propTypes = {
+  verticalCenter: PropTypes.bool,
+  horizontalCenter: PropTypes.bool,
+  testing: PropTypes.bool, // stress test at 320 x 480 (our most common style bugs)
+  children: PropTypes.node,
+  style: ViewPropTypes.style,
+};
 
-        children: PropTypes.node,
-        dimensions: PropTypes.object, // can set width and height here (useful during testing)
+const defaultProps = {};
 
-        // style: PropTypes.node,
+const Page = ({ verticalCenter, horizontalCenter, testing, children, style }) => {
+  const verticalCenterStyles = verticalCenter && {
+    justifyContent: 'center',
+  };
+  const horizontalCenterStyles = horizontalCenter && {
+    alignItems: 'center',
+  };
+  const testingStyles = testing && styles.testing;
 
-    */
+  return (
+    <View
+      style={[styles.container, verticalCenterStyles, horizontalCenterStyles, testingStyles, style]}
+    >
+      {children}
+    </View>
+  );
+};
 
-  const dimensionsStyles = props.dimensions && props.dimensions;
-  if (dimensionsStyles && dimensionsStyles.height) {
-    dimensionsStyles['flex'] = 0;
-  }
+Page.propTypes = propTypes;
+Page.defaultProps = defaultProps;
 
-  return <View style={[styles.container, dimensionsStyles, props.style]}>{props.children}</View>;
-});
+export default Page;

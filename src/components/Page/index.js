@@ -1,3 +1,3 @@
-import Modal from './Modal';
+import Page from './Page';
 
-export default Modal;
+export default Page;

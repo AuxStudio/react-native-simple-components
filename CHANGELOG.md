@@ -33,6 +33,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * IconTextRow - customIcon, handlePress and androidRipple set of props
 * SmartImage - offline and error states
 * InfoBlock - style prop
+* RotatingChevron - androidRipple set of props
+* Page - verticalCenter, horizontalCenter and testing props
 
 ### Removed
 
@@ -46,6 +48,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * InputContainer - in favour of [react-native-keyboard-aware-scroll-view](https://github.com/APSL/react-native-keyboard-aware-scroll-view) as an external dependency
 * Menu - in favour of [react-native-material-menu](https://github.com/mxck/react-native-material-menu)
 * Modal - in favour of [react-native-modal](https://github.com/react-native-community/react-native-modal)
+* Page - dimensions prop
 
 ## < 2.0.0
 

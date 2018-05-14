@@ -77,7 +77,7 @@ class Home extends React.Component {
 * [x] Label - An icon and text label component.
 * [x] LoadingText - An animating loading component that represents a data fetch on text.
 * [x] NotificationIcon - A small notification type icon that contains a count value.
-* [x] Page - A component that acts as a page wrapper (useful for passing in custom width and heights to your pages during responsive testing).
+* [x] Page - A component that acts as a page wrapper for your scenes. Has a few helper props.
 * [x] RotatingChevron - A rotating chevron.
 * [x] ScrollHeader - An awesome image and tab bar header that animates into a HeaderBar on scroll (see it's props - TESTING)
 * [x] SmartImage - An image component that displays an ActivityIndicator while fetching images or a offline icon if offline or an error icon if error
@@ -92,7 +92,6 @@ class Home extends React.Component {
 * Lint components
 * Link styleConstants correctly
 * Externalise ScrollHeader
-* Page needs vt-center and hz-center props
 * Use correct style propTypes
 * Tooltip
 * Update iOS shadows
