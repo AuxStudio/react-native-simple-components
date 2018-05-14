@@ -1,47 +1,63 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-
-import styles from './styles';
-import styleConstants from '../assets/styleConstants';
-
+import PropTypes from 'prop-types';
+import { Text, ViewPropTypes } from 'react-native';
 import { AnimateOpacity, AnimateTranslateX } from 'react-native-simple-animators';
 
-export default (LoadingText = (props) => {
-  /*
-        PROPTYPES
+import styles from './styles';
+import styleConstants from '../../styleConstants';
 
-        text: PropTypes.string,
-        initialOpacityValue: PropTypes.number // default 0.33
-        finalOpacityValue: PropTypes.number // default 1
-        initialTranslateXValue: PropTypes.number // default window width
-        finalTranslateXValue: PropTypes.number // default 0
-        duration: PropTypes.number // default is 1000 ms
+const propTypes = {
+  text: PropTypes.string,
+  initialOpacityValue: PropTypes.number,
+  finalOpacityValue: PropTypes.number,
+  initialTranslateXValue: PropTypes.number,
+  finalTranslateXValue: PropTypes.number,
+  duration: PropTypes.number,
+  textStyle: Text.propTypes.style,
+  style: ViewPropTypes.style,
+};
 
-        // style: PropTypes.node,
-        // textStyle: PropTypes.node
-    */
+const defaultProps = {
+  text: "You can't see me",
+  initialOpacityValue: 0.33,
+  finalOpacityValue: 1,
+  initialTranslateXValue: styleConstants.dimensions.window.width * -1,
+  finalTranslateXValue: 0,
+  duration: 750,
+};
 
+const LoadingText = ({
+  text,
+  initialOpacityValue,
+  finalOpacityValue,
+  initialTranslateXValue,
+  finalTranslateXValue,
+  duration,
+  textStyle,
+  style,
+}) => {
   return (
     <AnimateOpacity
-      initialValue={props.initialOpacityValue ? props.initialOpacityValue : 0.33}
-      finalValue={props.finalOpacityValue ? props.finalOpacityValue : 1}
+      initialValue={initialOpacityValue}
+      finalValue={finalOpacityValue}
       shouldAnimateIn
       shouldRepeat
-      duration={props.duration ? props.duration : 750}
+      duration={duration}
     >
       <AnimateTranslateX
-        initialValue={
-          props.initialTranslateXValue
-            ? props.initialTranslateXValue
-            : styleConstants.windowWidth * -1
-        }
-        finalValue={props.finalTranslateXValue ? props.finalTranslateXValue : 0}
+        initialValue={initialTranslateXValue}
+        finalValue={finalTranslateXValue}
         shouldAnimateIn
-        duration={props.duration ? props.duration : 1000}
-        style={[styles.container, props.style]}
+        duration={duration}
+        style={[styles.container, style]}
       >
-        <Text style={[styles.text, props.textStyle]}>{props.text}</Text>
+        <Text style={[styles.text, textStyle]}>{text}</Text>
       </AnimateTranslateX>
     </AnimateOpacity>
   );
-});
+};
+
+LoadingText.propTypes = propTypes;
+LoadingText.defaultProps = defaultProps;
+
+export default LoadingText;
