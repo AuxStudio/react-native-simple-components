@@ -1,48 +1,56 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import PropTypes from 'prop-types';
+import { Text, ViewPropTypes } from 'react-native';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 import styles from './styles';
-import styleConstants from '../assets/styleConstants';
+import styleConstants from '../../styleConstants';
+import Touchable from '../Touchable';
 
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-import Touchable from './Touchable';
+const propTypes = {
+  handlePress: PropTypes.func,
+  iconName: PropTypes.string,
+  customIcon: PropTypes.node,
+  text: PropTypes.string,
+  showShadow: PropTypes.bool,
+  textStyle: Text.propTypes.style,
+  iconStyle: Text.propTypes.style,
+  style: ViewPropTypes.style,
+};
 
-export default (Label = (props) => {
-  /*
-        PROPTYPES
+const defaultProps = {
+  text: 'Label',
+};
 
-        handlePress: PropTypes.func,
-        iconName: PropTypes.string,
-        customIcon: PropTypes.node,
-        text: PropTypes.string,
+const Label = ({
+  handlePress,
+  iconName,
+  customIcon,
+  text,
+  showShadow,
+  textStyle,
+  iconStyle,
+  style,
+}) => {
+  const shadowStyles = showShadow && styleConstants.shadows.small;
 
-        showShadow: PropTypes.bool,
-        style: PropTypes.node,
-        textStyle: PropTypes.node,
-        iconStyle: PropTypes.node,
-    */
-
-  const shadowStyles = props.showShadow && {
-    ...styleConstants.smallShadow,
-  };
-
-  const icon = props.customIcon
-    ? props.customIcon
-    : props.iconName && (
-        <MaterialIcon name={props.iconName} style={[styles.icon, props.iconStyle]} />
-      );
-
-  const label = props.handlePress ? (
-    <Touchable onPress={props.handlePress} style={[styles.container, shadowStyles, props.style]}>
-      {icon}
-      <Text style={[styles.text, props.textStyle]}>{props.text}</Text>
-    </Touchable>
-  ) : (
-    <View style={[styles.container, shadowStyles, props.style]}>
-      {icon}
-      <Text style={[styles.text, props.textStyle]}>{props.text}</Text>
-    </View>
+  const iconComponent = customIcon || (
+    <MaterialIcon name={iconName} style={[styles.icon, iconStyle]} />
   );
 
-  return label;
-});
+  return (
+    <Touchable
+      onPress={handlePress}
+      disabled={!handlePress}
+      style={[styles.container, shadowStyles, style]}
+    >
+      {iconComponent}
+      <Text style={[styles.text, textStyle]}>{text}</Text>
+    </Touchable>
+  );
+};
+
+Label.propTypes = propTypes;
+Label.defaultProps = defaultProps;
+
+export default Label;

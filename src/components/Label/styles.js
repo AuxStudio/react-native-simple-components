@@ -7,18 +7,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: styleConstants.dividerColor,
-    paddingVertical: 4,
-    paddingHorizontal: 8,
+    backgroundColor: styleConstants.colors.dividerColor,
+    paddingVertical: styleConstants.dimensions.padding.small / 2,
+    paddingHorizontal: styleConstants.dimensions.padding.small,
   },
   icon: {
-    fontSize: styleConstants.iconFont,
-    color: styleConstants.primaryText,
-    marginRight: 8,
+    fontSize: styleConstants.fonts.sizes.icon,
+    color: styleConstants.colors.primaryText,
+    marginRight: styleConstants.dimensions.margin.small,
   },
   text: {
-    fontSize: styleConstants.smallFont,
-    color: styleConstants.primaryText,
+    fontSize: styleConstants.fonts.sizes.small,
+    color: styleConstants.colors.primaryText,
   },
 });
 
