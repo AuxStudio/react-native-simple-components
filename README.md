@@ -79,6 +79,7 @@ class Home extends React.Component {
 * [x] Modal - A modal that offers a dark transparent background and close icon out of the box.
 * [x] NotificationIcon - A small notification type icon that contains a count value.
 * [x] Page - A component that acts as a page wrapper (useful for passing in custom width and heights to your pages during responsive testing).
+* [x] RotatingChevron - A rotating chevron.
 * [x] ScrollHeader - An awesome image and tab bar header that animates into a HeaderBar on scroll (see it's props - TESTING)
 * [x] SmartImage - An image component that displays an ActivityIndicator while fetching images or a offline icon if offline or an error icon if error
 * [x] StarRating - Renders a row of outlined or filled stars based on rating prop

@@ -3,10 +3,9 @@ import { StyleSheet } from 'react-native';
 import styleConstants from '../../styleConstants';
 
 const styles = StyleSheet.create({
-  button: {},
   icon: {
-    fontSize: styleConstants.iconFont,
-    color: styleConstants.primaryText,
+    fontSize: styleConstants.fonts.sizes.icon,
+    color: styleConstants.colors.primaryText,
     transform: [{ rotate: '270deg' }],
     textAlign: 'center',
   },

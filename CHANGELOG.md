@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * StatusBarComponent renamed to StatusBar
 * HeaderBar left and right components no longer render containers when passed custom components
 * ImageWidget renamed to SmartImage
+* MenuIcon renamed to RotatingChevron
 
 ### Added
 
