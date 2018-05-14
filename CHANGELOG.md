@@ -35,6 +35,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * InfoBlock - style prop
 * RotatingChevron - androidRipple set of props
 * Page - verticalCenter, horizontalCenter and testing props
+* Loader - width and height props
 
 ### Removed
 
