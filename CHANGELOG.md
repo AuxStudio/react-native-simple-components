@@ -45,6 +45,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * InputBar
 * InputContainer - in favour of [react-native-keyboard-aware-scroll-view](https://github.com/APSL/react-native-keyboard-aware-scroll-view) as an external dependency
 * Menu - in favour of [react-native-material-menu](https://github.com/mxck/react-native-material-menu)
+* Modal - in favour of [react-native-modal](https://github.com/react-native-community/react-native-modal)
 
 ## < 2.0.0
 

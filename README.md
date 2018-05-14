@@ -76,7 +76,6 @@ class Home extends React.Component {
 * [x] InfoBlock - A common title and description patterned component.
 * [x] Label - An icon and text label component.
 * [x] LoadingText - An animating loading component that represents a data fetch on text.
-* [x] Modal - A modal that offers a dark transparent background and close icon out of the box.
 * [x] NotificationIcon - A small notification type icon that contains a count value.
 * [x] Page - A component that acts as a page wrapper (useful for passing in custom width and heights to your pages during responsive testing).
 * [x] RotatingChevron - A rotating chevron.

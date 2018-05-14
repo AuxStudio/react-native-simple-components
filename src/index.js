@@ -10,7 +10,6 @@ export { default as InfoBlock } from './components/InfoBlock';
 export { default as Label } from './components/Label';
 export { default as Loader } from './components/Loader';
 export { default as LoadingText } from './components/LoadingText';
-export { default as Modal } from './components/Modal';
 export { default as NotificationIcon } from './components/NotificationIcon';
 export { default as Page } from './components/Page';
 export { default as RotatingChevron } from './components/RotatingChevron';
