@@ -74,8 +74,6 @@ class Home extends React.Component {
 * [x] HeaderBar - A header component that accepts status bar styles, text and left and right icons.
 * [x] IconTextRow - A row with icon and text justified with space-between
 * [x] InfoBlock - A common title and description patterned component.
-* [x] Input - A text input component with all the bells and whistles.
-* [x] InputBar - A combination of the Input and HeaderBar components that can be used as a search/chat input bar.
 * [x] InputContainer - An input wrapper component that avoids the keyboard and provides blur on touch support.
 * [x] Label - An icon and text label component.
 * [x] LoadingText - An animating loading component that represents a data fetch on text.

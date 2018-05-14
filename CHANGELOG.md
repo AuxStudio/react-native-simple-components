@@ -40,6 +40,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * Button - disabledStyle prop
 * ButtonIcon - disabledStyle prop
 * CountIcon - handlePress prop
+* Input - in favour of [react-native-material-textfield] (https://www.npmjs.com/package/react-native-material-textfield)
+* InputBar
 
 ## < 2.0.0
 
