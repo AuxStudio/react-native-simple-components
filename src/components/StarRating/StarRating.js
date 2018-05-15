@@ -1,53 +1,46 @@
 import React from 'react';
-import { View } from 'react-native';
 import PropTypes from 'prop-types';
-
-import styles from './styles';
-import styleConstants from '../assets/styleConstants';
-
+import { View, Text, ViewPropTypes } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-export default function StarRating(props) {
-  // static get propTypes() {
-  //     return {
-  //         rating: PropTypes.number,
+import utils from '../../utils';
+import styles from './styles';
 
-  //         // style: PropTypes.node,
-  //         // iconStyle: PropTypes.node,
-  //     };
-  // }
+const propTypes = {
+  rating: PropTypes.number,
+  iconStyle: Text.propTypes.style,
+  style: ViewPropTypes.style,
+};
 
+const defaultProps = {};
+
+const StarRating = ({ rating, iconStyle, style }) => {
   const maxStars = 5;
   const starsArray = [];
-  for (let i = 0; i < maxStars; i++) {
-    if (i < props.rating) {
-      starsArray.push(
-        <Icon
-          key={'star-' + i}
-          name="star"
-          size={styleConstants.smallFont}
-          color={styleConstants.white}
-          style={props.iconStyle}
-        />,
-      );
+  for (let i = 0; i < maxStars; i += 1) {
+    if (i < rating) {
+      starsArray.push({
+        iconName: 'star',
+        id: utils.createUID(), // id is needed for map function below
+      });
     } else {
-      starsArray.push(
-        <Icon
-          key={'star-border-' + i}
-          name="star-border"
-          size={styleConstants.smallFont}
-          color={styleConstants.white}
-          style={props.iconStyle}
-        />,
-      );
+      starsArray.push({
+        iconName: 'star-border',
+        id: utils.createUID(),
+      });
     }
   }
 
   return (
-    <View style={[styles.container, props.style]}>
-      {starsArray.map((item, index) => {
-        return item;
+    <View style={[styles.container, style]}>
+      {starsArray.map((item) => {
+        return <Icon key={item.id} name={item.iconName} style={[styles.icon, iconStyle]} />;
       })}
     </View>
   );
-}
+};
+
+StarRating.propTypes = propTypes;
+StarRating.defaultProps = defaultProps;
+
+export default StarRating;
