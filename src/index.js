@@ -14,7 +14,6 @@ export { default as Page } from './components/Page';
 export { default as RotatingChevron } from './components/RotatingChevron';
 export { default as SmartImage } from './components/SmartImage';
 export { default as StarRating } from './components/StarRating';
-export { default as StarRatingInput } from './components/StarRatingInput';
 export { default as StatusBar } from './components/StatusBar';
 export { default as TabBar } from './components/TabBar';
 export { default as Touchable } from './components/Touchable';

@@ -36,6 +36,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * RotatingChevron - androidRipple set of props
 * Page - verticalCenter, horizontalCenter and testing props
 * Loader - width and height props
+* StarRating - handlePress and androidRipple set of props
 
 ### Removed
 
@@ -52,6 +53,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * Page - dimensions prop
 * ScrollHeader - to be externalised as it's own package
 * Snackbar - in favour of [react-native-snackbar](https://github.com/cooperka/react-native-snackbar)
+* StarRatingInput - use the StarRating component
 
 ## < 2.0.0
 

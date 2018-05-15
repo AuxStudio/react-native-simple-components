@@ -79,8 +79,7 @@ class Home extends React.Component {
 * [x] Page - A component that acts as a page wrapper for your scenes. Has a few helper props.
 * [x] RotatingChevron - A rotating chevron.
 * [x] SmartImage - An image component that displays an ActivityIndicator while fetching images or a offline icon if offline or an error icon if error
-* [x] StarRating - Renders a row of outlined or filled stars based on rating prop
-* [x] StarRatingInput - Renders a row of outlined or filled stars that are pressable and animate onPress with optional label text values
+* [x] StarRating - Renders a row of outlined or filled stars based on rating prop. Will pass back the pressed rating.
 * [x] StatusBar - Android and iOS friendly status bar (used internally).
 * [x] TabBar - A tab bar that accepts icons and label text.
 * [x] Touchable - A touchable component that renders the android ripple effect if specified and if on an Android device (used internally).
