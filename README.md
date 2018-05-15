@@ -88,8 +88,6 @@ class Home extends React.Component {
 
 ? Add setup guide and components for externalised components that will all be internalised with this package (since they'll all be used in any one app)
 
-* Lint components
-* Link styleConstants correctly
 * Externalise ScrollHeader
 * Follow material design
 * Update iOS shadows
