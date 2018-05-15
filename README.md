@@ -64,8 +64,6 @@ class Home extends React.Component {
 
 ## Components
 
-* [x] Loader - A thin line loader that animates left to right in a loop.
-* [x] Snackbar - A snack bar that animates from the bottom and includes a icon, message, retry action and close button.
 * [x] ActionSheet - A JS action sheet that accepts text and iconName options.
 * [x] Button - A button that accepts text and an optional icon.
 * [x] ButtonIcon - A round button that contains an icon.
@@ -75,6 +73,7 @@ class Home extends React.Component {
 * [x] IconTextRow - A row with icon and text justified with space-between
 * [x] InfoBlock - A common title and description patterned component.
 * [x] Label - An icon and text label component.
+* [x] Loader - A thin line loader that animates left to right in a loop.
 * [x] LoadingText - An animating loading component that represents a data fetch on text.
 * [x] NotificationIcon - A small notification type icon that contains a count value.
 * [x] Page - A component that acts as a page wrapper for your scenes. Has a few helper props.

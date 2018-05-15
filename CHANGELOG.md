@@ -51,6 +51,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * Modal - in favour of [react-native-modal](https://github.com/react-native-community/react-native-modal)
 * Page - dimensions prop
 * ScrollHeader - to be externalised as it's own package
+* Snackbar - in favour of [react-native-snackbar](https://github.com/cooperka/react-native-snackbar)
 
 ## < 2.0.0
 
