@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * HeaderBar left and right components no longer render containers when passed custom components
 * ImageWidget renamed to SmartImage
 * MenuIcon renamed to RotatingChevron
+* TabBar changed handleTabPress => handlePress and disabledStyle => disabledTabStyle
 
 ### Added
 
@@ -37,6 +38,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 * Page - verticalCenter, horizontalCenter and testing props
 * Loader - width and height props
 * StarRating - handlePress and androidRipple set of props
+* TabBar - wrapperStyle and androidRipple set of props
 
 ### Removed
 

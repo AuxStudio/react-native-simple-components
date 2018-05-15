@@ -2,18 +2,21 @@ import { StyleSheet } from 'react-native';
 
 import styleConstants from '../../styleConstants';
 
+const HEIGHT = 56;
+
 const styles = StyleSheet.create({
   scrollWrapper: {
-    maxHeight: 56,
+    maxHeight: HEIGHT,
   },
   scrollContainer: {
-    height: 56,
+    height: HEIGHT,
   },
   container: {
-    height: 56,
+    height: HEIGHT,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    backgroundColor: styleConstants.colors.white,
   },
   tabContainer: {
     flex: 1,
@@ -22,17 +25,16 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
   },
   iconContainer: {
-    paddingHorizontal: 16,
+    paddingHorizontal: styleConstants.dimensions.padding.large,
     position: 'relative',
   },
   icon: {
-    fontSize: styleConstants.iconFont,
-    color: styleConstants.secondaryText,
+    fontSize: styleConstants.fonts.sizes.icon,
+    color: styleConstants.colors.secondaryText,
   },
   text: {
-    fontSize: styleConstants.smallFont,
-    color: styleConstants.secondaryText,
-    marginTop: 2,
+    fontSize: styleConstants.fonts.sizes.small,
+    color: styleConstants.colors.secondaryText,
     textAlign: 'center',
   },
   disabled: {

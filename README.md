@@ -87,8 +87,6 @@ class Home extends React.Component {
 ## TODOS
 
 ? Add setup guide and components for externalised components that will all be internalised with this package (since they'll all be used in any one app)
-? Swipeable tab bar to be externalisd https://github.com/react-native-community/react-native-tab-view
-? Tooltip components
 
 * Lint components
 * Link styleConstants correctly
@@ -96,4 +94,5 @@ class Home extends React.Component {
 * Follow material design
 * Update iOS shadows
 * HeaderBar/Custom components should not have containers
-* All Touchables have long press
+* All Touchables have long press and disableFeedback props
+* Tooltip component

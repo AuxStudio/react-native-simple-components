@@ -1,119 +1,136 @@
 import React from 'react';
-import { View, ScrollView, Text } from 'react-native';
+import PropTypes from 'prop-types';
+import { View, ScrollView, Text, ViewPropTypes } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import styles from './styles';
-import styleConstants from '../assets/styleConstants';
+import styleConstants from '../../styleConstants';
+import Touchable from '../Touchable';
 
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-import Touchable from './Touchable';
+const propTypes = {
+  tabs: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      iconName: PropTypes.string,
+      customIcon: PropTypes.node,
+      disabled: PropTypes.bool,
+    }),
+  ).isRequired,
+  activeTab: PropTypes.string,
+  handlePress: PropTypes.func,
+  androidRipple: PropTypes.bool,
+  androidRippleColor: PropTypes.string,
+  androidRippleBorderless: PropTypes.bool,
+  shouldScrollHorizontally: PropTypes.bool,
+  tabWidth: PropTypes.number, // works with shouldScrollHorizontally
+  showShadow: PropTypes.bool,
+  textColor: PropTypes.string, // both icons and text
+  activeTextColor: PropTypes.string, // both icons and text
+  iconStyle: Text.propTypes.style,
+  textStyle: Text.propTypes.style,
+  tabStyle: ViewPropTypes.style,
+  activeTabStyle: ViewPropTypes.style,
+  disabledTabStyle: ViewPropTypes.style,
+  style: ViewPropTypes.style,
+  wrapperStyle: ViewPropTypes.style, // works with shouldScrollHorizonally
+};
 
-export default (TabBar = (props) => {
-  /* 
-        PROPTYPES
+const defaultProps = {
+  textColor: styleConstants.colors.primaryText,
+  activeTextColor: styleConstants.colors.primary,
+};
 
-        tabs: PropTypes.array.isRequired, eg. [{title: 'Home', iconName: 'home', customIcon: PropTypes.node, disabled: false}]
-        activeTab: PropTypes.string,
-        handleTabPress: PropTypes.func,
-        shouldScrollHorizontally: PropTypes.bool,
-        tabWidth: PropTypes.number, // works with above prop
+const TabBar = ({
+  tabs,
+  activeTab,
+  handlePress,
+  androidRipple,
+  androidRippleColor,
+  androidRippleBorderless,
+  shouldScrollHorizontally,
+  tabWidth,
+  showShadow,
+  textColor,
+  activeTextColor,
+  iconStyle,
+  textStyle,
+  tabStyle,
+  activeTabStyle,
+  disabledTabStyle,
+  style,
+  wrapperStyle,
+}) => {
+  const shadowStyles = showShadow && styleConstants.shadows.regular;
 
-        showShadow: PropTypes.bool,
-        textColor: PropTypes.node, // both icons and text
-        activeTextColor: PropTypes.node, // both icons and text
-        // style: PropTypes.node,
-        // iconStyle: PropTypes.node,
-        // textStyle: PropTypes.node,
-        // tabStyle: PropTypes.node,
-        // activeTabStyle: PropTypes.node,
-        // disabledStyle: PropTypes.node,
-        // style: PropTypes.node,
-
-    */
-
-  const tabs =
-    props.tabs &&
-    props.tabs.map((value) => {
+  const tabBarComponent =
+    tabs &&
+    tabs.map((tab) => {
+      const color = activeTab === tab.title ? activeTextColor : textColor;
       const colorStyles = {
-        color:
-          props.activeTab === value.title
-            ? props.activeTextColor
-              ? props.activeTextColor
-              : styleConstants.primaryText
-            : props.textColor
-              ? props.textColor
-              : styleConstants.secondaryText,
+        color,
       };
+      const activeTabStyles = activeTab === tab.title && activeTabStyle;
+      const disabledStyles = [];
 
-      const iconComponent = value.customIcon
-        ? value.customIcon
-        : value.iconName && (
-            <MaterialIcon
-              name={value.iconName}
-              style={[styles.icon, colorStyles, props.iconStyle]}
-            />
+      if (tab.disabled) {
+        disabledStyles.push(styles.disabled);
+        // Add the custom disabled style if provided
+        if (disabledTabStyle) {
+          disabledStyles.push(disabledTabStyle);
+        }
+      }
+
+      const iconComponent = tab.customIcon
+        ? tab.customIcon
+        : tab.iconName && (
+            <Icon name={tab.iconName} style={[styles.icon, colorStyles, iconStyle]} />
           );
 
-      const icon = iconComponent && <View style={styles.iconContainer}>{iconComponent}</View>;
-
-      const title = value.title && (
-        <Text style={[styles.text, colorStyles, props.textStyle]}>{value.title}</Text>
+      const titleTextComponent = tab.title && (
+        <Text style={[styles.text, colorStyles, textStyle]}>{tab.title}</Text>
       );
 
-      const activeTabStyle = props.activeTab === value.title && props.activeTabStyle;
-
-      const tab = value.disabled ? (
-        <View
-          style={[
-            styles.tabContainer,
-            styles.disabled,
-            {
-              width: props.tabWidth,
-            },
-            props.tabStyle,
-            props.disabledStyle,
-          ]}
-          key={'tab-' + value.title}
-        >
-          {icon}
-          {title}
-        </View>
-      ) : (
+      return (
         <Touchable
-          onPress={() => props.handleTabPress(value.title)}
+          key={tab.title}
+          onPress={() => handlePress && handlePress(tab.title)}
+          androidRipple={androidRipple}
+          androidRippleColor={androidRippleColor}
+          androidRippleBorderless={androidRippleBorderless}
+          disabled={tab.disabled}
           style={[
             styles.tabContainer,
             {
-              width: props.tabWidth,
+              width: tabWidth,
             },
-            props.tabStyle,
-            activeTabStyle,
+            activeTabStyles,
+            disabledStyles,
+            tabStyle,
           ]}
-          key={'tab-' + value.title}
         >
-          {icon}
-          {title}
+          {iconComponent}
+          {titleTextComponent}
         </Touchable>
       );
-
-      return tab;
     });
 
-  const shadowStyles = props.showShadow && {
-    ...styleConstants.regularShadow,
-  };
-
-  const tabBar = props.shouldScrollHorizontally ? (
+  const tabBarWrapperComponent = shouldScrollHorizontally ? (
     <ScrollView
       horizontal
       showsHorizontalScrollIndicator={false}
-      style={[styles.scrollWrapper, shadowStyles]}
-      contentContainerStyle={[styles.scrollContainer, props.style]}
+      style={[styles.scrollWrapper, shadowStyles, wrapperStyle]}
+      contentContainerStyle={[styles.scrollContainer, style]}
     >
-      {tabs}
+      {tabBarComponent}
     </ScrollView>
   ) : (
-    <View style={[styles.container, shadowStyles, props.style]}>{tabs}</View>
+    <View style={[styles.container, shadowStyles, style]}>{tabBarComponent}</View>
   );
 
-  return tabBar;
-});
+  return tabBarWrapperComponent;
+};
+
+TabBar.propTypes = propTypes;
+TabBar.defaultProps = defaultProps;
+
+export default TabBar;
