@@ -2,6 +2,8 @@
 
 A collection of simple, customisable reusable react-native components with a decent amount of functionality out of the box.
 
+`Important: A number of components have been removed from the V2 release in favour of better supported external libraries. Please see the CHANGELOG for further changes.`
+
 ## Installation
 
 ```shell
