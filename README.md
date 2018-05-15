@@ -88,11 +88,11 @@ class Home extends React.Component {
 
 ## TODOS
 
-? Add setup guide and components for externalised components that will all be internalised with this package (since they'll all be used in any one app)
-
-* Externalise ScrollHeader
-* Follow material design
-* Update iOS shadows
 * HeaderBar/Custom components should not have containers
 * All Touchables have long press and disableFeedback props
+
+## ENHANCEMENTS
+
 * Tooltip component
+* Follow material design
+* Update iOS shadows
