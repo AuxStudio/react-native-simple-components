@@ -88,6 +88,10 @@ class Home extends React.Component {
 
 ## TODOS
 
+* Consider using react-native-material-bottom-navigation as replacement for TabBar
+* Add example project (npmignore it)
+* Add development guide
+* Add storybook (npm ignore it)
 * HeaderBar/Custom components should not have containers
 * All Touchables have long press and disableFeedback props
 
