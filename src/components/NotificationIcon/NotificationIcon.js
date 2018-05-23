@@ -16,7 +16,7 @@ const defaultProps = {
   count: 0,
 };
 
-const CountIcon = ({ count, showShadow, textStyle, style }) => {
+const NotificationIcon = ({ count, showShadow, textStyle, style }) => {
   const shadowStyles = showShadow && styleConstants.shadows.small;
 
   return (
@@ -26,7 +26,7 @@ const CountIcon = ({ count, showShadow, textStyle, style }) => {
   );
 };
 
-CountIcon.propTypes = propTypes;
-CountIcon.defaultProps = defaultProps;
+NotificationIcon.propTypes = propTypes;
+NotificationIcon.defaultProps = defaultProps;
 
-export default CountIcon;
+export default NotificationIcon;
