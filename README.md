@@ -88,12 +88,10 @@ class Home extends React.Component {
 
 ## TODOS
 
-* HeaderBar/Custom components should not have containers
-* All Touchables have long press and disableFeedback props
-* Add static displayName
-
 ## ENHANCEMENTS
 
+* All Touchables have Touchable props
+* Add static displayName
 * Tooltip component
 * Follow material design
   -- Update iOS shadows
