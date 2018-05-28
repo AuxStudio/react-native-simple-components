@@ -88,9 +88,6 @@ class Home extends React.Component {
 
 ## TODOS
 
-* Add example project (npmignore it)
-* Add development guide
-* Add storybook (npm ignore it)
 * HeaderBar/Custom components should not have containers
 * All Touchables have long press and disableFeedback props
 * Add static displayName
