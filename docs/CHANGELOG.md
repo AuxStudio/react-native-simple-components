@@ -5,6 +5,39 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## 2.0.4
+
+### Added
+
+* Licence
+
+### Changed
+
+* Updated README
+
+## 2.0.3
+
+### Changed
+
+* Github repository moved from [https://github.com/shaunsaker/react-native-simple-components](https://github.com/AuxStudio/react-native-simple-components) to [https://github.com/shaunsaker/react-native-simple-components](https://github.com/AuxStudio/react-native-simple-components)
+* Updated README
+
+## 2.0.2
+
+### Fixed
+
+* NotificationIcon component was incorrectly named CountIcon
+
+### Changed
+
+* Updated README
+
+## 2.0.1
+
+### Changed
+
+* Updated README
+
 ## 2.0.0
 
 ### Fixed
