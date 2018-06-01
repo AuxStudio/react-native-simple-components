@@ -2,16 +2,15 @@
 
 A collection of simple, customisable reusable react-native components with a decent amount of functionality out of the box.
 
-`Important: A number of components have been removed from the V2 release in favour of better supported external libraries. Please see the CHANGELOG for further changes.`
+`Important: A number of components have been removed from the V2 release in favour of better supported external libraries. Please see the for further changes.`
 
 ## Installation
 
 ```shell
-npm install --save react-native-simple-components
+yarn add react-native-simple-components
 ```
 
-react-native-vector-icons is a dependency. You will need to set it up as per the following link (unless you plan to pass in custom icon components):
-[react-native-vector-icons](https://github.com/oblador/react-native-vector-icons#installation)
+react-native-vector-icons is a dependency. You will need to set it up as per the following [link](https://github.com/oblador/react-native-vector-icons#installation) (unless you plan to pass in custom icon components).
 
 ## Importing
 
