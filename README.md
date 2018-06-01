@@ -85,13 +85,3 @@ class Home extends React.Component {
 * [x] StatusBar - Android and iOS friendly status bar (used internally).
 * [x] TabBar - A tab bar that accepts icons and label text.
 * [x] Touchable - A touchable component that renders the android ripple effect if specified and if on an Android device (used internally).
-
-## TODOS
-
-## ENHANCEMENTS
-
-* All Touchables have Touchable props
-* Add static displayName
-* Tooltip component
-* Follow material design
-  -- Update iOS shadows
