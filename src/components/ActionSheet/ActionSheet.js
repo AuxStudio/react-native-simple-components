@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ViewPropTypes, Text } from 'react-native';
-import { Touchable, IconTextRow } from 'react-native-simple-components';
 import { AnimateTranslateY } from 'react-native-simple-animators';
 
 import styles from './styles';
+import Touchable from '../Touchable';
+import IconTextRow from '../IconTextRow';
 
 export default class ActionSheet extends React.Component {
   static get propTypes() {
