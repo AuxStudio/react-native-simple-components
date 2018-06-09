@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a CheckBox 1`] = `
+<View
+  accessible={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderColor": "#212121",
+        "borderWidth": 1,
+        "height": 32,
+        "justifyContent": "center",
+        "width": 32,
+      },
+      undefined,
+    ]
+  }
+>
+  <AnimateScale
+    finalValue={1}
+    initialValue={0}
+    shouldAnimateIn={true}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={false}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#212121",
+              "fontSize": 24,
+            },
+            undefined,
+          ],
+          Object {
+            "fontFamily": "Material Icons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+        ]
+      }
+    >
+      
+    </Text>
+  </AnimateScale>
+</View>
+`;
+
+exports[`renders a CheckBox with a customIcon 1`] = `
+<View
+  accessible={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderColor": "#212121",
+        "borderWidth": 1,
+        "height": 32,
+        "justifyContent": "center",
+        "width": 32,
+      },
+      undefined,
+    ]
+  }
+/>
+`;
+
+exports[`renders a CheckBox with no props 1`] = `
+<View
+  accessible={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderColor": "#212121",
+        "borderWidth": 1,
+        "height": 32,
+        "justifyContent": "center",
+        "width": 32,
+      },
+      undefined,
+    ]
+  }
+/>
+`;
