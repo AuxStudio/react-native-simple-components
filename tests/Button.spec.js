@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-import Button from '../Button';
+import Button from '../src/components/Button';
 
 it('renders a Button', () => {
   expect(
