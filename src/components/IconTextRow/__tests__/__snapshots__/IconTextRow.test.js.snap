@@ -1,0 +1,204 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a IconTextRow 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "backgroundColor": "blue",
+      "borderBottomColor": "#E0E0E0",
+      "borderBottomWidth": 1,
+      "flexDirection": "row",
+      "opacity": 1,
+      "paddingVertical": 16,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={false}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": undefined,
+          "fontSize": 12,
+        },
+        Array [
+          Object {
+            "color": "#212121",
+            "fontSize": 24,
+          },
+          Object {
+            "color": "red",
+          },
+        ],
+        Object {
+          "fontFamily": "Material Icons",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#212121",
+          "flex": 1,
+          "fontSize": 17,
+          "textAlign": "right",
+        },
+        Object {
+          "color": "red",
+        },
+      ]
+    }
+  >
+    Test
+  </Text>
+</View>
+`;
+
+exports[`renders a IconTextRow with custom icon 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "borderBottomColor": "#E0E0E0",
+      "borderBottomWidth": 1,
+      "flexDirection": "row",
+      "opacity": 1,
+      "paddingVertical": 16,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={false}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": undefined,
+          "fontSize": 12,
+        },
+        undefined,
+        Object {
+          "fontFamily": "Material Icons",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#212121",
+          "flex": 1,
+          "fontSize": 17,
+          "textAlign": "right",
+        },
+        undefined,
+      ]
+    }
+  >
+    IconTextRow
+  </Text>
+</View>
+`;
+
+exports[`renders a IconTextRow with no props 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "borderBottomColor": "#E0E0E0",
+      "borderBottomWidth": 1,
+      "flexDirection": "row",
+      "opacity": 1,
+      "paddingVertical": 16,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={false}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": undefined,
+          "fontSize": 12,
+        },
+        Array [
+          Object {
+            "color": "#212121",
+            "fontSize": 24,
+          },
+          undefined,
+        ],
+        Object {
+          "fontFamily": "Material Icons",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#212121",
+          "flex": 1,
+          "fontSize": 17,
+          "textAlign": "right",
+        },
+        undefined,
+      ]
+    }
+  >
+    IconTextRow
+  </Text>
+</View>
+`;
