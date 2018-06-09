@@ -7,7 +7,9 @@ exports[`renders a HeaderBar 1`] = `
       Object {
         "alignSelf": "stretch",
       },
-      undefined,
+      Object {
+        "backgroundColor": "green",
+      },
     ]
   }
 >
@@ -63,7 +65,9 @@ exports[`renders a HeaderBar 1`] = `
         Object {
           "marginTop": 22,
         },
-        undefined,
+        Object {
+          "backgroundColor": "blue",
+        },
       ]
     }
   >
@@ -100,7 +104,9 @@ exports[`renders a HeaderBar 1`] = `
                 "color": "#212121",
                 "fontSize": 24,
               },
-              undefined,
+              Object {
+                "color": "red",
+              },
             ],
             Object {
               "fontFamily": "Material Icons",
@@ -143,7 +149,9 @@ exports[`renders a HeaderBar 1`] = `
               "fontSize": 17,
               "textAlign": "center",
             },
-            undefined,
+            Object {
+              "color": "red",
+            },
           ]
         }
       >
@@ -183,7 +191,9 @@ exports[`renders a HeaderBar 1`] = `
                 "color": "#212121",
                 "fontSize": 24,
               },
-              undefined,
+              Object {
+                "color": "red",
+              },
             ],
             Object {
               "fontFamily": "Material Icons",

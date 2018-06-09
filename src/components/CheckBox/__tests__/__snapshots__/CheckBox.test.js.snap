@@ -19,7 +19,9 @@ exports[`renders a CheckBox 1`] = `
         "justifyContent": "center",
         "width": 32,
       },
-      undefined,
+      Object {
+        "backgroundColor": "blue",
+      },
     ]
   }
 >
@@ -43,7 +45,9 @@ exports[`renders a CheckBox 1`] = `
               "color": "#212121",
               "fontSize": 24,
             },
-            undefined,
+            Object {
+              "color": "red",
+            },
           ],
           Object {
             "fontFamily": "Material Icons",

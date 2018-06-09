@@ -24,7 +24,9 @@ exports[`renders a NotificationIcon 1`] = `
         "shadowOpacity": 0.17,
         "shadowRadius": 2,
       },
-      undefined,
+      Object {
+        "backgroundColor": "blue",
+      },
     ]
   }
 >
@@ -38,7 +40,9 @@ exports[`renders a NotificationIcon 1`] = `
           "color": "#212121",
           "fontSize": 11,
         },
-        undefined,
+        Object {
+          "color": "red",
+        },
       ]
     }
   >

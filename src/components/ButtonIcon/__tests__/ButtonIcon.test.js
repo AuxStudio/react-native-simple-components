@@ -15,6 +15,8 @@ it('renders a ButtonIcon', () => {
         androidRippleColor="red"
         androidRippleBorderless
         showShadow
+        iconStyle={{ color: 'red' }}
+        style={{ backgroundColor: 'blue' }}
       />,
     ),
   ).toMatchSnapshot();

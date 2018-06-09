@@ -13,7 +13,7 @@ exports[`renders a ButtonIcon 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "backgroundColor": "#E0E0E0",
+      "backgroundColor": "blue",
       "borderColor": null,
       "borderRadius": 28,
       "borderWidth": 0,
@@ -48,7 +48,9 @@ exports[`renders a ButtonIcon 1`] = `
             "color": "#212121",
             "fontSize": 24,
           },
-          undefined,
+          Object {
+            "color": "red",
+          },
         ],
         Object {
           "fontFamily": "Material Icons",

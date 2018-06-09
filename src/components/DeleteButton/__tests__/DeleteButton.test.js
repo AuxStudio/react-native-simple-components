@@ -14,6 +14,8 @@ it('renders a DeleteButton', () => {
         androidRipple
         androidRippleColor="red"
         androidRippleBorderless
+        iconStyle={{ color: 'red' }}
+        style={{ backgroundColor: 'blue' }}
       />,
     ),
   ).toMatchSnapshot();

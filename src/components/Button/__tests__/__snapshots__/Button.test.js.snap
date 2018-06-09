@@ -14,7 +14,7 @@ exports[`renders a Button 1`] = `
     Object {
       "alignItems": "center",
       "alignSelf": "stretch",
-      "backgroundColor": "#E0E0E0",
+      "backgroundColor": "blue",
       "borderColor": null,
       "borderWidth": 0,
       "elevation": 2,
@@ -41,7 +41,9 @@ exports[`renders a Button 1`] = `
         },
         undefined,
         undefined,
-        undefined,
+        Object {
+          "backgroundColor": "green",
+        },
       ]
     }
   >
@@ -60,7 +62,9 @@ exports[`renders a Button 1`] = `
               "color": "#212121",
               "fontSize": 24,
             },
-            undefined,
+            Object {
+              "color": "red",
+            },
           ],
           Object {
             "fontFamily": "Material Icons",
@@ -83,7 +87,9 @@ exports[`renders a Button 1`] = `
           "color": "#212121",
           "fontSize": 17,
         },
-        undefined,
+        Object {
+          "color": "red",
+        },
       ]
     }
   >

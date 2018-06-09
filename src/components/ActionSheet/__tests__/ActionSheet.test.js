@@ -14,14 +14,12 @@ it('renders a ActionSheet', () => {
       <ActionSheet
         options={[{ iconName: 'check', text: 'Test 1' }, { iconName: 'close', text: 'Test 2' }]}
         handlePress={jest.fn()}
+        rowHeight={100}
+        textStyle={{ color: 'red' }}
+        iconStyle={{ color: 'red' }}
+        style={{ backgroundColor: 'blue' }}
       />,
     ),
-  ).toMatchSnapshot();
-});
-
-it('renders a ActionSheet with rowHeight', () => {
-  expect(
-    renderer.create(<ActionSheet handlePress={jest.fn()} rowHeight={100} />),
   ).toMatchSnapshot();
 });
 

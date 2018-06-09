@@ -3,7 +3,7 @@
 exports[`renders a ActionSheet 1`] = `
 <AnimateTranslateY
   finalValue={0}
-  initialValue={168}
+  initialValue={300}
   shouldAnimateIn={true}
   shouldAnimateOut={false}
   style={
@@ -17,7 +17,9 @@ exports[`renders a ActionSheet 1`] = `
         "right": 0,
         "zIndex": 100,
       },
-      undefined,
+      Object {
+        "backgroundColor": "blue",
+      },
     ]
   }
 >
@@ -53,7 +55,7 @@ exports[`renders a ActionSheet 1`] = `
           "borderBottomColor": "#E0E0E0",
           "borderBottomWidth": 1,
           "flexDirection": "row",
-          "height": 56,
+          "height": 100,
           "opacity": 1,
           "paddingHorizontal": 8,
           "paddingVertical": 16,
@@ -81,7 +83,9 @@ exports[`renders a ActionSheet 1`] = `
                   "fontSize": 24,
                   "marginRight": 8,
                 },
-                undefined,
+                Object {
+                  "color": "red",
+                },
               ],
             ],
             Object {
@@ -112,7 +116,9 @@ exports[`renders a ActionSheet 1`] = `
                 "fontSize": 17,
                 "textAlign": "left",
               },
-              undefined,
+              Object {
+                "color": "red",
+              },
             ],
           ]
         }
@@ -153,7 +159,7 @@ exports[`renders a ActionSheet 1`] = `
           "borderBottomColor": "#E0E0E0",
           "borderBottomWidth": 1,
           "flexDirection": "row",
-          "height": 56,
+          "height": 100,
           "opacity": 1,
           "paddingHorizontal": 8,
           "paddingVertical": 16,
@@ -181,7 +187,9 @@ exports[`renders a ActionSheet 1`] = `
                   "fontSize": 24,
                   "marginRight": 8,
                 },
-                undefined,
+                Object {
+                  "color": "red",
+                },
               ],
             ],
             Object {
@@ -212,7 +220,9 @@ exports[`renders a ActionSheet 1`] = `
                 "fontSize": 17,
                 "textAlign": "left",
               },
-              undefined,
+              Object {
+                "color": "red",
+              },
             ],
           ]
         }
@@ -253,7 +263,7 @@ exports[`renders a ActionSheet 1`] = `
           "borderBottomColor": "#E0E0E0",
           "borderBottomWidth": 1,
           "flexDirection": "row",
-          "height": 56,
+          "height": 100,
           "opacity": 1,
           "paddingHorizontal": 8,
           "paddingVertical": 16,
@@ -281,7 +291,9 @@ exports[`renders a ActionSheet 1`] = `
                   "fontSize": 24,
                   "marginRight": 8,
                 },
-                undefined,
+                Object {
+                  "color": "red",
+                },
               ],
             ],
             Object {
@@ -312,7 +324,9 @@ exports[`renders a ActionSheet 1`] = `
                 "fontSize": 17,
                 "textAlign": "left",
               },
-              undefined,
+              Object {
+                "color": "red",
+              },
             ],
           ]
         }
@@ -478,230 +492,6 @@ exports[`renders a ActionSheet with no props 1`] = `
           "borderBottomWidth": 1,
           "flexDirection": "row",
           "height": 56,
-          "opacity": 1,
-          "paddingHorizontal": 8,
-          "paddingVertical": 16,
-        }
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={false}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": undefined,
-              "fontSize": 12,
-            },
-            Array [
-              Object {
-                "color": "#212121",
-                "fontSize": 24,
-              },
-              Array [
-                Object {
-                  "color": "#212121",
-                  "fontSize": 24,
-                  "marginRight": 8,
-                },
-                undefined,
-              ],
-            ],
-            Object {
-              "fontFamily": "Material Icons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "#212121",
-              "flex": 1,
-              "fontSize": 17,
-              "textAlign": "right",
-            },
-            Array [
-              Object {
-                "color": "#212121",
-                "fontSize": 17,
-                "textAlign": "left",
-              },
-              undefined,
-            ],
-          ]
-        }
-      >
-        Cancel
-      </Text>
-    </View>
-  </View>
-</AnimateTranslateY>
-`;
-
-exports[`renders a ActionSheet with rowHeight 1`] = `
-<AnimateTranslateY
-  finalValue={0}
-  initialValue={200}
-  shouldAnimateIn={true}
-  shouldAnimateOut={false}
-  style={
-    Array [
-      Object {
-        "backgroundColor": "#FFFFFF",
-        "bottom": 0,
-        "elevation": 100,
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "zIndex": 100,
-      },
-      undefined,
-    ]
-  }
->
-  <View
-    accessible={true}
-    isTVSelectable={true}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "opacity": 1,
-        "paddingHorizontal": 8,
-      }
-    }
-  >
-    <View
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "alignItems": "center",
-          "borderBottomColor": "#E0E0E0",
-          "borderBottomWidth": 1,
-          "flexDirection": "row",
-          "height": 100,
-          "opacity": 1,
-          "paddingHorizontal": 8,
-          "paddingVertical": 16,
-        }
-      }
-    >
-      <Text
-        accessible={true}
-        allowFontScaling={false}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": undefined,
-              "fontSize": 12,
-            },
-            Array [
-              Object {
-                "color": "#212121",
-                "fontSize": 24,
-              },
-              Array [
-                Object {
-                  "color": "#212121",
-                  "fontSize": 24,
-                  "marginRight": 8,
-                },
-                undefined,
-              ],
-            ],
-            Object {
-              "fontFamily": "Material Icons",
-              "fontStyle": "normal",
-              "fontWeight": "normal",
-            },
-          ]
-        }
-      >
-        
-      </Text>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Array [
-            Object {
-              "color": "#212121",
-              "flex": 1,
-              "fontSize": 17,
-              "textAlign": "right",
-            },
-            Array [
-              Object {
-                "color": "#212121",
-                "fontSize": 17,
-                "textAlign": "left",
-              },
-              undefined,
-            ],
-          ]
-        }
-      >
-        Option 1
-      </Text>
-    </View>
-  </View>
-  <View
-    accessible={true}
-    isTVSelectable={true}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "alignItems": "center",
-        "opacity": 1,
-        "paddingHorizontal": 8,
-      }
-    }
-  >
-    <View
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "alignItems": "center",
-          "borderBottomColor": "#E0E0E0",
-          "borderBottomWidth": 1,
-          "flexDirection": "row",
-          "height": 100,
           "opacity": 1,
           "paddingHorizontal": 8,
           "paddingVertical": 16,

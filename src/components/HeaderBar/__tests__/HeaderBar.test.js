@@ -20,6 +20,11 @@ it('renders a HeaderBar', () => {
         androidRipple
         androidRippleColor="red"
         androidRippleBorderless
+        leftIconStyle={{ color: 'red' }}
+        textStyle={{ color: 'red' }}
+        rightIconStyle={{ color: 'red' }}
+        style={{ backgroundColor: 'blue' }}
+        wrapperStyle={{ backgroundColor: 'green' }}
       />,
     ),
   ).toMatchSnapshot();

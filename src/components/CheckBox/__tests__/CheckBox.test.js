@@ -18,6 +18,8 @@ it('renders a CheckBox', () => {
         androidRipple
         androidRippleColor="red"
         androidRippleBorderless
+        iconStyle={{ color: 'red' }}
+        style={{ backgroundColor: 'blue' }}
       />,
     ),
   ).toMatchSnapshot();
