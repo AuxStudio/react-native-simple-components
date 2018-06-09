@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 import Button from '../src/components/Button';
 
@@ -27,7 +27,7 @@ it('renders a Button with text left and icon right', () => {
 });
 
 it('renders a Button with a customIcon', () => {
-  expect(renderer.create(<Button customIcon={<Icon name="check" />} />)).toMatchSnapshot();
+  expect(renderer.create(<Button customIcon={<MaterialIcon name="check" />} />)).toMatchSnapshot();
 });
 
 it('renders a Button with a loader', () => {
