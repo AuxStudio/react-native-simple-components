@@ -6,7 +6,7 @@ jest.mock('react-native-simple-animators', () => ({
   AnimateTranslateY: 'AnimateTranslateY',
 }));
 
-import ActionSheet from '../src/components/ActionSheet';
+import ActionSheet from '../ActionSheet';
 
 it('renders a ActionSheet', () => {
   expect(

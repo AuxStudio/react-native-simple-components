@@ -3,14 +3,18 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
-import DeleteButton from '../src/components/DeleteButton';
+jest.mock('react-native-simple-animators', () => ({
+  AnimateScale: 'AnimateScale',
+}));
 
-it('renders a DeleteButton', () => {
+import CheckBox from '../CheckBox';
+
+it('renders a CheckBox', () => {
   expect(
     renderer.create(
-      <DeleteButton
+      <CheckBox
+        isChecked
         handlePress={jest.fn()}
-        showShadow
         androidRipple
         androidRippleColor="red"
         androidRippleBorderless
@@ -19,13 +23,13 @@ it('renders a DeleteButton', () => {
   ).toMatchSnapshot();
 });
 
-it('renders a DeleteButton with custom icon', () => {
+it('renders a CheckBox with a customIcon', () => {
   expect(
-    renderer.create(<DeleteButton customIcon={<MaterialIcon name="check" />} />),
+    renderer.create(<CheckBox customIcon={<MaterialIcon name="check" />} />),
   ).toMatchSnapshot();
 });
 
-it('renders a DeleteButton with no props', () => {
-  expect(renderer.create(<DeleteButton />)).toMatchSnapshot();
+it('renders a CheckBox with no props', () => {
+  expect(renderer.create(<CheckBox />)).toMatchSnapshot();
 });
 /* eslint-enable */
