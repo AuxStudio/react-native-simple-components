@@ -40,6 +40,7 @@ export default class SmartImage extends React.Component {
         hasError: true,
       });
     }
+    this.setLoading(false);
   };
 
   setLoading = (isLoading) => {
