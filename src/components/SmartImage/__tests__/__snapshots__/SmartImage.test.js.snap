@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a SmartImage with no props 1`] = `
+<View
+  style={Object {}}
+>
+  <Image
+    onError={[Function]}
+    onLoadEnd={[Function]}
+  />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#FFFFFF",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <ActivityIndicator
+      animating={true}
+      color="#212121"
+      hidesWhenStopped={true}
+      size="large"
+    />
+  </View>
+</View>
+`;
+
+exports[`renders a local SmartImage 1`] = `
+<View
+  style={Object {}}
+>
+  <Image
+    onError={[Function]}
+    onLoadEnd={[Function]}
+    source={1}
+    style={
+      Object {
+        "backgroundColor": "blue",
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#FFFFFF",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <ActivityIndicator
+      animating={true}
+      color="green"
+      hidesWhenStopped={true}
+      size="large"
+    />
+  </View>
+</View>
+`;
+
+exports[`renders a remote SmartImage 1`] = `
+<View
+  style={Object {}}
+>
+  <Image
+    onError={[Function]}
+    onLoadEnd={[Function]}
+    source={
+      Object {
+        "uri": "https://d3iw72m71ie81c.cloudfront.net/male-47.jpg",
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#FFFFFF",
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <ActivityIndicator
+      animating={true}
+      color="#212121"
+      hidesWhenStopped={true}
+      size="large"
+    />
+  </View>
+</View>
+`;
