@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a StatusBar 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+        "zIndex": 100,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 22,
+        },
+        Object {
+          "backgroundColor": "red",
+        },
+      ]
+    }
+  />
+</View>
+`;
+
+exports[`renders a StatusBar with no props 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+        "zIndex": 100,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "height": 22,
+        },
+        Object {
+          "backgroundColor": "#FFFFFF",
+        },
+      ]
+    }
+  />
+</View>
+`;
