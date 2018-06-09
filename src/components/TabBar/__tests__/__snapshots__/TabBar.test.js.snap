@@ -1,0 +1,435 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a TabBar 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#FFFFFF",
+        "flexDirection": "row",
+        "height": 56,
+        "justifyContent": "space-between",
+      },
+      Object {
+        "borderColor": null,
+        "borderWidth": 0,
+        "elevation": 6,
+        "shadowColor": "#212121",
+        "shadowOffset": Object {
+          "height": 1,
+          "width": 0,
+        },
+        "shadowOpacity": 0.33,
+        "shadowRadius": 2,
+      },
+      Object {
+        "backgroundColor": "orange",
+      },
+    ]
+  }
+>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "stretch",
+        "backgroundColor": "blue",
+        "flex": 1,
+        "justifyContent": "center",
+        "opacity": 1,
+        "width": undefined,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={false}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#757575",
+              "fontSize": 24,
+            },
+            Object {
+              "color": "blue",
+            },
+            Object {
+              "color": "red",
+            },
+          ],
+          Object {
+            "fontFamily": "Material Icons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+        ]
+      }
+    >
+      
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#757575",
+            "fontSize": 15,
+            "textAlign": "center",
+          },
+          Object {
+            "color": "blue",
+          },
+          Object {
+            "color": "red",
+          },
+        ]
+      }
+    >
+      Home
+    </Text>
+  </View>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "stretch",
+        "backgroundColor": "blue",
+        "flex": 1,
+        "justifyContent": "center",
+        "opacity": 0.33,
+        "width": undefined,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={false}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#757575",
+              "fontSize": 24,
+            },
+            Object {
+              "color": "red",
+            },
+            Object {
+              "color": "red",
+            },
+          ],
+          Object {
+            "fontFamily": "Material Icons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+        ]
+      }
+    >
+      
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#757575",
+            "fontSize": 15,
+            "textAlign": "center",
+          },
+          Object {
+            "color": "red",
+          },
+          Object {
+            "color": "red",
+          },
+        ]
+      }
+    >
+      Profile
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`renders a TabBar 2`] = `
+<RCTScrollView
+  contentContainerStyle={
+    Array [
+      Object {
+        "height": 56,
+      },
+      undefined,
+    ]
+  }
+  horizontal={true}
+  showsHorizontalScrollIndicator={false}
+  style={
+    Array [
+      Object {
+        "maxHeight": 56,
+      },
+      undefined,
+      undefined,
+    ]
+  }
+>
+  <View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "stretch",
+          "flex": 1,
+          "justifyContent": "center",
+          "opacity": 1,
+          "width": 200,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={false}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": undefined,
+              "fontSize": 12,
+            },
+            Array [
+              Object {
+                "color": "#757575",
+                "fontSize": 24,
+              },
+              Object {
+                "color": "#3D84A8",
+              },
+              undefined,
+            ],
+            Object {
+              "fontFamily": "Material Icons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+          ]
+        }
+      >
+        
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#757575",
+              "fontSize": 15,
+              "textAlign": "center",
+            },
+            Object {
+              "color": "#3D84A8",
+            },
+            undefined,
+          ]
+        }
+      >
+        Home
+      </Text>
+    </View>
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "stretch",
+          "flex": 1,
+          "justifyContent": "center",
+          "opacity": 0.33,
+          "width": 200,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={false}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": undefined,
+              "fontSize": 12,
+            },
+            Array [
+              Object {
+                "color": "#757575",
+                "fontSize": 24,
+              },
+              Object {
+                "color": "#212121",
+              },
+              undefined,
+            ],
+            Object {
+              "fontFamily": "Material Icons",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+            },
+          ]
+        }
+      >
+        
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#757575",
+              "fontSize": 15,
+              "textAlign": "center",
+            },
+            Object {
+              "color": "#212121",
+            },
+            undefined,
+          ]
+        }
+      >
+        Profile
+      </Text>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`renders a TabBar with customIcon 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#FFFFFF",
+        "flexDirection": "row",
+        "height": 56,
+        "justifyContent": "space-between",
+      },
+      undefined,
+      undefined,
+    ]
+  }
+>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "stretch",
+        "flex": 1,
+        "justifyContent": "center",
+        "opacity": 1,
+        "width": undefined,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={false}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          undefined,
+          Object {
+            "fontFamily": "Material Icons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+        ]
+      }
+    >
+      
+    </Text>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "#757575",
+            "fontSize": 15,
+            "textAlign": "center",
+          },
+          Object {
+            "color": "#3D84A8",
+          },
+          undefined,
+        ]
+      }
+    >
+      Home
+    </Text>
+  </View>
+</View>
+`;

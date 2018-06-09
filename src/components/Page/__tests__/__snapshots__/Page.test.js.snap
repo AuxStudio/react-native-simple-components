@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a Page 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "flex": 1,
+        "position": "relative",
+      },
+      Object {
+        "justifyContent": "center",
+      },
+      Object {
+        "alignItems": "center",
+      },
+      undefined,
+      Object {
+        "backgroundColor": "red",
+      },
+    ]
+  }
+>
+  <View />
+</View>
+`;
+
+exports[`renders a Page with no props 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "flex": 1,
+        "position": "relative",
+      },
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+    ]
+  }
+/>
+`;
+
+exports[`renders a Page with testing prop 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "flex": 1,
+        "position": "relative",
+      },
+      undefined,
+      undefined,
+      Object {
+        "alignSelf": "center",
+        "flex": 0,
+        "height": 480,
+        "width": 320,
+      },
+      Object {
+        "backgroundColor": "red",
+      },
+    ]
+  }
+>
+  <View />
+</View>
+`;

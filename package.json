@@ -1,16 +1,25 @@
 {
   "name": "react-native-simple-components",
-  "version": "2.0.4",
+  "version": "2.0.6",
   "description": "A collection of simple, reusable react-native components",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "jest-react-native"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AuxStudio/react-native-simple-components.git"
   },
-  "keywords": ["react", "react-native", "components", "simple", "ui"],
+  "keywords": [
+    "react",
+    "react-native",
+    "components",
+    "simple",
+    "ui"
+  ],
   "author": "Shaun Saker <info@shaunsaker.com> (http://shaunsaker.com)",
   "license": "MIT",
   "bugs": {
@@ -24,12 +33,18 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.2.3",
+    "babel-jest": "^23.0.1",
     "babel-preset-react-native": "^4.0.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
-    "eslint-plugin-react-native": "^3.2.1"
+    "eslint-plugin-react-native": "^3.2.1",
+    "jest": "^23.1.0",
+    "jest-react-native": "^18.0.0",
+    "react": "^16.4.0",
+    "react-native": "^0.55.4",
+    "react-test-renderer": "^16.4.0"
   }
 }

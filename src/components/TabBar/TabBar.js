@@ -16,7 +16,7 @@ const propTypes = {
       disabled: PropTypes.bool,
     }),
   ).isRequired,
-  activeTab: PropTypes.string,
+  activeTab: PropTypes.string.isRequired,
   handlePress: PropTypes.func,
   androidRipple: PropTypes.bool,
   androidRippleColor: PropTypes.string,

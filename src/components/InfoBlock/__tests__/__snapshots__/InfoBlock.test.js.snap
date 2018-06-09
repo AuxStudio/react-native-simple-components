@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a InfoBlock 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+      },
+      Object {
+        "backgroundColor": "blue",
+      },
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#212121",
+          "fontSize": 24,
+          "marginBottom": 8,
+        },
+        Object {
+          "color": "red",
+        },
+      ]
+    }
+  >
+    Title
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#757575",
+          "fontSize": 17,
+        },
+        Object {
+          "color": "red",
+        },
+      ]
+    }
+  >
+    Description
+  </Text>
+</View>
+`;
+
+exports[`renders a InfoBlock with no props 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+      },
+      undefined,
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#212121",
+          "fontSize": 24,
+          "marginBottom": 8,
+        },
+        undefined,
+      ]
+    }
+  >
+    Title
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#757575",
+          "fontSize": 17,
+        },
+        undefined,
+      ]
+    }
+  >
+    Description
+  </Text>
+</View>
+`;

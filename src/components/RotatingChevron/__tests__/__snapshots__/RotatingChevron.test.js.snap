@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a RotatingChevron 1`] = `
+<AnimateRotate
+  finalValue={-180}
+  initialValue={0}
+  shouldAnimateIn={false}
+  shouldAnimateOut={true}
+  style={
+    Object {
+      "backgroundColor": "green",
+    }
+  }
+>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "blue",
+        "opacity": 1,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={false}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#212121",
+              "fontSize": 24,
+              "textAlign": "center",
+              "transform": Array [
+                Object {
+                  "rotate": "270deg",
+                },
+              ],
+            },
+            Object {
+              "color": "red",
+            },
+          ],
+          Object {
+            "fontFamily": "Material Icons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+</AnimateRotate>
+`;
+
+exports[`renders a RotatingChevron with no props 1`] = `
+<AnimateRotate
+  finalValue={-180}
+  initialValue={0}
+  shouldAnimateIn={false}
+  shouldAnimateOut={true}
+>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={false}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": undefined,
+            "fontSize": 12,
+          },
+          Array [
+            Object {
+              "color": "#212121",
+              "fontSize": 24,
+              "textAlign": "center",
+              "transform": Array [
+                Object {
+                  "rotate": "270deg",
+                },
+              ],
+            },
+            undefined,
+          ],
+          Object {
+            "fontFamily": "Material Icons",
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+          },
+        ]
+      }
+    >
+      
+    </Text>
+  </View>
+</AnimateRotate>
+`;

@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a NotificationIcon 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#E0E0E0",
+        "borderRadius": 10,
+        "height": 20,
+        "justifyContent": "center",
+        "width": 20,
+      },
+      Object {
+        "borderColor": null,
+        "borderWidth": 0,
+        "elevation": 2,
+        "shadowColor": "#212121",
+        "shadowOffset": Object {
+          "height": 1,
+          "width": 0,
+        },
+        "shadowOpacity": 0.17,
+        "shadowRadius": 2,
+      },
+      Object {
+        "backgroundColor": "blue",
+      },
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#212121",
+          "fontSize": 11,
+        },
+        Object {
+          "color": "red",
+        },
+      ]
+    }
+  >
+    5
+  </Text>
+</View>
+`;
+
+exports[`renders a NotificationIcon with no props 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#E0E0E0",
+        "borderRadius": 10,
+        "height": 20,
+        "justifyContent": "center",
+        "width": 20,
+      },
+      undefined,
+      undefined,
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#212121",
+          "fontSize": 11,
+        },
+        undefined,
+      ]
+    }
+  >
+    0
+  </Text>
+</View>
+`;

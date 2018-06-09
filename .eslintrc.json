@@ -2,7 +2,8 @@
   "env": {
     "node": true, // this is the best starting point
     "browser": true, // for react web
-    "es6": true // enables es6 features
+    "es6": true, // enables es6 features
+    "jest": true // unit testing
   },
   "parser": "babel-eslint", // needed to make babel stuff work properly
   "extends": "airbnb",
@@ -28,7 +29,8 @@
     "arrow-parens": "off", // parenthesis around single argument or not, depends on the use case
     "no-bitwise": "off",
     "no-nested-ternary": "off", // I personally prefer nested ternaries
-    "react/jsx-indent": "off" // conflicts with prettier
+    "react/jsx-indent": "off", // conflicts with prettier
+    "import/no-extraneous-dependencies": "off" // for this project, we don't want to add dependencies where not necessary
   },
   "plugins": ["react", "react-native"],
   "globals": {

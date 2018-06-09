@@ -2,10 +2,10 @@ import React from 'react';
 import { ViewPropTypes, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import { AnimateRotate } from 'react-native-simple-animators';
-import { Touchable } from 'react-native-simple-components';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import styles from './styles';
+import Touchable from '../Touchable';
 
 export default class RotatingChevron extends React.Component {
   static get propTypes() {
