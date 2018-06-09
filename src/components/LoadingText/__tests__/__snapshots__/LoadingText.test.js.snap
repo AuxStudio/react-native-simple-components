@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a LoadingText 1`] = `
+<AnimateOpacity
+  duration={500}
+  finalValue={0.5}
+  initialValue={0}
+  shouldAnimateIn={true}
+  shouldRepeat={true}
+>
+  <AnimateTranslateX
+    duration={500}
+    finalValue={200}
+    initialValue={100}
+    shouldAnimateIn={true}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#E0E0E0",
+          "borderRadius": 16,
+          "overflow": "hidden",
+        },
+        Object {
+          "backgroundColor": "blue",
+        },
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "transparent",
+            "fontSize": 17,
+          },
+          Object {
+            "color": "red",
+          },
+        ]
+      }
+    >
+      Test
+    </Text>
+  </AnimateTranslateX>
+</AnimateOpacity>
+`;
+
+exports[`renders a LoadingText with no props 1`] = `
+<AnimateOpacity
+  duration={750}
+  finalValue={1}
+  initialValue={0.33}
+  shouldAnimateIn={true}
+  shouldRepeat={true}
+>
+  <AnimateTranslateX
+    duration={750}
+    finalValue={0}
+    initialValue={-750}
+    shouldAnimateIn={true}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#E0E0E0",
+          "borderRadius": 16,
+          "overflow": "hidden",
+        },
+        undefined,
+      ]
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "color": "transparent",
+            "fontSize": 17,
+          },
+          undefined,
+        ]
+      }
+    >
+      You can't see me
+    </Text>
+  </AnimateTranslateX>
+</AnimateOpacity>
+`;
