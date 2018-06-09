@@ -9,18 +9,22 @@ jest.mock('react-native-simple-animators', () => ({
 import ActionSheet from '../ActionSheet';
 
 it('renders a ActionSheet', () => {
-  expect(
-    renderer.create(
-      <ActionSheet
-        options={[{ iconName: 'check', text: 'Test 1' }, { iconName: 'close', text: 'Test 2' }]}
-        handlePress={jest.fn()}
-        rowHeight={100}
-        textStyle={{ color: 'red' }}
-        iconStyle={{ color: 'red' }}
-        style={{ backgroundColor: 'blue' }}
-      />,
-    ),
-  ).toMatchSnapshot();
+  const component = renderer.create(
+    <ActionSheet
+      options={[{ iconName: 'check', text: 'Test 1' }, { iconName: 'close', text: 'Test 2' }]}
+      handlePress={jest.fn()}
+      rowHeight={100}
+      textStyle={{ color: 'red' }}
+      iconStyle={{ color: 'red' }}
+      style={{ backgroundColor: 'blue' }}
+    />,
+  );
+  expect(component).toMatchSnapshot();
+
+  const instance = component.getInstance();
+  instance.handleSelect({ iconName: 'check', text: 'Test 1' });
+
+  expect(instance.state.shouldAnimateOut).toBe(true);
 });
 
 it('renders a ActionSheet with no props', () => {

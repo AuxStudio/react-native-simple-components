@@ -40,6 +40,7 @@ export default class SmartImage extends React.Component {
         hasError: true,
       });
     }
+    this.setLoading(false);
   };
 
   setLoading = (isLoading) => {
@@ -56,13 +57,13 @@ export default class SmartImage extends React.Component {
 
       backgroundComponent = (
         <View style={styles.backgroundContainer}>
-          <Icon name={iconName} style={[styles.icon, this.props.iconStyle]} />
+          <Icon name={iconName} style={[styles.icon, this.props.iconStyle]} testID="icon" />
         </View>
       );
     } else if (this.state.isLoading) {
       backgroundComponent = (
         <View style={styles.backgroundContainer}>
-          <ActivityIndicator size="large" color={this.props.loaderColor} />
+          <ActivityIndicator size="large" color={this.props.loaderColor} testID="loader" />
         </View>
       );
     }
