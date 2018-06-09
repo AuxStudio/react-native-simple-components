@@ -6,3 +6,7 @@ import NotificationIcon from '../src/components/NotificationIcon';
 it('renders a NotificationIcon', () => {
   expect(renderer.create(<NotificationIcon count={5} showShadow />)).toMatchSnapshot();
 });
+
+it('renders a NotificationIcon with no props', () => {
+  expect(renderer.create(<NotificationIcon />)).toMatchSnapshot();
+});

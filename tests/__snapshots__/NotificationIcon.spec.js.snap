@@ -46,3 +46,39 @@ exports[`renders a NotificationIcon 1`] = `
   </Text>
 </View>
 `;
+
+exports[`renders a NotificationIcon with no props 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#E0E0E0",
+        "borderRadius": 10,
+        "height": 20,
+        "justifyContent": "center",
+        "width": 20,
+      },
+      undefined,
+      undefined,
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": "#212121",
+          "fontSize": 11,
+        },
+        undefined,
+      ]
+    }
+  >
+    0
+  </Text>
+</View>
+`;

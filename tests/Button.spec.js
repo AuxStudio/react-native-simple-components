@@ -37,3 +37,7 @@ it('renders a Button with a loader', () => {
 it('renders a disabled Button', () => {
   expect(renderer.create(<Button disabled />)).toMatchSnapshot();
 });
+
+it('renders a Button with no props', () => {
+  expect(renderer.create(<Button />)).toMatchSnapshot();
+});
