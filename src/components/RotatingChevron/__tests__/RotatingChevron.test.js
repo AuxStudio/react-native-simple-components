@@ -9,20 +9,23 @@ jest.mock('react-native-simple-animators', () => ({
 import RotatingChevron from '../RotatingChevron';
 
 it('renders a RotatingChevron', () => {
-  expect(
-    renderer.create(
-      <RotatingChevron
-        handlePress={jest.fn()}
-        androidRipple
-        androidRippleColor="red"
-        androidRippleBorderless
-        showShadow
-        iconStyle={{ color: 'red' }}
-        style={{ backgroundColor: 'blue' }}
-        wrapperStyle={{ backgroundColor: 'green' }}
-      />,
-    ),
-  ).toMatchSnapshot();
+  const component = renderer.create(
+    <RotatingChevron
+      handlePress={jest.fn()}
+      androidRipple
+      androidRippleColor="red"
+      androidRippleBorderless
+      showShadow
+      iconStyle={{ color: 'red' }}
+      style={{ backgroundColor: 'blue' }}
+      wrapperStyle={{ backgroundColor: 'green' }}
+    />,
+  );
+  expect(component).toMatchSnapshot();
+
+  const instance = component.getInstance();
+  instance.toggleRotate();
+  expect(instance.state.shouldRotate).toBe(true);
 });
 
 it('renders a RotatingChevron with no props', () => {
