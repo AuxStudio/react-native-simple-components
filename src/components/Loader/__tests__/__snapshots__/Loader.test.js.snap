@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a Loader 1`] = `
+<AnimateOpacity
+  finalValue={1}
+  initialValue={0}
+  shouldAnimateIn={true}
+  style={
+    Object {
+      "backgroundColor": "purple",
+    }
+  }
+>
+  <AnimateTranslateX
+    duration={500}
+    finalValue={750}
+    initialValue={-200}
+    shouldAnimateIn={true}
+    shouldLoop={true}
+    shouldRepeat={true}
+    style={
+      Object {
+        "backgroundColor": "green",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "red",
+            "height": 10,
+            "width": 200,
+          },
+          Object {
+            "backgroundColor": "blue",
+          },
+        ]
+      }
+    />
+  </AnimateTranslateX>
+</AnimateOpacity>
+`;
+
+exports[`renders a Loader with no props 1`] = `
+<AnimateOpacity
+  finalValue={1}
+  initialValue={0}
+  shouldAnimateIn={true}
+>
+  <AnimateTranslateX
+    duration={2000}
+    finalValue={750}
+    initialValue={-100}
+    shouldAnimateIn={true}
+    shouldLoop={true}
+    shouldRepeat={true}
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#3D84A8",
+            "height": 5,
+            "width": 100,
+          },
+          undefined,
+        ]
+      }
+    />
+  </AnimateTranslateX>
+</AnimateOpacity>
+`;
