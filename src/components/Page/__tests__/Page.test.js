@@ -3,7 +3,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { View } from 'react-native';
 
-import Page from '../Page';
+import Page from '../';
 
 it('renders a Page', () => {
   expect(

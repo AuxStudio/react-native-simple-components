@@ -7,7 +7,7 @@ jest.mock('react-native-simple-animators', () => ({
   AnimateTranslateX: 'AnimateTranslateX',
 }));
 
-import LoadingText from '../LoadingText';
+import LoadingText from '../';
 
 it('renders a LoadingText', () => {
   expect(

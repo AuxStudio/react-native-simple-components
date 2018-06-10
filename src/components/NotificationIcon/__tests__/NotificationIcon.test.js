@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import NotificationIcon from '../NotificationIcon';
+import NotificationIcon from '../';
 
 it('renders a NotificationIcon', () => {
   expect(

@@ -6,7 +6,7 @@ jest.mock('react-native-simple-animators', () => ({
   AnimateRotate: 'AnimateRotate',
 }));
 
-import RotatingChevron from '../RotatingChevron';
+import RotatingChevron from '../';
 
 it('renders a RotatingChevron', () => {
   const component = renderer.create(

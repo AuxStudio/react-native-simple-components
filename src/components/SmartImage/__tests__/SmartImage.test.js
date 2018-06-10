@@ -2,7 +2,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import SmartImage from '../SmartImage';
+import SmartImage from '../';
 
 const IMAGE_SOURCE_LOCAL = 5;
 

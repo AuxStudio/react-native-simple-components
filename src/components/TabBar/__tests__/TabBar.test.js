@@ -3,7 +3,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
-import TabBar from '../TabBar';
+import TabBar from '../';
 
 const TABS = [
   {
