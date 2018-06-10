@@ -2,7 +2,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import StarRating from '../StarRating';
+import StarRating from '../';
 
 // TODO: it should return a value based on index on press
 it('renders a StarRating', () => {

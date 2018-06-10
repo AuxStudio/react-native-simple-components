@@ -7,7 +7,7 @@ jest.mock('react-native-simple-animators', () => ({
   AnimateScale: 'AnimateScale',
 }));
 
-import CheckBox from '../CheckBox';
+import CheckBox from '../';
 
 it('renders a CheckBox', () => {
   expect(

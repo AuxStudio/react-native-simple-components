@@ -3,7 +3,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
-import HeaderBar from '../HeaderBar';
+import HeaderBar from '../';
 
 it('renders a HeaderBar', () => {
   expect(

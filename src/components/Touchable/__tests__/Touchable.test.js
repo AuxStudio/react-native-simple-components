@@ -3,7 +3,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { View } from 'react-native';
 
-import Touchable from '../Touchable';
+import Touchable from '../';
 
 it('renders a Touchable', () => {
   expect(

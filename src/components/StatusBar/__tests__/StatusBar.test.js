@@ -2,7 +2,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import StatusBar from '../StatusBar';
+import StatusBar from '../';
 
 it('renders a StatusBar', () => {
   expect(

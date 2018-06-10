@@ -2,7 +2,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import InfoBlock from '../InfoBlock';
+import InfoBlock from '../';
 
 it('renders a InfoBlock', () => {
   expect(

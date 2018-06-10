@@ -3,7 +3,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
-import IconTextRow from '../IconTextRow';
+import IconTextRow from '../';
 
 it('renders a IconTextRow', () => {
   expect(
