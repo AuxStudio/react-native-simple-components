@@ -22,13 +22,27 @@ it('renders a RotatingChevron', () => {
     />,
   );
   expect(component).toMatchSnapshot();
-
-  const instance = component.getInstance();
-  instance.toggleRotate();
-  expect(instance.state.shouldRotate).toBe(true);
 });
 
 it('renders a RotatingChevron with no props', () => {
   expect(renderer.create(<RotatingChevron />)).toMatchSnapshot();
+});
+
+it('renders a RotatingChevron and toggles rotate', () => {
+  const component = renderer.create(
+    <RotatingChevron
+      handlePress={jest.fn()}
+      androidRipple
+      androidRippleColor="red"
+      androidRippleBorderless
+      showShadow
+      iconStyle={{ color: 'red' }}
+      style={{ backgroundColor: 'blue' }}
+      wrapperStyle={{ backgroundColor: 'green' }}
+    />,
+  );
+  const instance = component.getInstance();
+  instance.toggleRotate();
+  expect(instance.state.shouldRotate).toBe(true);
 });
 /* eslint-enable */
