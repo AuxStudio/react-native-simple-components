@@ -33,7 +33,6 @@ it('renders a SmartImage and toggles loading', () => {
   const component = renderer.create(<SmartImage source={IMAGE_SOURCE_LOCAL} />);
   const instance = component.getInstance();
 
-  // Set offline error
   instance.setLoading(false);
   expect(instance.state.isLoading).toBe(false);
 });
@@ -43,7 +42,6 @@ it('renders a SmartImage with error', () => {
   const { root } = component;
   const instance = component.getInstance();
 
-  // Set offline error
   instance.setError({
     nativeEvent: {
       error: 'Test',
@@ -63,7 +61,6 @@ it('renders a SmartImage with offline error', () => {
   const { root } = component;
   const instance = component.getInstance();
 
-  // Set offline error
   instance.setError({
     nativeEvent: {
       error: 'The Internet connection appears to be offline.',
