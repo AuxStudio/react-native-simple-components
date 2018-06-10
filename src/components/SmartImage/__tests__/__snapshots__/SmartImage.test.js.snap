@@ -39,74 +39,6 @@ exports[`renders a SmartImage 1`] = `
 </View>
 `;
 
-exports[`renders a SmartImage and toggles loading 1`] = `
-<View
-  style={Object {}}
->
-  <Image
-    onError={[Function]}
-    onLoadEnd={[Function]}
-    source={5}
-  />
-  <View
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#FFFFFF",
-        "bottom": 0,
-        "justifyContent": "center",
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
-      }
-    }
-  >
-    <ActivityIndicator
-      animating={true}
-      color="#212121"
-      hidesWhenStopped={true}
-      size="large"
-      testID="loader"
-    />
-  </View>
-</View>
-`;
-
-exports[`renders a SmartImage with error 1`] = `
-<View
-  style={Object {}}
->
-  <Image
-    onError={[Function]}
-    onLoadEnd={[Function]}
-    source={5}
-  />
-  <View
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#FFFFFF",
-        "bottom": 0,
-        "justifyContent": "center",
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
-      }
-    }
-  >
-    <ActivityIndicator
-      animating={true}
-      color="#212121"
-      hidesWhenStopped={true}
-      size="large"
-      testID="loader"
-    />
-  </View>
-</View>
-`;
-
 exports[`renders a SmartImage with no props 1`] = `
 <View
   style={Object {}}
@@ -114,40 +46,6 @@ exports[`renders a SmartImage with no props 1`] = `
   <Image
     onError={[Function]}
     onLoadEnd={[Function]}
-  />
-  <View
-    style={
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#FFFFFF",
-        "bottom": 0,
-        "justifyContent": "center",
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
-      }
-    }
-  >
-    <ActivityIndicator
-      animating={true}
-      color="#212121"
-      hidesWhenStopped={true}
-      size="large"
-      testID="loader"
-    />
-  </View>
-</View>
-`;
-
-exports[`renders a SmartImage with offline error 1`] = `
-<View
-  style={Object {}}
->
-  <Image
-    onError={[Function]}
-    onLoadEnd={[Function]}
-    source={5}
   />
   <View
     style={
