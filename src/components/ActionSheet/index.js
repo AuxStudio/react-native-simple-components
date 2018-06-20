@@ -8,6 +8,16 @@ import Touchable from '../Touchable';
 import IconTextRow from '../IconTextRow';
 
 export default class ActionSheet extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleSelect = this.handleSelect.bind(this);
+
+    this.state = {
+      shouldAnimateOut: false,
+    };
+  }
+
   static get propTypes() {
     return {
       options: PropTypes.arrayOf(
@@ -26,11 +36,7 @@ export default class ActionSheet extends React.Component {
     rowHeight: 56,
   };
 
-  state = {
-    shouldAnimateOut: false,
-  };
-
-  handleSelect = (item) => {
+  handleSelect(item) {
     this.setState({
       shouldAnimateOut: true,
     });
@@ -39,7 +45,7 @@ export default class ActionSheet extends React.Component {
         this.props.handlePress(item);
       }
     }, 500);
-  };
+  }
 
   render() {
     const initialValue = (this.props.options.length + 1) * this.props.rowHeight;
