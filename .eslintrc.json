@@ -30,7 +30,11 @@
     "no-bitwise": "off",
     "no-nested-ternary": "off", // I personally prefer nested ternaries
     "react/jsx-indent": "off", // conflicts with prettier
-    "import/no-extraneous-dependencies": "off" // for this project, we don't want to add dependencies where not necessary
+    "import/no-extraneous-dependencies": "off", // for this project, we don't want to add dependencies where not necessary
+    "react/sort-comp": [
+      1,
+      { "order": ["constructor", "static-methods", "lifecycle", "everything-else", "render"] }
+    ]
   },
   "plugins": ["react", "react-native"],
   "globals": {
