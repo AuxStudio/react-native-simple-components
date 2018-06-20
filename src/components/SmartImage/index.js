@@ -7,6 +7,19 @@ import styles from './styles';
 import styleConstants from '../../styleConstants';
 
 export default class SmartImage extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.setError = this.setError.bind(this);
+    this.setLoading = this.setLoading.bind(this);
+
+    this.state = {
+      isLoading: true,
+      hasError: false,
+      isOffline: false,
+    };
+  }
+
   static propTypes = {
     source: PropTypes.oneOfType([
       PropTypes.shape({
@@ -23,13 +36,7 @@ export default class SmartImage extends React.Component {
     loaderColor: styleConstants.colors.primaryText,
   };
 
-  state = {
-    isLoading: true,
-    hasError: false,
-    isOffline: false,
-  };
-
-  setError = (event) => {
+  setError(event) {
     if (event.nativeEvent.error === 'The Internet connection appears to be offline.') {
       this.setState({
         hasError: true,
@@ -41,13 +48,13 @@ export default class SmartImage extends React.Component {
       });
     }
     this.setLoading(false);
-  };
+  }
 
-  setLoading = (isLoading) => {
+  setLoading(isLoading) {
     this.setState({
       isLoading,
     });
-  };
+  }
 
   render() {
     let backgroundComponent;
