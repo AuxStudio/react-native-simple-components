@@ -8,6 +8,16 @@ import styles from './styles';
 import Touchable from '../Touchable';
 
 export default class RotatingChevron extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.toggleRotate = this.toggleRotate.bind(this);
+
+    this.state = {
+      shouldRotate: false,
+    };
+  }
+
   static get propTypes() {
     return {
       handlePress: PropTypes.func,
@@ -22,11 +32,7 @@ export default class RotatingChevron extends React.Component {
 
   static defaultProps = {};
 
-  state = {
-    shouldRotate: false,
-  };
-
-  toggleRotate = (event) => {
+  toggleRotate(event) {
     this.setState({
       shouldRotate: !this.state.shouldRotate,
     });
@@ -34,7 +40,7 @@ export default class RotatingChevron extends React.Component {
     if (this.props.handlePress) {
       this.props.handlePress(event);
     }
-  };
+  }
 
   render() {
     return (
