@@ -28,50 +28,53 @@ describe('SmartImage', () => {
     expect(renderer.create(<SmartImage source={{ uri: IMAGE_SOURCE_REMOTE }} />)).toMatchSnapshot();
   });
 
-  // it('renders and toggles loading', () => {
-  //   const component = renderer.create(<SmartImage source={IMAGE_SOURCE_LOCAL} />);
-  //   const instance = component.getInstance();
+  it('toggles loading', () => {
+    const component = renderer.create(<SmartImage source={IMAGE_SOURCE_LOCAL} />);
+    const instance = component.getInstance();
 
-  //   instance.setLoading(false);
-  //   expect(instance.state.isLoading).toBe(false);
-  // });
+    instance.setLoading(false);
 
-  // it('renders with error', () => {
-  //   const component = renderer.create(<SmartImage source={IMAGE_SOURCE_LOCAL} />);
-  //   const { root } = component;
-  //   const instance = component.getInstance();
+    expect(instance.state.isLoading).toBe(false);
+  });
 
-  //   instance.setError({
-  //     nativeEvent: {
-  //       error: 'Test',
-  //     },
-  //   });
-  //   expect(instance.state.hasError).toBe(true);
-  //   expect(instance.state.isLoading).toBe(false);
+  it('renders with error', () => {
+    const component = renderer.create(<SmartImage source={IMAGE_SOURCE_LOCAL} />);
+    const { root } = component;
+    const instance = component.getInstance();
 
-  //   // Should now see icon
-  //   const icon = root.findByProps({ testID: 'icon' });
-  //   expect(icon).toBeDefined();
-  //   expect(icon.props.name).toBe('error-outline');
-  // });
+    instance.setError({
+      nativeEvent: {
+        error: 'Test',
+      },
+    });
 
-  // it('renders with offline error', () => {
-  //   const component = renderer.create(<SmartImage source={IMAGE_SOURCE_LOCAL} />);
-  //   const { root } = component;
-  //   const instance = component.getInstance();
+    expect(instance.state.hasError).toBe(true);
+    expect(instance.state.isLoading).toBe(false);
 
-  //   instance.setError({
-  //     nativeEvent: {
-  //       error: 'The Internet connection appears to be offline.',
-  //     },
-  //   });
-  //   expect(instance.state.hasError).toBe(true);
-  //   expect(instance.state.isOffline).toBe(true);
-  //   expect(instance.state.isLoading).toBe(false);
+    // Should now see icon
+    const icon = root.findByProps({ testID: 'icon' });
+    expect(icon).toBeDefined();
+    expect(icon.props.name).toBe('error-outline');
+  });
 
-  //   // Should now see icon
-  //   const icon = root.findByProps({ testID: 'icon' });
-  //   expect(icon).toBeDefined();
-  //   expect(icon.props.name).toBe('signal-cellular-off');
-  // });
+  it('renders with offline error', () => {
+    const component = renderer.create(<SmartImage source={IMAGE_SOURCE_LOCAL} />);
+    const { root } = component;
+    const instance = component.getInstance();
+
+    instance.setError({
+      nativeEvent: {
+        error: 'The Internet connection appears to be offline.',
+      },
+    });
+
+    expect(instance.state.hasError).toBe(true);
+    expect(instance.state.isOffline).toBe(true);
+    expect(instance.state.isLoading).toBe(false);
+
+    // Should now see icon
+    const icon = root.findByProps({ testID: 'icon' });
+    expect(icon).toBeDefined();
+    expect(icon.props.name).toBe('signal-cellular-off');
+  });
 });
