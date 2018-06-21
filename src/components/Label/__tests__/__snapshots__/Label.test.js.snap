@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders a Label 1`] = `
+exports[`Label renders with all props 1`] = `
 <View
   accessible={true}
   isTVSelectable={true}
@@ -83,7 +83,7 @@ exports[`renders a Label 1`] = `
 </View>
 `;
 
-exports[`renders a Label with custom icon 1`] = `
+exports[`Label renders with custom icon 1`] = `
 <View
   accessible={true}
   isTVSelectable={true}
@@ -145,7 +145,7 @@ exports[`renders a Label with custom icon 1`] = `
 </View>
 `;
 
-exports[`renders a Label with no props 1`] = `
+exports[`Label renders with minimum required props 1`] = `
 <View
   accessible={true}
   isTVSelectable={true}
