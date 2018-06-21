@@ -1,5 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ActionSheet renders and selects a menu item 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "iconName": "check",
+        "text": "Test 1",
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": undefined,
+    },
+  ],
+}
+`;
+
 exports[`ActionSheet renders with all props 1`] = `
 <AnimateTranslateY
   finalValue={0}
