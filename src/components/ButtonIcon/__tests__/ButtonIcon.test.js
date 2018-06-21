@@ -1,35 +1,35 @@
-/* eslint-disable import/first */
 import React from 'react';
 import renderer from 'react-test-renderer';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 import ButtonIcon from '../';
 
-it('renders a ButtonIcon', () => {
-  expect(
-    renderer.create(
-      <ButtonIcon
-        iconName="check"
-        handlePress={jest.fn()}
-        androidRipple
-        androidRippleColor="red"
-        androidRippleBorderless
-        showShadow
-        iconStyle={{ color: 'red' }}
-        style={{ backgroundColor: 'blue' }}
-      />,
-    ),
-  ).toMatchSnapshot();
-});
+describe('ButtonIcon', () => {
+  it('renders with all props', () => {
+    expect(
+      renderer.create(
+        <ButtonIcon
+          iconName="check"
+          handlePress={jest.fn()}
+          androidRipple
+          androidRippleColor="red"
+          androidRippleBorderless
+          showShadow
+          disabled
+          iconStyle={{ color: 'red' }}
+          style={{ backgroundColor: 'blue' }}
+        />,
+      ),
+    ).toMatchSnapshot();
+  });
 
-it('renders a ButtonIcon with a customIcon', () => {
-  expect(
-    renderer.create(<ButtonIcon customIcon={<MaterialIcon name="check" />} />),
-  ).toMatchSnapshot();
-});
+  it('renders with minimum required props', () => {
+    expect(renderer.create(<ButtonIcon />)).toMatchSnapshot();
+  });
 
-it('renders a disabled ButtonIcon', () => {
-  expect(renderer.create(<ButtonIcon disabled />)).toMatchSnapshot();
+  it('renders with a customIcon', () => {
+    expect(
+      renderer.create(<ButtonIcon customIcon={<MaterialIcon name="check" />} />),
+    ).toMatchSnapshot();
+  });
 });
-
-/* eslint-enable */
