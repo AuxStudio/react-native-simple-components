@@ -1,6 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders a CheckBox 1`] = `
+exports[`CheckBox renders with a customIcon 1`] = `
+<View
+  accessible={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderColor": "#212121",
+        "borderWidth": 1,
+        "height": 32,
+        "justifyContent": "center",
+        "width": 32,
+      },
+      undefined,
+    ]
+  }
+/>
+`;
+
+exports[`CheckBox renders with all props 1`] = `
 <View
   accessible={true}
   onResponderGrant={[Function]}
@@ -63,32 +88,7 @@ exports[`renders a CheckBox 1`] = `
 </View>
 `;
 
-exports[`renders a CheckBox with a customIcon 1`] = `
-<View
-  accessible={true}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "borderColor": "#212121",
-        "borderWidth": 1,
-        "height": 32,
-        "justifyContent": "center",
-        "width": 32,
-      },
-      undefined,
-    ]
-  }
-/>
-`;
-
-exports[`renders a CheckBox with no props 1`] = `
+exports[`CheckBox renders with minimum required props 1`] = `
 <View
   accessible={true}
   onResponderGrant={[Function]}
