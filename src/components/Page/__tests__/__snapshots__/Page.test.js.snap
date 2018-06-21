@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders a Page 1`] = `
+exports[`Page renders with all props 1`] = `
 <View
   style={
     Array [
@@ -26,7 +26,7 @@ exports[`renders a Page 1`] = `
 </View>
 `;
 
-exports[`renders a Page with no props 1`] = `
+exports[`Page renders with minimum required props 1`] = `
 <View
   style={
     Array [
@@ -44,7 +44,7 @@ exports[`renders a Page with no props 1`] = `
 />
 `;
 
-exports[`renders a Page with testing prop 1`] = `
+exports[`Page renders with testing prop 1`] = `
 <View
   style={
     Array [

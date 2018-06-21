@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders a NotificationIcon 1`] = `
+exports[`NotificationIcon renders with all props 1`] = `
 <View
   style={
     Array [
@@ -51,7 +51,7 @@ exports[`renders a NotificationIcon 1`] = `
 </View>
 `;
 
-exports[`renders a NotificationIcon with no props 1`] = `
+exports[`NotificationIcon renders with minimum required props 1`] = `
 <View
   style={
     Array [

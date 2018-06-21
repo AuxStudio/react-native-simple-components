@@ -1,6 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders a ActionSheet 1`] = `
+exports[`ActionSheet renders and selects a menu item 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "iconName": "check",
+        "text": "Test 1",
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`ActionSheet renders with all props 1`] = `
 <AnimateTranslateY
   finalValue={0}
   initialValue={300}
@@ -338,7 +357,7 @@ exports[`renders a ActionSheet 1`] = `
 </AnimateTranslateY>
 `;
 
-exports[`renders a ActionSheet with no props 1`] = `
+exports[`ActionSheet renders with minimum required props 1`] = `
 <AnimateTranslateY
   finalValue={0}
   initialValue={112}

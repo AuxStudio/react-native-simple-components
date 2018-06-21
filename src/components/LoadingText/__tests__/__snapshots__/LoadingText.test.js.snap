@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders a LoadingText 1`] = `
+exports[`LoadingText renders with all props 1`] = `
 <AnimateOpacity
   duration={500}
   finalValue={0.5}
@@ -48,7 +48,7 @@ exports[`renders a LoadingText 1`] = `
 </AnimateOpacity>
 `;
 
-exports[`renders a LoadingText with no props 1`] = `
+exports[`LoadingText renders with minimum required props 1`] = `
 <AnimateOpacity
   duration={750}
   finalValue={1}

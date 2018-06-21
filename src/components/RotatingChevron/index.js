@@ -32,13 +32,13 @@ export default class RotatingChevron extends React.Component {
 
   static defaultProps = {};
 
-  toggleRotate(event) {
+  toggleRotate() {
     this.setState({
       shouldRotate: !this.state.shouldRotate,
     });
 
     if (this.props.handlePress) {
-      this.props.handlePress(event);
+      this.props.handlePress();
     }
   }
 

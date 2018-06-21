@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders a StatusBar 1`] = `
+exports[`StatusBar renders with all props 1`] = `
 <View
   style={
     Array [
@@ -29,7 +29,7 @@ exports[`renders a StatusBar 1`] = `
 </View>
 `;
 
-exports[`renders a StatusBar with no props 1`] = `
+exports[`StatusBar renders with minimum required props 1`] = `
 <View
   style={
     Array [

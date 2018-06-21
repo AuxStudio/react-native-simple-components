@@ -1,6 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders a ButtonIcon 1`] = `
+exports[`ButtonIcon renders with a customIcon 1`] = `
+<View
+  accessible={true}
+  isTVSelectable={true}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#E0E0E0",
+      "borderRadius": 28,
+      "height": 56,
+      "justifyContent": "center",
+      "opacity": 1,
+      "position": "relative",
+      "width": 56,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={false}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "color": undefined,
+          "fontSize": 12,
+        },
+        undefined,
+        Object {
+          "fontFamily": "Material Icons",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+</View>
+`;
+
+exports[`ButtonIcon renders with all props 1`] = `
 <View
   accessible={true}
   isTVSelectable={true}
@@ -65,54 +112,7 @@ exports[`renders a ButtonIcon 1`] = `
 </View>
 `;
 
-exports[`renders a ButtonIcon with a customIcon 1`] = `
-<View
-  accessible={true}
-  isTVSelectable={true}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#E0E0E0",
-      "borderRadius": 28,
-      "height": 56,
-      "justifyContent": "center",
-      "opacity": 1,
-      "position": "relative",
-      "width": 56,
-    }
-  }
->
-  <Text
-    accessible={true}
-    allowFontScaling={false}
-    ellipsizeMode="tail"
-    style={
-      Array [
-        Object {
-          "color": undefined,
-          "fontSize": 12,
-        },
-        undefined,
-        Object {
-          "fontFamily": "Material Icons",
-          "fontStyle": "normal",
-          "fontWeight": "normal",
-        },
-      ]
-    }
-  >
-    
-  </Text>
-</View>
-`;
-
-exports[`renders a disabled ButtonIcon 1`] = `
+exports[`ButtonIcon renders with minimum required props 1`] = `
 <View
   accessible={true}
   isTVSelectable={true}

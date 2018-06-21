@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders a RotatingChevron 1`] = `
+exports[`RotatingChevron renders with all props 1`] = `
 <AnimateRotate
   finalValue={-180}
   initialValue={0}
@@ -67,7 +67,7 @@ exports[`renders a RotatingChevron 1`] = `
 </AnimateRotate>
 `;
 
-exports[`renders a RotatingChevron with no props 1`] = `
+exports[`RotatingChevron renders with minimum required props 1`] = `
 <AnimateRotate
   finalValue={-180}
   initialValue={0}
@@ -124,4 +124,18 @@ exports[`renders a RotatingChevron with no props 1`] = `
     </Text>
   </View>
 </AnimateRotate>
+`;
+
+exports[`RotatingChevron toggles rotate 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": undefined,
+    },
+  ],
+}
 `;

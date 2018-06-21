@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders a SmartImage 1`] = `
+exports[`SmartImage renders with all props 1`] = `
 <View
   style={Object {}}
 >
@@ -39,7 +39,7 @@ exports[`renders a SmartImage 1`] = `
 </View>
 `;
 
-exports[`renders a SmartImage with no props 1`] = `
+exports[`SmartImage renders with minimum required props 1`] = `
 <View
   style={Object {}}
 >
@@ -72,7 +72,7 @@ exports[`renders a SmartImage with no props 1`] = `
 </View>
 `;
 
-exports[`renders a SmartImage with remote URI 1`] = `
+exports[`SmartImage renders with remote URI 1`] = `
 <View
   style={Object {}}
 >
