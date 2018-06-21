@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders a IconTextRow 1`] = `
+exports[`IconTextRow renders with all props 1`] = `
 <View
   accessible={true}
   isTVSelectable={true}
@@ -73,7 +73,7 @@ exports[`renders a IconTextRow 1`] = `
 </View>
 `;
 
-exports[`renders a IconTextRow with custom icon 1`] = `
+exports[`IconTextRow renders with custom icon 1`] = `
 <View
   accessible={true}
   isTVSelectable={true}
@@ -135,7 +135,7 @@ exports[`renders a IconTextRow with custom icon 1`] = `
 </View>
 `;
 
-exports[`renders a IconTextRow with no props 1`] = `
+exports[`IconTextRow renders with minimum required props 1`] = `
 <View
   accessible={true}
   isTVSelectable={true}
