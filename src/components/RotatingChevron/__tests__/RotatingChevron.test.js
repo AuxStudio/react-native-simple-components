@@ -28,21 +28,14 @@ describe('RotatingChevron', () => {
     expect(renderer.create(<RotatingChevron />)).toMatchSnapshot();
   });
 
-  // it('renders and toggles rotate', () => {
-  //   const component = renderer.create(
-  //     <RotatingChevron
-  //       handlePress={jest.fn()}
-  //       androidRipple
-  //       androidRippleColor="red"
-  //       androidRippleBorderless
-  //       showShadow
-  //       iconStyle={{ color: 'red' }}
-  //       style={{ backgroundColor: 'blue' }}
-  //       wrapperStyle={{ backgroundColor: 'green' }}
-  //     />,
-  //   );
-  //   const instance = component.getInstance();
-  //   instance.toggleRotate();
-  //   expect(instance.state.shouldRotate).toBe(true);
-  // });
+  it('toggles rotate', () => {
+    const handlePress = jest.fn();
+    const component = renderer.create(<RotatingChevron handlePress={handlePress} />);
+    const instance = component.getInstance();
+
+    instance.toggleRotate();
+
+    expect(instance.state.shouldRotate).toBe(true);
+    expect(handlePress).toMatchSnapshot();
+  });
 });
