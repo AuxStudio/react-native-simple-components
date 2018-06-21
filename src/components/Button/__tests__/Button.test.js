@@ -26,6 +26,10 @@ describe('Button', () => {
     ).toMatchSnapshot();
   });
 
+  it('renders with minimum required props', () => {
+    expect(renderer.create(<Button />)).toMatchSnapshot();
+  });
+
   it('renders with text left and icon right', () => {
     expect(
       renderer.create(<Button iconName="check" iconRight text="Test" textLeft />),
@@ -40,9 +44,5 @@ describe('Button', () => {
 
   it('renders with a loader', () => {
     expect(renderer.create(<Button showLoader loaderColor="red" />)).toMatchSnapshot();
-  });
-
-  it('renders with minimum required props', () => {
-    expect(renderer.create(<Button />)).toMatchSnapshot();
   });
 });
