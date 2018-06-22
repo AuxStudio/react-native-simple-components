@@ -1,3 +1,10 @@
 language: node_js
 node_js:
-  - "stable"
+- stable
+deploy:
+  provider: npm
+  email: info@shaunsaker.com
+  on:
+    branch: master
+  api_key:
+    secure: SiOYawrMY0CXA36m0XaOqXL5ESfGm8p2SktzcCtiFNeXVMisX1AZueY7duBgLjLJMnCjTbweMN9ei4auoli8fxaPPxiWzY9jbWCdTUW3PHW6yIxDQ4GWMUBJwtbQBvZ19mp7Ap/e+Tl5SL4stI1kf1LIWVdA4PNM1ObCNP0whXCkBGgZi0JHq3GDEmTJYt3bjsErAWgHzlBkU1wHsogpJWP/u1IOIVW6EbeB4roJMD+rgAfaKo2ISr3JETK+idMVDhCQW97l95CT3gXouySRNfefqiRER1msIgloM4p/HRAaS6b/40iCCl9/FX/Urr6pYaVo1nPTQL1s7gfXgf58p9/8NY4VaF8kg/BXstKmpuXbQgCC26Blt5UCbwg+GK/mhnwbFlUQHmPjMNWkGz0/YoeuMi7lUTnmHmqVpohXUV9za1VJ3OczYvRcgdb9WBLOH9diL4vl0NiYtUr0nflSKBIgEpl2Vfpj4jVvDMu3FZuA5kz85+5/JNSv+ysOIepv9wT9a4RGJIwnX3k4NRXkVL4cJkusw1/cAEcqoO4oxECJJlz0Ph7I5wqqcC4aDV+Q3vddE9nqUCt2ILL+si7xsT4kCcqbf2RENJWRsN5bBIb2FfERyCcD1ujlIEpXvO/Ryo/+Vtv8ZEE5sBUaPfiOjxu+MnYAGw6gGMxNMcFzCic=
