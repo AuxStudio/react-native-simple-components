@@ -28,7 +28,7 @@
   "homepage": "https://github.com/AuxStudio/react-native-simple-components/README.md",
   "dependencies": {
     "prop-types": "^15.6.0",
-    "react-native-simple-animators": "^1.0.4",
+    "react-native-simple-animators": "^2.1.0",
     "react-native-vector-icons": "^4.5.0"
   },
   "devDependencies": {

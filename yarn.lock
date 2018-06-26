@@ -4619,9 +4619,9 @@ react-is@^16.4.0:
   version "16.4.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.4.0.tgz#cc9fdc855ac34d2e7d9d2eb7059bbc240d35ffcf"
 
-react-native-simple-animators@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/react-native-simple-animators/-/react-native-simple-animators-1.0.4.tgz#0760d96d765208f52e4622c4f545f94d410c6f22"
+react-native-simple-animators@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-simple-animators/-/react-native-simple-animators-2.1.0.tgz#bd7df337ed73862379194001f3cd799ff88efda0"
   dependencies:
     prop-types "^15.6.0"
 
