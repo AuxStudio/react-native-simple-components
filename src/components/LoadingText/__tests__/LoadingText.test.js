@@ -1,10 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-jest.mock('react-native-simple-animators', () => ({
-  AnimateOpacity: 'AnimateOpacity',
-  AnimateTranslateX: 'AnimateTranslateX',
-}));
+jest.mock('react-native-simple-animators', () => 'Animator');
 
 import LoadingText from '../'; // eslint-disable-line
 

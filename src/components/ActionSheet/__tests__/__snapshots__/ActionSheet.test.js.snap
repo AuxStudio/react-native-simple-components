@@ -20,7 +20,7 @@ exports[`ActionSheet renders and selects a menu item 1`] = `
 `;
 
 exports[`ActionSheet renders with all props 1`] = `
-<AnimateTranslateY
+<Animator
   finalValue={0}
   initialValue={300}
   shouldAnimateIn={true}
@@ -41,6 +41,7 @@ exports[`ActionSheet renders with all props 1`] = `
       },
     ]
   }
+  type="translateY"
 >
   <View
     accessible={true}
@@ -354,11 +355,11 @@ exports[`ActionSheet renders with all props 1`] = `
       </Text>
     </View>
   </View>
-</AnimateTranslateY>
+</Animator>
 `;
 
 exports[`ActionSheet renders with minimum required props 1`] = `
-<AnimateTranslateY
+<Animator
   finalValue={0}
   initialValue={112}
   shouldAnimateIn={true}
@@ -377,6 +378,7 @@ exports[`ActionSheet renders with minimum required props 1`] = `
       undefined,
     ]
   }
+  type="translateY"
 >
   <View
     accessible={true}
@@ -578,5 +580,5 @@ exports[`ActionSheet renders with minimum required props 1`] = `
       </Text>
     </View>
   </View>
-</AnimateTranslateY>
+</Animator>
 `;

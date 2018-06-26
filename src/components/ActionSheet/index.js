@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ViewPropTypes, Text } from 'react-native';
-import { AnimateTranslateY } from 'react-native-simple-animators';
+import Animator from 'react-native-simple-animators';
 
 import styles from './styles';
 import Touchable from '../Touchable';
@@ -51,7 +51,8 @@ export default class ActionSheet extends React.Component {
     const initialValue = (this.props.options.length + 1) * this.props.rowHeight;
 
     return (
-      <AnimateTranslateY
+      <Animator
+        type="translateY"
         initialValue={initialValue}
         finalValue={0}
         shouldAnimateIn={!this.state.shouldAnimateOut}
@@ -84,7 +85,7 @@ export default class ActionSheet extends React.Component {
             style={[styles.itemContainer, { height: this.props.rowHeight }]}
           />
         </Touchable>
-      </AnimateTranslateY>
+      </Animator>
     );
   }
 }

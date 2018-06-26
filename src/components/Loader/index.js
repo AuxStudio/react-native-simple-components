@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, ViewPropTypes } from 'react-native';
-import { AnimateOpacity, AnimateTranslateX } from 'react-native-simple-animators';
+import Animator from 'react-native-simple-animators';
 
 import styleConstants from '../../styleConstants';
 
@@ -24,8 +24,9 @@ const defaultProps = {
 
 const Loader = ({ width, height, color, duration, style, containerStyle, wrapperStyle }) => {
   return (
-    <AnimateOpacity initialValue={0} finalValue={1} shouldAnimateIn style={wrapperStyle}>
-      <AnimateTranslateX
+    <Animator type="opacity" initialValue={0} finalValue={1} shouldAnimateIn style={wrapperStyle}>
+      <Animator
+        type="translateX"
         initialValue={width * -1}
         finalValue={styleConstants.dimensions.window.width}
         shouldAnimateIn
@@ -44,8 +45,8 @@ const Loader = ({ width, height, color, duration, style, containerStyle, wrapper
             style,
           ]}
         />
-      </AnimateTranslateX>
-    </AnimateOpacity>
+      </Animator>
+    </Animator>
   );
 };
 

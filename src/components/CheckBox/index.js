@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ViewPropTypes, Text, Platform } from 'react-native';
-import { AnimateScale } from 'react-native-simple-animators';
+import Animator from 'react-native-simple-animators';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import styles from './styles';
@@ -35,9 +35,9 @@ const CheckBox = ({
   const iconComponent = customIcon || <Icon name="check" style={[styles.icon, iconStyle]} />;
 
   const checkBoxComponent = isChecked && (
-    <AnimateScale initialValue={0} finalValue={1} shouldAnimateIn>
+    <Animator type="scale" initialValue={0} finalValue={1} shouldAnimateIn>
       {iconComponent}
-    </AnimateScale>
+    </Animator>
   );
 
   return (

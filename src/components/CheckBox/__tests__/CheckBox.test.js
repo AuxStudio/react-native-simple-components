@@ -2,9 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
-jest.mock('react-native-simple-animators', () => ({
-  AnimateScale: 'AnimateScale',
-}));
+jest.mock('react-native-simple-animators', () => 'Animator');
 
 import CheckBox from '../'; // eslint-disable-line
 

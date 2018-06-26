@@ -1,9 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-jest.mock('react-native-simple-animators', () => ({
-  AnimateTranslateY: 'AnimateTranslateY',
-}));
+jest.mock('react-native-simple-animators', () => 'Animator');
 
 import ActionSheet from '../'; // eslint-disable-line
 

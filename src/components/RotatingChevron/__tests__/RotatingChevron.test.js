@@ -1,9 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-jest.mock('react-native-simple-animators', () => ({
-  AnimateRotate: 'AnimateRotate',
-}));
+jest.mock('react-native-simple-animators', () => 'Animator');
 
 import RotatingChevron from '../'; // eslint-disable-line
 

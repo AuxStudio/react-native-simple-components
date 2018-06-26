@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Text, ViewPropTypes } from 'react-native';
-import { AnimateOpacity, AnimateTranslateX } from 'react-native-simple-animators';
+import Animator from 'react-native-simple-animators';
 
 import styles from './styles';
 import styleConstants from '../../styleConstants';
@@ -37,14 +37,16 @@ const LoadingText = ({
   style,
 }) => {
   return (
-    <AnimateOpacity
+    <Animator
+      type="opacity"
       initialValue={initialOpacityValue}
       finalValue={finalOpacityValue}
       shouldAnimateIn
       shouldRepeat
       duration={duration}
     >
-      <AnimateTranslateX
+      <Animator
+        type="translateX"
         initialValue={initialTranslateXValue}
         finalValue={finalTranslateXValue}
         shouldAnimateIn
@@ -52,8 +54,8 @@ const LoadingText = ({
         style={[styles.container, style]}
       >
         <Text style={[styles.text, textStyle]}>{text}</Text>
-      </AnimateTranslateX>
-    </AnimateOpacity>
+      </Animator>
+    </Animator>
   );
 };
 

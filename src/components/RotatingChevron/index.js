@@ -1,7 +1,7 @@
 import React from 'react';
 import { ViewPropTypes, Text } from 'react-native';
 import PropTypes from 'prop-types';
-import { AnimateRotate } from 'react-native-simple-animators';
+import Animator from 'react-native-simple-animators';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import styles from './styles';
@@ -44,7 +44,8 @@ export default class RotatingChevron extends React.Component {
 
   render() {
     return (
-      <AnimateRotate
+      <Animator
+        type="rotate"
         initialValue={0}
         finalValue={-180}
         shouldAnimateIn={this.state.shouldRotate}
@@ -60,7 +61,7 @@ export default class RotatingChevron extends React.Component {
         >
           <Icon name="chevron-left" style={[styles.icon, this.props.iconStyle]} />
         </Touchable>
-      </AnimateRotate>
+      </Animator>
     );
   }
 }
