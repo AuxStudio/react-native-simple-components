@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Loader renders with all props 1`] = `
-<AnimateOpacity
+<Animator
   finalValue={1}
   initialValue={0}
   shouldAnimateIn={true}
@@ -10,8 +10,9 @@ exports[`Loader renders with all props 1`] = `
       "backgroundColor": "purple",
     }
   }
+  type="opacity"
 >
-  <AnimateTranslateX
+  <Animator
     duration={500}
     finalValue={750}
     initialValue={-200}
@@ -23,6 +24,7 @@ exports[`Loader renders with all props 1`] = `
         "backgroundColor": "green",
       }
     }
+    type="translateX"
   >
     <View
       style={
@@ -38,23 +40,25 @@ exports[`Loader renders with all props 1`] = `
         ]
       }
     />
-  </AnimateTranslateX>
-</AnimateOpacity>
+  </Animator>
+</Animator>
 `;
 
 exports[`Loader renders with minimum required props 1`] = `
-<AnimateOpacity
+<Animator
   finalValue={1}
   initialValue={0}
   shouldAnimateIn={true}
+  type="opacity"
 >
-  <AnimateTranslateX
+  <Animator
     duration={2000}
     finalValue={750}
     initialValue={-100}
     shouldAnimateIn={true}
     shouldLoop={true}
     shouldRepeat={true}
+    type="translateX"
   >
     <View
       style={
@@ -68,6 +72,6 @@ exports[`Loader renders with minimum required props 1`] = `
         ]
       }
     />
-  </AnimateTranslateX>
-</AnimateOpacity>
+  </Animator>
+</Animator>
 `;

@@ -1,14 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LoadingText renders with all props 1`] = `
-<AnimateOpacity
+<Animator
   duration={500}
   finalValue={0.5}
   initialValue={0}
   shouldAnimateIn={true}
   shouldRepeat={true}
+  type="opacity"
 >
-  <AnimateTranslateX
+  <Animator
     duration={500}
     finalValue={200}
     initialValue={100}
@@ -25,6 +26,7 @@ exports[`LoadingText renders with all props 1`] = `
         },
       ]
     }
+    type="translateX"
   >
     <Text
       accessible={true}
@@ -44,19 +46,20 @@ exports[`LoadingText renders with all props 1`] = `
     >
       Test
     </Text>
-  </AnimateTranslateX>
-</AnimateOpacity>
+  </Animator>
+</Animator>
 `;
 
 exports[`LoadingText renders with minimum required props 1`] = `
-<AnimateOpacity
+<Animator
   duration={750}
   finalValue={1}
   initialValue={0.33}
   shouldAnimateIn={true}
   shouldRepeat={true}
+  type="opacity"
 >
-  <AnimateTranslateX
+  <Animator
     duration={750}
     finalValue={0}
     initialValue={-750}
@@ -71,6 +74,7 @@ exports[`LoadingText renders with minimum required props 1`] = `
         undefined,
       ]
     }
+    type="translateX"
   >
     <Text
       accessible={true}
@@ -88,6 +92,6 @@ exports[`LoadingText renders with minimum required props 1`] = `
     >
       You can't see me
     </Text>
-  </AnimateTranslateX>
-</AnimateOpacity>
+  </Animator>
+</Animator>
 `;

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RotatingChevron renders with all props 1`] = `
-<AnimateRotate
+<Animator
   finalValue={-180}
   initialValue={0}
   shouldAnimateIn={false}
@@ -11,6 +11,7 @@ exports[`RotatingChevron renders with all props 1`] = `
       "backgroundColor": "green",
     }
   }
+  type="rotate"
 >
   <View
     accessible={true}
@@ -64,15 +65,16 @@ exports[`RotatingChevron renders with all props 1`] = `
       
     </Text>
   </View>
-</AnimateRotate>
+</Animator>
 `;
 
 exports[`RotatingChevron renders with minimum required props 1`] = `
-<AnimateRotate
+<Animator
   finalValue={-180}
   initialValue={0}
   shouldAnimateIn={false}
   shouldAnimateOut={true}
+  type="rotate"
 >
   <View
     accessible={true}
@@ -123,7 +125,7 @@ exports[`RotatingChevron renders with minimum required props 1`] = `
       
     </Text>
   </View>
-</AnimateRotate>
+</Animator>
 `;
 
 exports[`RotatingChevron toggles rotate 1`] = `

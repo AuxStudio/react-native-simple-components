@@ -50,10 +50,11 @@ exports[`CheckBox renders with all props 1`] = `
     ]
   }
 >
-  <AnimateScale
+  <Animator
     finalValue={1}
     initialValue={0}
     shouldAnimateIn={true}
+    type="scale"
   >
     <Text
       accessible={true}
@@ -84,7 +85,7 @@ exports[`CheckBox renders with all props 1`] = `
     >
       
     </Text>
-  </AnimateScale>
+  </Animator>
 </View>
 `;
 
