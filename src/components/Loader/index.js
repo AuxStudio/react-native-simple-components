@@ -8,6 +8,7 @@ import styleConstants from '../../styleConstants';
 const propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
+  containerWidth: PropTypes.number,
   color: PropTypes.string, // color of the loader
   duration: PropTypes.number, // duration of animation in ms
   style: ViewPropTypes.style,
@@ -18,17 +19,27 @@ const propTypes = {
 const defaultProps = {
   width: 100,
   height: 5,
+  containerWidth: styleConstants.dimensions.window.width,
   color: styleConstants.colors.primary,
   duration: 2000,
 };
 
-const Loader = ({ width, height, color, duration, style, containerStyle, wrapperStyle }) => {
+const Loader = ({
+  width,
+  height,
+  containerWidth,
+  color,
+  duration,
+  style,
+  containerStyle,
+  wrapperStyle,
+}) => {
   return (
     <Animator type="opacity" initialValue={0} finalValue={1} shouldAnimateIn style={wrapperStyle}>
       <Animator
         type="translateX"
         initialValue={width * -1}
-        finalValue={styleConstants.dimensions.window.width}
+        finalValue={containerWidth}
         shouldAnimateIn
         shouldRepeat
         shouldLoop
