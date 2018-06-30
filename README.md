@@ -87,6 +87,26 @@ class Home extends React.Component {
 - [x] TabBar - A tab bar that accepts icons and label text.
 - [x] Touchable - A touchable component that renders the android ripple effect if specified and if on an Android device (used internally).
 
+## Demo
+
+1.  Clone the repo.
+
+```shell
+git clone https://github.com/AuxStudio/react-native-simple-animators
+```
+
+2.  Install dependencies:
+
+```shell
+cd demo && yarn
+```
+
+3.  Run the demo
+
+```shell
+react-native run-ios
+```
+
 ## Development
 
 1.  Clone the repo.
@@ -95,7 +115,13 @@ class Home extends React.Component {
 git clone https://github.com/AuxStudio/react-native-simple-animators
 ```
 
-2.  Follow our [process](./docs/PROCESS.md).
+2.  Install dependencies:
+
+```shell
+yarn
+```
+
+3.  Follow our [process](./docs/PROCESS.md).
 
 NOTE: Make sure that your tests are passing before submitting your PR:
 
