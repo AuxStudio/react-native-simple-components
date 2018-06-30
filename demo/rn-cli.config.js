@@ -7,7 +7,13 @@ module.exports = {
     return [__dirname, path.resolve(__dirname, '..')];
   },
   getProvidesModuleNodeModules() {
-    return ['react-native', 'react', 'prop-types'];
+    return [
+      'react-native',
+      'react',
+      'prop-types',
+      'react-native-vector-icons',
+      'react-native-simple-animators',
+    ];
   },
   getBlacklistRE() {
     return blacklist([
