@@ -148,3 +148,9 @@ task copyDownloadableDepsToLibs(type: Copy) {
     from configurations.compile
     into 'libs'
 }
+
+// react-native-vector-icons
+project.ext.vectoricons = [
+    iconFontNames: [ 'MaterialIcons.ttf' ] // add whatever other icons you want
+]
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
