@@ -7,7 +7,13 @@
     "test": "jest"
   },
   "jest": {
-    "preset": "jest-react-native"
+    "preset": "jest-react-native",
+    "testPathIgnorePatterns": [
+      "demo/node_modules"
+    ],
+    "modulePathIgnorePatterns": [
+      "demo/node_modules"
+    ]
   },
   "repository": {
     "type": "git",
