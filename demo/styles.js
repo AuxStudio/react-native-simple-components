@@ -17,6 +17,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: BORDER_RADIUS,
     marginBottom: PADDING,
+    padding: PADDING,
+    overflow: 'hidden',
   },
 
   scrollContainer: {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ScrollView, Text } from 'react-native';
+import { View, ScrollView, Text, Dimensions } from 'react-native';
 import {
   Button,
   ButtonIcon,
@@ -20,6 +20,8 @@ import {
 
 import styles from './styles';
 
+const WINDOW = Dimensions.get('window');
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -30,6 +32,10 @@ export default class App extends React.Component {
       {
         name: 'Button',
         component: Button,
+        props: {
+          iconName: 'search',
+          text: 'Search',
+        },
       },
       {
         name: 'ButtonIcon',
@@ -38,6 +44,9 @@ export default class App extends React.Component {
       {
         name: 'CheckBox',
         component: CheckBox,
+        props: {
+          isChecked: true,
+        },
       },
       {
         name: 'DeleteButton',
@@ -46,6 +55,11 @@ export default class App extends React.Component {
       {
         name: 'HeaderBar',
         component: HeaderBar,
+        props: {
+          leftIconName: 'chevron-left',
+          text: 'Home',
+          rightIconName: 'search',
+        },
       },
       {
         name: 'IconTextRow',
@@ -58,10 +72,16 @@ export default class App extends React.Component {
       {
         name: 'Label',
         component: Label,
+        props: {
+          iconName: 'add',
+        },
       },
       {
         name: 'Loader',
         component: Loader,
+        props: {
+          containerWidth: WINDOW.width - 20 - 20 - 20 - 20,
+        },
       },
       {
         name: 'LoadingText',
@@ -70,6 +90,9 @@ export default class App extends React.Component {
       {
         name: 'NotificationIcon',
         component: NotificationIcon,
+        props: {
+          count: 4,
+        },
       },
       {
         name: 'RotatingChevron',
@@ -78,14 +101,39 @@ export default class App extends React.Component {
       {
         name: 'SmartImage',
         component: SmartImage,
+        props: {
+          source: { uri: 'https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg' },
+          style: {
+            width: 100,
+            height: 100,
+            borderRadius: 50,
+          },
+        },
       },
       {
         name: 'StarRating',
         component: StarRating,
+        props: {
+          rating: 4,
+        },
       },
       {
         name: 'TabBar',
         component: TabBar,
+        props: {
+          tabs: [
+            {
+              title: 'Home',
+              iconName: 'home',
+            },
+            {
+              title: 'Profile',
+              iconName: 'person',
+            },
+          ],
+          activeTab: 'Home',
+          showShadow: true,
+        },
       },
     ];
 
@@ -103,17 +151,19 @@ export default class App extends React.Component {
   render() {
     const { selected } = this.state;
     let SelectedComponent;
+    let selectedComponentProps;
 
     this.components.forEach((component) => {
       if (component.name === selected) {
         SelectedComponent = component.component;
+        selectedComponentProps = component.props;
       }
     });
 
     return (
       <View style={styles.container}>
         <View style={styles.demoContainer}>
-          <SelectedComponent />
+          <SelectedComponent {...selectedComponentProps} />
         </View>
         <Text style={styles.titleText}>Select a component</Text>
         <ScrollView
