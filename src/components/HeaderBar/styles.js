@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'stretch',
     paddingHorizontal: styleConstants.dimensions.padding.large,
-    backgroundColor: styleConstants.colors.primary,
+    backgroundColor: styleConstants.colors.dividerColor,
   },
   leftIconContainer: {
     flex: 1,

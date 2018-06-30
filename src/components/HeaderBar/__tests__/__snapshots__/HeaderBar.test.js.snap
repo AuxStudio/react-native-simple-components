@@ -42,7 +42,7 @@ exports[`HeaderBar renders with a custom left component 1`] = `
       Array [
         Object {
           "alignItems": "stretch",
-          "backgroundColor": "#3D84A8",
+          "backgroundColor": "#E0E0E0",
           "flexDirection": "row",
           "height": 56,
           "justifyContent": "space-between",
@@ -132,7 +132,7 @@ exports[`HeaderBar renders with a custom right component 1`] = `
       Array [
         Object {
           "alignItems": "stretch",
-          "backgroundColor": "#3D84A8",
+          "backgroundColor": "#E0E0E0",
           "flexDirection": "row",
           "height": 56,
           "justifyContent": "space-between",
@@ -222,7 +222,7 @@ exports[`HeaderBar renders with a custom text component 1`] = `
       Array [
         Object {
           "alignItems": "stretch",
-          "backgroundColor": "#3D84A8",
+          "backgroundColor": "#E0E0E0",
           "flexDirection": "row",
           "height": 56,
           "justifyContent": "space-between",
@@ -321,7 +321,7 @@ exports[`HeaderBar renders with a text left 1`] = `
       Array [
         Object {
           "alignItems": "stretch",
-          "backgroundColor": "#3D84A8",
+          "backgroundColor": "#E0E0E0",
           "flexDirection": "row",
           "height": 56,
           "justifyContent": "space-between",
@@ -428,7 +428,7 @@ exports[`HeaderBar renders with a text left 2`] = `
       Array [
         Object {
           "alignItems": "stretch",
-          "backgroundColor": "#3D84A8",
+          "backgroundColor": "#E0E0E0",
           "flexDirection": "row",
           "height": 56,
           "justifyContent": "space-between",
@@ -536,7 +536,7 @@ exports[`HeaderBar renders with all props 1`] = `
       Array [
         Object {
           "alignItems": "stretch",
-          "backgroundColor": "#3D84A8",
+          "backgroundColor": "#E0E0E0",
           "flexDirection": "row",
           "height": 56,
           "justifyContent": "space-between",
@@ -744,7 +744,7 @@ exports[`HeaderBar renders with minimum required props 1`] = `
       Array [
         Object {
           "alignItems": "stretch",
-          "backgroundColor": "#3D84A8",
+          "backgroundColor": "#E0E0E0",
           "flexDirection": "row",
           "height": 56,
           "justifyContent": "space-between",
