@@ -10,11 +10,12 @@ const propTypes = {
   testing: PropTypes.bool, // stress test at 320 x 480 (our most common style bugs)
   children: PropTypes.node,
   style: ViewPropTypes.style,
+  testID: PropTypes.string,
 };
 
 const defaultProps = {};
 
-const Page = ({ verticalCenter, horizontalCenter, testing, children, style }) => {
+const Page = ({ verticalCenter, horizontalCenter, testing, children, style, testID }) => {
   const verticalCenterStyles = verticalCenter && {
     justifyContent: 'center',
   };
@@ -26,6 +27,7 @@ const Page = ({ verticalCenter, horizontalCenter, testing, children, style }) =>
   return (
     <View
       style={[styles.container, verticalCenterStyles, horizontalCenterStyles, testingStyles, style]}
+      testID={testID}
     >
       {children}
     </View>

@@ -25,6 +25,7 @@ const propTypes = {
   iconContainerStyle: ViewPropTypes.style,
   iconStyle: Text.propTypes.style,
   textStyle: Text.propTypes.style,
+  testID: PropTypes.string,
 };
 
 const defaultProps = {
@@ -49,6 +50,7 @@ const Button = ({
   iconContainerStyle,
   iconStyle,
   textStyle,
+  testID,
 }) => {
   const textLeftContainerStyles = textLeft && styles.textLeftContainer;
   const textLeftIconStyles = textLeft && !iconRight && styles.textLeftIcon;
@@ -83,6 +85,7 @@ const Button = ({
       androidRippleColor={androidRippleColor}
       androidRippleBorderless={androidRippleBorderless}
       disabled={disabled}
+      testID={testID}
     >
       {iconComponent}
       {textComponent}
