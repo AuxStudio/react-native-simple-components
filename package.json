@@ -1,10 +1,10 @@
 {
   "name": "react-native-simple-components",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "A collection of simple, reusable react-native components",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --maxWorkers=4"
   },
   "jest": {
     "preset": "jest-react-native",
