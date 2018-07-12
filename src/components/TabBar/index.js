@@ -16,7 +16,8 @@ const propTypes = {
       disabled: PropTypes.bool,
     }),
   ).isRequired,
-  activeTab: PropTypes.string.isRequired,
+  activeTab: PropTypes.string, // active tab title
+  activeTabIndex: PropTypes.number, // or if you'd prefer to use tab index
   handlePress: PropTypes.func,
   androidRipple: PropTypes.bool,
   androidRippleColor: PropTypes.string,
@@ -43,6 +44,7 @@ const defaultProps = {
 const TabBar = ({
   tabs,
   activeTab,
+  activeTabIndex,
   handlePress,
   androidRipple,
   androidRippleColor,
@@ -64,12 +66,14 @@ const TabBar = ({
 
   const tabBarComponent =
     tabs &&
-    tabs.map((tab) => {
-      const color = activeTab === tab.title ? activeTextColor : textColor;
+    tabs.map((tab, index) => {
+      const isActive = activeTab === tab.title || activeTabIndex === index;
+
+      const color = isActive ? activeTextColor : textColor;
       const colorStyles = {
         color,
       };
-      const activeTabStyles = activeTab === tab.title && activeTabStyle;
+      const activeTabStyles = isActive && activeTabStyle;
       const disabledStyles = [];
 
       if (tab.disabled) {
@@ -93,7 +97,7 @@ const TabBar = ({
       return (
         <Touchable
           key={tab.title}
-          onPress={() => handlePress && handlePress(tab.title)}
+          onPress={() => handlePress && handlePress(tab)}
           androidRipple={androidRipple}
           androidRippleColor={androidRippleColor}
           androidRippleBorderless={androidRippleBorderless}
