@@ -42,6 +42,7 @@ const propTypes = {
 const defaultProps = {
   textColor: styleConstants.colors.primaryText,
   activeTextColor: styleConstants.colors.primary,
+  testIDPrefix: 'tabBar.tab',
 };
 
 const TabBar = ({

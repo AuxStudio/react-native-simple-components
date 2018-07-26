@@ -42,6 +42,7 @@ exports[`TabBar renders horizontally 1`] = `
           "width": 200,
         }
       }
+      testID="tabBar.tab.Home"
     >
       <Text
         accessible={true}
@@ -113,6 +114,7 @@ exports[`TabBar renders horizontally 1`] = `
           "width": 200,
         }
       }
+      testID="tabBar.tab.Profile"
     >
       <Text
         accessible={true}
@@ -218,6 +220,7 @@ exports[`TabBar renders with all props 1`] = `
         "width": undefined,
       }
     }
+    testID="tabBar.tab.Home"
   >
     <Text
       accessible={true}
@@ -294,6 +297,7 @@ exports[`TabBar renders with all props 1`] = `
         "width": undefined,
       }
     }
+    testID="tabBar.tab.Profile"
   >
     <Text
       accessible={true}
@@ -388,6 +392,7 @@ exports[`TabBar renders with customIcon 1`] = `
         "width": undefined,
       }
     }
+    testID="tabBar.tab.Home"
   >
     <Text
       accessible={true}
@@ -469,6 +474,7 @@ exports[`TabBar renders with minimum required props 1`] = `
         "width": undefined,
       }
     }
+    testID="tabBar.tab.Home"
   >
     <Text
       accessible={true}
@@ -540,6 +546,7 @@ exports[`TabBar renders with minimum required props 1`] = `
         "width": undefined,
       }
     }
+    testID="tabBar.tab.Profile"
   >
     <Text
       accessible={true}
