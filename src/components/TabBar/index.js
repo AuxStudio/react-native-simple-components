@@ -34,6 +34,7 @@ const propTypes = {
   disabledTabStyle: ViewPropTypes.style,
   style: ViewPropTypes.style,
   wrapperStyle: ViewPropTypes.style, // works with shouldScrollHorizonally
+  testID: PropTypes.string,
 
   // used to create the individual tab testIDs, useful if more than one TabBar is present
   tabTestIDPredix: PropTypes.string,
@@ -65,6 +66,7 @@ const TabBar = ({
   disabledTabStyle,
   style,
   wrapperStyle,
+  testID,
   tabTestIDPredix,
 }) => {
   const shadowStyles = showShadow && styleConstants.shadows.regular;
@@ -130,6 +132,7 @@ const TabBar = ({
       showsHorizontalScrollIndicator={false}
       style={[styles.scrollWrapper, shadowStyles, wrapperStyle]}
       contentContainerStyle={[styles.scrollContainer, style]}
+      testID={testID}
     >
       {tabBarComponent}
     </ScrollView>
