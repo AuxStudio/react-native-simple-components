@@ -34,6 +34,9 @@ const propTypes = {
   disabledTabStyle: ViewPropTypes.style,
   style: ViewPropTypes.style,
   wrapperStyle: ViewPropTypes.style, // works with shouldScrollHorizonally
+
+  // used to create the individual tab testIDs, useful if more than one TabBar is present
+  testIDPrefix: PropTypes.string,
 };
 
 const defaultProps = {
@@ -61,6 +64,7 @@ const TabBar = ({
   disabledTabStyle,
   style,
   wrapperStyle,
+  testIDPrefix,
 }) => {
   const shadowStyles = showShadow && styleConstants.shadows.regular;
 
@@ -111,6 +115,7 @@ const TabBar = ({
             disabledStyles,
             tabStyle,
           ]}
+          testID={`${testIDPrefix}.${tab.title}`}
         >
           {iconComponent}
           {titleTextComponent}
